@@ -1,0 +1,41 @@
+#            __   __        __         
+#      _____/ /__/ /_  ____/ /_________
+#     / ___/ //_/ __ \/ __  / ___/ ___/
+#  _ (__  ) ,< / / / / /_/ / /  / /__  
+# (_)____/_/|_/_/ /_/\__,_/_/   \___/  
+#
+#  File:        .skhdrc
+#  Maintainer:  Alex Sun (ranmaru22)
+#  GitHub:      https://github.com/ranmaru22/dotfiles
+#
+#
+# Basic commands {{{
+cmd + shift - return : /Applications/iTerm.app/Contents/MacOS/iTerm2 ~
+ctrl + cmd - r : skhd --reload 
+# }}}
+
+# yabai commands {{{
+#  Quick reload
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+# Movement
+cmd + shift - h : yabai -m window --focus west
+cmd + shift - j : yabai -m window --focus south
+cmd + shift - k : yabai -m window --focus north
+cmd + shift - l : yabai -m window --focus east
+cmd + shift - 6 : yabai -m window --focus recent
+# Swapping
+cmd + ctrl - h : yabai -m window --swap west
+cmd + ctrl - j : yabai -m window --swap south
+cmd + ctrl - k : yabai -m window --swap north
+cmd + ctrl - l : yabai -m window --swap east
+cmd + ctrl - 6 : yabai -m window --swap recent
+# Warping
+cmd + alt - h : yabai -m window --warp west
+cmd + alt - j : yabai -m window --warp south
+cmd + alt - k : yabai -m window --warp north
+cmd + alt - l : yabai -m window --warp east
+# Switch to floating
+cmd + ctrl - t : yabai -m window --toggle float
+# }}}
+
+# vim:foldmethod=marker:foldlevel=0
