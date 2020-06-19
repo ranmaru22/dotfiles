@@ -34,8 +34,9 @@ yabai -m config mouse_action2 resize
 
 # Window settings {{{
 yabai -m config window_topmost on
+yabai -m config window_opacity on
 yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 1.0
+yabai -m config normal_window_opacity 0.9
 # }}}
 
 # Status bar {{{
