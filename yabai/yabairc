@@ -1,0 +1,45 @@
+#                  __          _          
+#     __  ______ _/ /_  ____ _(_)_________
+#    / / / / __ `/ __ \/ __ `/ / ___/ ___/
+#  _/ /_/ / /_/ / /_/ / /_/ / / /  / /__  
+# (_)__, /\__,_/_.___/\__,_/_/_/   \___/  
+#  /____/
+#
+#  File:        .yabairc
+#  Maintainer:  Alex Sun (ranmaru22)
+#  GitHub:      https://github.com/ranmaru22/dotfiles
+#
+# Tiling options {{{
+yabai -m config layout bsp
+yabai -m config_window_placement second_child
+# }}}
+
+# Padding {{{
+yabai -m config top_padding 20
+yabai -m config bottom_padding 20
+yabai -m config left_padding 20
+yabai -m config right_padding 20
+yabai -m config window_gap 20
+# }}}
+
+# Split ratios {{{
+yabai -m config auto_balance off
+# }}}
+
+# Mouse settings {{{
+yabai -m config mouse_modifier fn
+yabai -m config mouse_action1 move
+yabai -m config mouse_action2 resize
+# }}}
+
+# Window settings {{{
+yabai -m config window_topmost on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 1.0
+# }}}
+
+# Status bar {{{
+yabai -m external_bar main:20:0
+# }}}
+
+# vim:foldmethod=marker:foldlevel=0
