@@ -79,6 +79,10 @@ if !&sidescrolloff
     set sidescrolloff=5
 endif
 
+if &listchars ==# 'eol:$'
+  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+endif
+
 if !has('nvim') && &timeoutlen == -1
     set ttimeout
     set ttimeoutlen=100
@@ -189,4 +193,4 @@ command Bufferclose bp | sp | bn | bd
 cabbrev bc Bufferclose
 " }}}
 
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker:foldlevel=0
