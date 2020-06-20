@@ -28,9 +28,13 @@ call plug#begin()
     Plug 'ryanoasis/vim-devicons'
     Plug 'airblade/vim-gitgutter'
     Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
+    Plug 'ayu-theme/ayu-vim-airline'
+    Plug 'Yggdroot/indentLine'
     " Color schemes
     Plug 'joshdick/onedark.vim'
     Plug 'connorholyday/vim-snazzy'
+    Plug 'ayu-theme/ayu-vim'
 call plug#end() 
 " }}}
 
@@ -83,7 +87,9 @@ endif
 
 " Colors {{{
 set background=dark
-colorscheme snazzy
+set termguicolors
+let ayucolor="dark"
+colorscheme ayu
 let g:airline_powerline_fonts = 1
 hi Normal guibg=NONE ctermbg=NONE
 " }}}
@@ -104,6 +110,14 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-sh'
     \ ]
+" }}}
+
+" Indent Line {{{
+let g:indentLine_char = '│'
+let g:indentLine_first_char = '│'
+" let g:indentLine_char_list = ['│', '┆', '┊']
+let g:indentLine_showFirstIndentLevel = 1
+let g:indentLine_setColors = 0
 " }}}
 
 " CoC Intellisense {{{
@@ -131,6 +145,7 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementations)
 nmap <silent> gr <Plug>(coc-references)
+nmap <leader>qf <Plug>(coc-fix-current)
 
 function! s:show_documentation()
     if (index(['vim', 'help'], &filetype) >= 0)
@@ -152,6 +167,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Airline {{{
 let g:airline#extensions#tabline#enabled = 1 
+let g:airline_theme='molokai'
 " }}}
 
 " Emmet {{{
@@ -173,4 +189,4 @@ command Bufferclose bp | sp | bn | bd
 cabbrev bc Bufferclose
 " }}}
 
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker:foldlevel=0
