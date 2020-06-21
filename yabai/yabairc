@@ -41,7 +41,7 @@ yabai -m config normal_window_opacity 0.9
 # }}}
 
 # Status bar {{{
-yabai -m external_bar main:20:0
+yabai -m external_bar all:20:0
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
