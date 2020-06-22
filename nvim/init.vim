@@ -42,7 +42,6 @@ call plug#end()
 set fileencoding=utf-8
 set fileformat=unix
 filetype on
-filetype plugin on
 filetype plugin indent on
 syntax on
 set title
