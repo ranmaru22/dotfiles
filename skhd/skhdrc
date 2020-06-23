@@ -59,6 +59,9 @@ shift + cmd - 0 : yabai -m window --space 10; yabai -m space --focus 10
 ctrl + alt - x  : yabai -m display --focus recent
 ctrl + alt - 1  : yabai -m display --focus 1
 ctrl + alt - 2  : yabai -m display --focus 2
+# Switch between floating and tiled
+ctrl + cmd + shift + q : yabai -m space --layout bsp
+ctrl + cmd + shift + w : yabai -m space --layout float
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
