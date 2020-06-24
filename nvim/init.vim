@@ -19,7 +19,7 @@ call plug#begin()
     Plug 'scrooloose/nerdtree/', { 'on': 'NERDTreeToggle' }
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    Plug 'ctrlpvim/ctrlp.vim'
+    " Plug 'ctrlpvim/ctrlp.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-fugitive'
@@ -177,8 +177,12 @@ let g:airline_theme='molokai'
 let g:user_emmet_leader_key = ','
 " }}}
 
-" Ctrlp {{{
+" Ctrlp / fzf {{{
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+nnoremap <C-p> :Files<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>Gf :GFiles<CR>
+
 " }}}
 
 " Custom key mappings {{{
