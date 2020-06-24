@@ -88,6 +88,10 @@ if !has('nvim') && &timeoutlen == -1
 endif
 " }}}
 
+" Syntax Settings {{{
+let g:asmsyntax = 'nasm'
+" }}}
+
 " Colors {{{
 set background=dark
 set termguicolors
