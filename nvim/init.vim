@@ -12,29 +12,30 @@
 " Plugins {{{
 call plug#begin()
     Plug 'sheerun/vim-polyglot'
-    Plug 'davidhalter/jedi-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'mattn/emmet-vim'
-    " Plug 'dense-analysis/ale'
     Plug 'scrooloose/nerdtree/', { 'on': 'NERDTreeToggle' }
     Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-    " Plug 'ctrlpvim/ctrlp.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
+    if has('nvim') || has('patch-8.0.902')
+      Plug 'mhinz/vim-signify'
+    else
+      Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+    endif
     Plug 'ryanoasis/vim-devicons'
-    Plug 'airblade/vim-gitgutter'
     Plug 'vim-airline/vim-airline'
-    " Plug 'vim-airline/vim-airline-themes'
     Plug 'ayu-theme/ayu-vim-airline'
     Plug 'Yggdroot/indentLine'
     " Color schemes
     Plug 'joshdick/onedark.vim'
     Plug 'connorholyday/vim-snazzy'
     Plug 'ayu-theme/ayu-vim'
+    Plug 'arzg/vim-colors-xcode'
 call plug#end() 
 " }}}
 
@@ -179,6 +180,10 @@ let g:airline_theme='molokai'
 
 " Emmet {{{
 let g:user_emmet_leader_key = ','
+" }}}
+
+" Signify {{{
+set updatetime=100
 " }}}
 
 " Ctrlp / fzf {{{
