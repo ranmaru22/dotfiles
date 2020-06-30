@@ -12,6 +12,7 @@
 " Plugins {{{
 call plug#begin()
     Plug 'sheerun/vim-polyglot'
+    Plug 'davidhalter/jedi-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'mattn/emmet-vim'
     Plug 'scrooloose/nerdtree/', { 'on': 'NERDTreeToggle' }
@@ -116,7 +117,8 @@ let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-eslint',
     \ 'coc-json',
-    \ 'coc-sh'
+    \ 'coc-sh',
+    \ 'coc-snippets'
     \ ]
 " }}}
 
@@ -171,6 +173,22 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" }}}
+
+" CoC Snippets / Ultisnips {{{
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "snippets"]
 " }}}
 
 " Airline {{{
