@@ -8,33 +8,33 @@ console.error($1)
 endsnippet
 
 # Loops etc.
-snippet forloop "for () loop"
+snippet forloop "for () loop" b
 for ($1) {
 $2
 }
 endsnippet
 
 # Imports
-snippet imp "import directive"
+snippet imp "import directive" b
 import $1 from "$2"
 endsnippet
 
-snippet imn "import directive without module name"
+snippet imn "import directive without module name" b
 import "$1"
 endsnippet
 
-snippet ime "import directive with alias"
+snippet ime "import directive with alias" b
 import * as $1 from "$2"
 endsnippet
 
-snippet imd "import directive with destructuring"
+snippet imd "import directive with destructuring" b
 import { $1 } from "$2"
 endsnippet
 
-snippet rqr "require directive"
+snippet rqr "require directive" b
 require("$1")
 endsnippet
 
-snippet req "require directive with variable name"
+snippet req "require directive with variable name" b
 const $1 = require("$2")
 endsnippet
