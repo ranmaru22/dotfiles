@@ -1,7 +1,40 @@
+# Basics
 snippet clog "console.log()"
 console.log($1)
 endsnippet
 
 snippet cerr "console.error()"
 console.error($1)
+endsnippet
+
+# Loops etc.
+snippet forloop "for () loop"
+for ($1) {
+$2
+}
+endsnippet
+
+# Imports
+snippet imp "import directive"
+import $1 from "$2"
+endsnippet
+
+snippet imn "import directive without module name"
+import "$1"
+endsnippet
+
+snippet ime "import directive with alias"
+import * as $1 from "$2"
+endsnippet
+
+snippet imd "import directive with destructuring"
+import { $1 } from "$2"
+endsnippet
+
+snippet rqr "require directive"
+require("$1")
+endsnippet
+
+snippet req "require directive with variable name"
+const $1 = require("$2")
 endsnippet
