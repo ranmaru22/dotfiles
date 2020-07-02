@@ -35,8 +35,7 @@ call plug#begin()
     " Color schemes
     Plug 'connorholyday/vim-snazzy'
     Plug 'ayu-theme/ayu-vim'
-    Plug 'kyoz/purify', { 'rtp': 'vim' }
-    Plug 'jacoborus/tender.vim'
+    Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end() 
 " }}}
 
@@ -98,7 +97,7 @@ let g:asmsyntax = 'nasm'
 set background=dark
 set termguicolors
 let ayucolor="dark"
-colorscheme purify
+colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
@@ -195,7 +194,7 @@ let g:coc_snippet_prev = '<s-tab>'
 " Airline {{{
 let g:airline#extensions#tabline#enabled = 1 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='purify'
+let g:airline_theme='dracula'
 " }}}
 
 " Emmet {{{
