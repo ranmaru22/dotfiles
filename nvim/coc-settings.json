@@ -1,38 +1,52 @@
 {
-    "suggest.noselect": false,
-    "suggest.enablePreview": true,
-    "suggest.removeDuplicateItems": true,
-    "codeLens.enable": true,
-    "coc.preferences.jumpCommand": "drop",
-    "coc.preferences.rootPatterns": [".git", ".vscode"],
-    "coc.preferences.formatOnSaveFiletypes": ["python", "javascript", "javascriptreact", "typescriptreact", "css"],
-    "diagnostic.checkCurrentLine": false,
-    "python.jediEnabled": false,
-    "python.linting.enabled": true,
-    "python.linting.pylintEnabled": false,
-    "python.linting.flake8Enabled": true,
-    "python.formatting.provider": "black",
-    "javascript.referencesCodeLens.enable": false,
-    "javascript.implementationsCodeLens.enable": false,
-    "typescript.referencesCodeLens.enable": false,
-    "typescript.implementationsCodeLens.enable": false,
-    "languageserver": {
-        "ccls": {
-            "command": "ccls",
-            "filetypes": [ "c", "cpp", "objc", "objcpp" ],
-            "rootPatterns": [ ".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/" ],
-            "initializationOptions": {
-                "cache": { "directory": "/tmp/ccls" },
-                "clang": {
-                    "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3",
-                    "extraArgs": [
-                        "-isystem",
-                        "/Library/Developer/CommandLineTools/usr/include/c++/v1",
-                        "-I",
-                        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/"        
-                    ]
-                }
-            }
+  "suggest.noselect": false,
+  "suggest.enablePreview": true,
+  "suggest.removeDuplicateItems": true,
+  "codeLens.enable": true,
+  "coc.preferences.jumpCommand": "drop",
+  "coc.preferences.rootPatterns": [".git", ".vscode"],
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "json",
+    "markdown"
+  ],
+  "diagnostic.checkCurrentLine": false,
+  "python.jediEnabled": false,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "black",
+  "javascript.referencesCodeLens.enable": false,
+  "javascript.implementationsCodeLens.enable": false,
+  "typescript.referencesCodeLens.enable": false,
+  "typescript.implementationsCodeLens.enable": false,
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [
+        ".ccls",
+        "compile_commands.json",
+        ".vim/",
+        ".git/",
+        ".hg/"
+      ],
+      "initializationOptions": {
+        "cache": { "directory": "/tmp/ccls" },
+        "clang": {
+          "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/11.0.3",
+          "extraArgs": [
+            "-isystem",
+            "/Library/Developer/CommandLineTools/usr/include/c++/v1",
+            "-I",
+            "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/"
+          ]
         }
+      }
     }
+  }
 }

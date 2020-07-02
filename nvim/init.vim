@@ -33,10 +33,10 @@ call plug#begin()
     Plug 'ayu-theme/ayu-vim-airline'
     Plug 'Yggdroot/indentLine'
     " Color schemes
-    Plug 'joshdick/onedark.vim'
     Plug 'connorholyday/vim-snazzy'
     Plug 'ayu-theme/ayu-vim'
-    Plug 'arzg/vim-colors-xcode'
+    Plug 'kyoz/purify', { 'rtp': 'vim' }
+    Plug 'jacoborus/tender.vim'
 call plug#end() 
 " }}}
 
@@ -98,7 +98,7 @@ let g:asmsyntax = 'nasm'
 set background=dark
 set termguicolors
 let ayucolor="dark"
-colorscheme ayu
+colorscheme tender
 let g:airline_powerline_fonts = 1
 hi Normal guibg=NONE ctermbg=NONE
 " }}}
@@ -117,7 +117,10 @@ let g:coc_global_extensions = [
     \ 'coc-tsserver',
     \ 'coc-eslint',
     \ 'coc-json',
+    \ 'coc-css',
+    \ 'coc-python',
     \ 'coc-sh',
+    \ 'coc-ccls',
     \ 'coc-snippets'
     \ ]
 " }}}
@@ -125,9 +128,9 @@ let g:coc_global_extensions = [
 " Indent Line {{{
 let g:indentLine_char = '│'
 let g:indentLine_first_char = '│'
-" let g:indentLine_char_list = ['│', '┆', '┊']
+let g:indentLine_char_list = ['│', '┆', '┊']
 let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_setColors = 0
+" let g:indentLine_setColors = 0
 " }}}
 
 " CoC Intellisense {{{
@@ -145,6 +148,14 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+if exists('*complete_info')
+  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+else
+  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+endif
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 nmap <leader>rn <Plug>(coc-rename)
@@ -182,7 +193,7 @@ let g:coc_snippet_prev = '<s-tab>'
 
 " Airline {{{
 let g:airline#extensions#tabline#enabled = 1 
-let g:airline_theme='molokai'
+let g:airline_theme='tender'
 " }}}
 
 " Emmet {{{
@@ -210,6 +221,7 @@ nnoremap <leader>sv :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 " Custom Commands {{{
 command Bufferclose bp | sp | bn | bd
 cabbrev bc Bufferclose
+cmap w!! !sudo tee %
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
