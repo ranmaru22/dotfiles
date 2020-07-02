@@ -98,14 +98,15 @@ let g:asmsyntax = 'nasm'
 set background=dark
 set termguicolors
 let ayucolor="dark"
-colorscheme tender
-let g:airline_powerline_fonts = 1
+colorscheme purify
 hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
 " Nerdtree {{{
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeMapOpenInTab='t'
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
@@ -193,7 +194,8 @@ let g:coc_snippet_prev = '<s-tab>'
 
 " Airline {{{
 let g:airline#extensions#tabline#enabled = 1 
-let g:airline_theme='tender'
+let g:airline_powerline_fonts = 1
+let g:airline_theme='purify'
 " }}}
 
 " Emmet {{{
