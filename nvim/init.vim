@@ -195,6 +195,7 @@ let g:coc_snippet_prev = '<s-tab>'
 let g:airline#extensions#tabline#enabled = 1 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='dracula'
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " }}}
 
 " Emmet {{{
@@ -206,10 +207,9 @@ set updatetime=100
 " }}}
 
 " Ctrlp / fzf {{{
-let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-nnoremap <C-p> :Files<CR>
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>Gf :GFiles<CR>
+nnoremap <C-p> :GFiles<CR>
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-S-p> :Files<CR>
 
 " }}}
 
