@@ -30,8 +30,12 @@ alias ffs!="sudo !!"
 # }}}
 
 # Source p10k {{{
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+# }}}
+
+# Source starship {{{
+eval "$(starship init zsh)"
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
