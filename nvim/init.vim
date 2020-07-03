@@ -215,6 +215,8 @@ nnoremap <C-S-p> :Files<CR>
 
 " Custom key mappings {{{
 nmap <leader>gs :G<CR>
+nmap <TAB> :bn<CR>
+nmap <S-TAB> :bp<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 " }}}
