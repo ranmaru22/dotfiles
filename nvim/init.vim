@@ -15,9 +15,6 @@ call plug#begin()
     Plug 'davidhalter/jedi-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'mattn/emmet-vim'
-    Plug 'scrooloose/nerdtree/', { 'on': 'NERDTreeToggle' }
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-fugitive'
@@ -101,18 +98,9 @@ colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
-" Nerdtree {{{
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeMapOpenInTab='t'
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '-'
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-" }}}
-
 " CoC Extensions {{{
 let g:coc_global_extensions = [
+    \ 'coc-explorer',
     \ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-eslint',
@@ -175,7 +163,14 @@ function! s:show_documentation()
         call CocAction('doHover')
     endif
 endfunction
+" }}}
 
+" CoC Explorer {{{
+map <C-n> :CocCommand explorer<CR>
+nnoremap <silent><nowait> <space>f  :<C-u>CocCommand explorer --preset floating<CR>
+" }}}
+
+" CoC Key mappings {{{
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
 nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
 nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
