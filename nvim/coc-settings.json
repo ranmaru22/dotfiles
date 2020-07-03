@@ -15,6 +15,7 @@
     "markdown"
   ],
   "diagnostic.checkCurrentLine": false,
+  "diagnostic.messageTarget": "float",
   "python.jediEnabled": false,
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
