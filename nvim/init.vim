@@ -208,8 +208,8 @@ set updatetime=100
 
 " Ctrlp / fzf {{{
 nnoremap <C-p> :GFiles<CR>
+nnoremap <C-q> :Files<CR>
 nnoremap <C-b> :Buffers<CR>
-nnoremap <C-S-p> :Files<CR>
 
 " }}}
 
