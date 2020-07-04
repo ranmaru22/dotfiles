@@ -18,6 +18,7 @@ call plug#begin()
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/gv.vim'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     if has('nvim') || has('patch-8.0.902')
@@ -96,6 +97,11 @@ set termguicolors
 let ayucolor="dark"
 colorscheme dracula
 hi Normal guibg=NONE ctermbg=NONE
+" }}}
+
+" Signify {{{
+nmap <leader>gj <plug>(signify-next-hunk)
+nmap <leader>gk <plug>(signify-prev-hunk)
 " }}}
 
 " CoC Extensions {{{
