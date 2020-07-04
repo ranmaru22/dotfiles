@@ -17,6 +17,7 @@ call plug#begin()
     Plug 'mattn/emmet-vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'justinmk/vim-sneak'
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
     Plug 'tpope/vim-commentary'
@@ -103,6 +104,11 @@ hi Normal guibg=NONE ctermbg=NONE
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
 " }}}
+
+" Sneak {{{
+let g:sneak#label = 1
+let g:sneak#s_next = 1
+"}}}
 
 " CoC Extensions {{{
 let g:coc_global_extensions = [
