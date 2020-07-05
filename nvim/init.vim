@@ -229,7 +229,7 @@ nnoremap <leader>sv :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 " }}}
 
 " Custom Commands {{{
-command Bufferclose bp | sp | bn | bd
+command! Bufferclose bp | sp | bn | bd
 cabbrev bc Bufferclose
 cmap w!! !sudo tee %
 " }}}
