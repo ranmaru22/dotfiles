@@ -31,6 +31,7 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'
     Plug 'ayu-theme/ayu-vim-airline'
     Plug 'Yggdroot/indentLine'
+    Plug 'machakann/vim-highlightedyank'
     " Color schemes
     Plug 'connorholyday/vim-snazzy'
     Plug 'ayu-theme/ayu-vim'
@@ -131,6 +132,10 @@ let g:indentLine_first_char = '│'
 let g:indentLine_char_list = ['│', '┆', '┊']
 let g:indentLine_showFirstIndentLevel = 1
 " let g:indentLine_setColors = 0
+" }}}
+
+" Highlighted Yank {{{
+let g:highlightedyank_highlight_duration = 200
 " }}}
 
 " CoC Intellisense {{{
