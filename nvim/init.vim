@@ -196,6 +196,9 @@ nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
 nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+nmap <space>rr <Plug>(coc-rename)
+nnoremap <space>grw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 " }}}
 
 " CoC Snippets / Ultisnips {{{
