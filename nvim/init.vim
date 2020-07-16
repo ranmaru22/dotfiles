@@ -13,6 +13,7 @@
 call plug#begin()
     Plug 'sheerun/vim-polyglot'
     Plug 'davidhalter/jedi-vim'
+    Plug 'neovimhaskell/haskell-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'mattn/emmet-vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -50,6 +51,8 @@ set hidden
 set confirm
 set modeline
 set modelines=5
+
+let mapleader = "\<Space>"
 
 set backspace=indent,eol,start
 set smarttab
@@ -188,17 +191,17 @@ nnoremap <silent><nowait> <space>f  :<C-u>CocCommand explorer --preset floating<
 " }}}
 
 " CoC Key mappings {{{
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+nnoremap <silent><nowait> <Leader>ca  :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <Leader>ce  :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <Leader>cc  :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <Leader>co  :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <Leader>cs  :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <Leader>cj  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <Leader>ck  :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <Leader>cp  :<C-u>CocListResume<CR>
 
-nmap <space>rr <Plug>(coc-rename)
-nnoremap <space>grw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nmap <Leader>rr <Plug>(coc-rename)
+nnoremap <Leader>grw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 " }}}
 
 " CoC Snippets / Ultisnips {{{
