@@ -235,9 +235,11 @@ set updatetime=100
 
 " Ctrlp / fzf {{{
 nnoremap <C-p> :GFiles<CR>
-nnoremap <C-q> :Files<CR>
+nnoremap <C-f> :Files<CR>
+nnoremap <C-q> :Rg<CR>
 nnoremap <C-b> :Buffers<CR>
-
+let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 " }}}
 
 " Custom key mappings {{{
