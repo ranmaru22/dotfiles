@@ -18,6 +18,7 @@ call plug#begin()
     Plug 'mattn/emmet-vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'airblade/vim-rooter'
     Plug 'justinmk/vim-sneak'
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
@@ -94,6 +95,14 @@ endif
 
 " Syntax Settings {{{
 let g:asmsyntax = 'nasm'
+
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_indent_guard = 4
 " }}}
 
 " Colors {{{
