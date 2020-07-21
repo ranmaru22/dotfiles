@@ -16,6 +16,7 @@ call plug#begin()
     Plug 'neovimhaskell/haskell-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'mattn/emmet-vim'
+    Plug 'rizzatti/dash.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
@@ -227,6 +228,12 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " Emmet {{{
 let g:user_emmet_leader_key = ','
+" }}}
+
+" Dash-vim {{{
+let g:dash_activate = 0
+nmap <silent> <leader>dd <Plug>DashSearch
+nmap <silent> <leader>dk :DashKeywords
 " }}}
 
 " Signify {{{
