@@ -17,6 +17,7 @@ call plug#begin()
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'mattn/emmet-vim'
     Plug 'rizzatti/dash.vim'
+    Plug 'metakirby5/codi.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
