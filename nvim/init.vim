@@ -12,7 +12,7 @@
 " Plugins {{{
 call plug#begin()
     Plug 'sheerun/vim-polyglot'
-    Plug 'davidhalter/jedi-vim'
+    " Plug 'davidhalter/jedi-vim'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'mattn/emmet-vim'
@@ -37,8 +37,8 @@ call plug#begin()
     Plug 'Yggdroot/indentLine'
     Plug 'machakann/vim-highlightedyank'
     " Color schemes
-    Plug 'connorholyday/vim-snazzy'
     Plug 'ayu-theme/ayu-vim'
+    Plug 'arzg/vim-colors-xcode'
     Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end() 
 " }}}
@@ -118,6 +118,9 @@ hi Normal guibg=NONE ctermbg=NONE
 " Signify {{{
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
+let g:signify_sign_add    = '┃'
+let g:signify_sign_change = '┃'
+let g:signify_sign_delete = '•'
 " }}}
 
 " Sneak {{{
