@@ -20,6 +20,7 @@ call plug#begin()
     Plug 'metakirby5/codi.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'airblade/vim-rooter'
     Plug 'justinmk/vim-sneak'
     Plug 'tpope/vim-fugitive'
@@ -105,6 +106,9 @@ let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
 let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
 let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
 let g:haskell_indent_guard = 4
+
+let g:vim_json_syntax_conceal = 0
+let g:vim_markdown_conceal = 0
 " }}}
 
 " Colors {{{
