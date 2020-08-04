@@ -12,12 +12,10 @@
 " Plugins {{{
 call plug#begin()
     Plug 'sheerun/vim-polyglot'
-    " Plug 'davidhalter/jedi-vim'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'mattn/emmet-vim'
     Plug 'rizzatti/dash.vim'
-    Plug 'metakirby5/codi.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -34,11 +32,9 @@ call plug#begin()
     endif
     Plug 'ryanoasis/vim-devicons'
     Plug 'vim-airline/vim-airline'
-    Plug 'ayu-theme/ayu-vim-airline'
     Plug 'Yggdroot/indentLine'
     Plug 'machakann/vim-highlightedyank'
     " Color schemes
-    Plug 'ayu-theme/ayu-vim'
     Plug 'arzg/vim-colors-xcode'
     Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end() 
@@ -114,8 +110,7 @@ let g:vim_markdown_conceal = 0
 " Colors {{{
 set background=dark
 set termguicolors
-let ayucolor="dark"
-colorscheme dracula
+colorscheme xcodedark
 hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
@@ -230,18 +225,12 @@ let g:coc_snippet_prev = '<s-tab>'
 " Airline {{{
 let g:airline#extensions#tabline#enabled = 1 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='dracula'
+let g:airline_theme='xcodedark'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " }}}
 
 " Emmet {{{
 let g:user_emmet_leader_key = ','
-" }}}
-
-" Dash-vim {{{
-let g:dash_activate = 0
-nmap <silent> <leader>dd <Plug>DashSearch
-nmap <silent> <leader>dk :DashKeywords
 " }}}
 
 " Signify {{{
