@@ -12,7 +12,7 @@
 #
 #
 # Theme
---theme="Dracula"
+--theme="ansi-dark"
 
 # Syntax mapping
 --map-syntax ".ignore:Git Ignore"
