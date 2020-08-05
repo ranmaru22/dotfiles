@@ -41,4 +41,8 @@ alias reload="source ~/.zshrc"
 # [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 # }}}
 
+# Misc {{{
+source ~/.dotfiles/zsh/zsh-theme-edge-dark
+# }}}
+
 # vim:foldmethod=marker:foldlevel=0
