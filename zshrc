@@ -9,7 +9,7 @@
 #  GitHub:      https://github.com/ranmaru22/dotfiles
 #
 # Path {{{
-export PATH=~/.cabal/bin:$PATH
+export PATH=~/.cabal/bin:~/.cargo/bin:$PATH
 # }}}
 
 # Enable p10k {{{
