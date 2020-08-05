@@ -71,6 +71,9 @@ set foldmethod=syntax
 set foldlevel=10
 set complete-=i
 
+set splitbelow
+set splitright
+
 set number relativenumber
 set cursorline
 set nowrap
