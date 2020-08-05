@@ -14,6 +14,8 @@ call plug#begin()
     Plug 'sheerun/vim-polyglot'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'peitalin/vim-jsx-typescript'
+    Plug 'vim-airline/vim-airline'
     Plug 'mattn/emmet-vim'
     Plug 'rizzatti/dash.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -31,11 +33,11 @@ call plug#begin()
       Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
     endif
     Plug 'ryanoasis/vim-devicons'
-    Plug 'vim-airline/vim-airline'
     Plug 'Yggdroot/indentLine'
     Plug 'machakann/vim-highlightedyank'
     " Color schemes
     Plug 'arzg/vim-colors-xcode'
+    Plug 'ayu-theme/ayu-vim'
     Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end() 
 " }}}
@@ -110,7 +112,8 @@ let g:vim_markdown_conceal = 0
 " Colors {{{
 set background=dark
 set termguicolors
-colorscheme xcodedark
+let ayucolor = "mirage"
+colorscheme ayu
 hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
@@ -136,6 +139,7 @@ let g:coc_global_extensions = [
     \ 'coc-json',
     \ 'coc-css',
     \ 'coc-python',
+    \ 'coc-rls',
     \ 'coc-sh',
     \ 'coc-ccls',
     \ 'coc-snippets'
@@ -225,7 +229,7 @@ let g:coc_snippet_prev = '<s-tab>'
 " Airline {{{
 let g:airline#extensions#tabline#enabled = 1 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='xcodedark'
+let g:airline_theme='ayu'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " }}}
 
