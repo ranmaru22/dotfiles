@@ -14,6 +14,7 @@ call plug#begin()
     Plug 'sheerun/vim-polyglot'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'vim-airline/vim-airline'
     Plug 'mattn/emmet-vim'
@@ -38,6 +39,7 @@ call plug#begin()
     " Color schemes
     Plug 'arzg/vim-colors-xcode'
     Plug 'ayu-theme/ayu-vim'
+    Plug 'sainnhe/edge'
     Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end() 
 " }}}
@@ -113,7 +115,9 @@ let g:vim_markdown_conceal = 0
 set background=dark
 set termguicolors
 let ayucolor = "mirage"
-colorscheme ayu
+let edge_style = "aura"
+let g:edge_enable_italic = 1
+colorscheme edge
 hi Normal guibg=NONE ctermbg=NONE
 " }}}
 
@@ -132,7 +136,6 @@ let g:sneak#s_next = 1
 
 " CoC Extensions {{{
 let g:coc_global_extensions = [
-    \ 'coc-explorer',
     \ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-eslint',
@@ -202,9 +205,8 @@ function! s:show_documentation()
 endfunction
 " }}}
 
-" CoC Explorer {{{
-map <C-n> :CocCommand explorer<CR>
-nnoremap <silent><nowait> <space>f  :<C-u>CocCommand explorer --preset floating<CR>
+" CHADTree {{{
+map <C-n> :CHADopen<CR>
 " }}}
 
 " CoC Key mappings {{{
@@ -228,8 +230,16 @@ let g:coc_snippet_prev = '<s-tab>'
 
 " Airline {{{
 let g:airline#extensions#tabline#enabled = 1 
+let g:airline#extensions#tabline#left_sep = "\ue0b8"
+let g:airline#extensions#tabline#right_sep = "\ue0be"
+let g:airline#extensions#tabline#left_alt_sep = "\ue0bb"
+let g:airline#extensions#tabline#right_alt_sep = "\ue0bb"
+let g:airline_left_sep = "\ue0b8"
+let g:airline_right_sep = "\ue0be"
+let g:airline_left_alt_sep = "\ue0bb"
+let g:airline_right_alt_sep = "\ue0bb"
 let g:airline_powerline_fonts = 1
-let g:airline_theme='ayu'
+let g:airline_theme='edge'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " }}}
 
