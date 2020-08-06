@@ -45,6 +45,7 @@ call plug#end()
 " }}}
 
 " Basic settings {{{
+set encoding=UTF-8
 set fileencoding=utf-8
 set fileformat=unix
 filetype on
@@ -90,7 +91,7 @@ if !&sidescrolloff
 endif
 
 if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+    set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
 endif
 
 if !has('nvim') && &timeoutlen == -1
@@ -102,16 +103,16 @@ endif
 " Syntax Settings {{{
 let g:asmsyntax = 'nasm'
 
-let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
-let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
-let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
-let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
-let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
-let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_enable_quantification = 1     " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1        " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1        " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1   " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1          " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1    " to enable highlighting of `static`
 let g:haskell_indent_guard = 4
 
-let g:vim_json_syntax_conceal = 0
-let g:vim_markdown_conceal = 0
+let g:vim_json_syntax_conceal = 0           " to avoi folding of arrays
+let g:vim_markdown_conceal = 0              " to avoid folding of links
 " }}}
 
 " Colors {{{
@@ -157,7 +158,8 @@ let g:indentLine_char = '│'
 let g:indentLine_first_char = '│'
 let g:indentLine_char_list = ['│', '┆', '┊']
 let g:indentLine_showFirstIndentLevel = 1
-" let g:indentLine_setColors = 0
+let g:indentLine_setColors = 1
+let g:indentLine_defaultGroup = 'Comment'
 " }}}
 
 " Highlighted Yank {{{
@@ -170,22 +172,22 @@ set updatetime=300
 set shortmess+=c
 set signcolumn=yes
 inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 inoremap <silent><expr> <c-space> coc#refresh()
 
 if exists('*complete_info')
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 else
-  inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 endif
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
