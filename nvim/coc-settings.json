@@ -13,7 +13,8 @@
     "javascriptreact",
     "typescriptreact",
     "json",
-    "markdown"
+    "markdown",
+    "rust"
   ],
   "diagnostic.checkCurrentLine": false,
   "diagnostic.messageTarget": "float",
