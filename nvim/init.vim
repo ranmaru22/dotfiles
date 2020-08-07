@@ -29,9 +29,9 @@ call plug#begin()
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     if has('nvim') || has('patch-8.0.902')
-      Plug 'mhinz/vim-signify'
+        Plug 'mhinz/vim-signify'
     else
-      Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+        Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
     endif
     Plug 'ryanoasis/vim-devicons'
     Plug 'Yggdroot/indentLine'
@@ -156,7 +156,7 @@ let g:coc_global_extensions = [
 " Indent Line {{{
 let g:indentLine_char = '│'
 let g:indentLine_first_char = '│'
-let g:indentLine_char_list = ['│', '┆', '┊']
+" let g:indentLine_char_list = ['│', '┆', '┊']
 let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_setColors = 1
 let g:indentLine_defaultGroup = 'Comment'
@@ -267,8 +267,8 @@ let $FZF_DEFAULT_COMMAND="rg --files --hidden"
 
 " Custom key mappings {{{
 nmap <leader>gs :G<CR>
-nmap <TAB> :bn<CR>
-nmap <S-TAB> :bp<CR>
+nmap <C-l> :bn<CR>
+nmap <C-h> :bp<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 " }}}
