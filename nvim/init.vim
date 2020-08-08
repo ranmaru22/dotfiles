@@ -13,6 +13,7 @@
 call plug#begin()
     Plug 'sheerun/vim-polyglot'
     Plug 'neovimhaskell/haskell-vim'
+    Plug 'arzg/vim-rust-syntax-ext'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
     Plug 'peitalin/vim-jsx-typescript'
