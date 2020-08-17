@@ -15,7 +15,7 @@ call plug#begin()
     Plug 'neovimhaskell/haskell-vim'
     Plug 'arzg/vim-rust-syntax-ext'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-    Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
+    " Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': ':UpdateRemotePlugins'}
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'vim-airline/vim-airline'
     Plug 'mattn/emmet-vim'
@@ -116,6 +116,11 @@ let g:vim_json_syntax_conceal = 0           " to avoi folding of arrays
 let g:vim_markdown_conceal = 0              " to avoid folding of links
 " }}}
 
+" Debugging {{{
+packadd termdebug
+let termdebugger = "rust-gdb"
+" }}}
+
 " Colors {{{
 set background=dark
 set termguicolors
@@ -141,6 +146,7 @@ let g:sneak#s_next = 1
 
 " CoC Extensions {{{
 let g:coc_global_extensions = [
+    \ 'coc-explorer',
     \ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-eslint',
@@ -211,8 +217,15 @@ function! s:show_documentation()
 endfunction
 " }}}
 
-" CHADTree {{{
-map <C-n> :CHADopen<CR>
+" Explorer {{{
+let g:coc_explorer_global_presets = {
+    \ 'floating': {
+        \ 'position': 'floating',
+        \ 'open-action-strategy': 'sourceWindow'
+        \ }
+    \ }
+map <C-n> :CocCommand explorer<CR>
+nmap <Leader>f :CocCommand explorer --preset floating<CR>
 " }}}
 
 " CoC Key mappings {{{
@@ -240,13 +253,14 @@ let g:airline#extensions#tabline#left_sep = "\ue0b8"
 let g:airline#extensions#tabline#right_sep = "\ue0be"
 let g:airline#extensions#tabline#left_alt_sep = "\ue0bb"
 let g:airline#extensions#tabline#right_alt_sep = "\ue0bb"
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:airline_left_sep = "\ue0b8"
 let g:airline_right_sep = "\ue0be"
 let g:airline_left_alt_sep = "\ue0bb"
 let g:airline_right_alt_sep = "\ue0bb"
 let g:airline_powerline_fonts = 1
 let g:airline_theme='edge'
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:airline_skip_empty_sections = 1
 " }}}
 
 " Emmet {{{
