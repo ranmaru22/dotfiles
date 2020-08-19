@@ -85,6 +85,8 @@ set wildmode=longest,list,full
 set wildmenu
 set ruler
 
+set conceallevel=2
+
 if !&scrolloff
     set scrolloff=1
 endif
@@ -113,8 +115,16 @@ let g:haskell_enable_typeroles = 1          " to enable highlighting of type rol
 let g:haskell_enable_static_pointers = 1    " to enable highlighting of `static`
 let g:haskell_indent_guard = 4
 
-let g:vim_json_syntax_conceal = 0           " to avoi folding of arrays
-let g:vim_markdown_conceal = 0              " to avoid folding of links
+let g:vim_markdown_conceal = 2              " to avoid folding of links
+let g:vim_markdown_conceal_code_blocks = 0  " to avoid folding of code blocks
+let g:vim_markdown_math = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_edit_url_in = 'tab'
+let g:vim_markdown_follow_anchor = 1
+autocmd FileType markdown setlocal spell spelllang=en_us
 " }}}
 
 " Debugging {{{
@@ -162,6 +172,7 @@ let g:coc_global_extensions = [
 " }}}
 
 " Indent Line {{{
+let g:indentLine_fileTypeExclude = ['markdown']
 let g:indentLine_char = '│'
 let g:indentLine_first_char = '│'
 " let g:indentLine_char_list = ['│', '┆', '┊']
