@@ -22,6 +22,7 @@ call plug#begin()
     Plug 'rizzatti/dash.vim'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'junegunn/goyo.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'airblade/vim-rooter'
     Plug 'justinmk/vim-sneak'
