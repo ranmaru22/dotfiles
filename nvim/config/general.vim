@@ -12,7 +12,6 @@ set hidden
 set confirm
 set modeline
 set modelines=5
-set mouse=
 
 let mapleader = "\<Space>"
 
@@ -60,7 +59,7 @@ endif
 " }}}
 
 " Syntax Settings {{{
-let g:asmsyntax = 'nasm'
+let g:asmsyntax = 'nasm'                    " set nasm as default assembler syntax
 
 let g:haskell_enable_quantification = 1     " to enable highlighting of `forall`
 let g:haskell_enable_recursivedo = 1        " to enable highlighting of `mdo` and `rec`
@@ -72,20 +71,15 @@ let g:haskell_indent_guard = 4
 
 let g:vim_markdown_conceal = 2              " to avoid folding of links
 let g:vim_markdown_conceal_code_blocks = 0  " to avoid folding of code blocks
-let g:vim_markdown_math = 1
-let g:vim_markdown_toml_frontmatter = 1
-let g:vim_markdown_frontmatter = 1
-let g:vim_markdown_strikethrough = 1
-let g:vim_markdown_autowrite = 1
-let g:vim_markdown_edit_url_in = 'tab'
-let g:vim_markdown_follow_anchor = 1
-autocmd FileType markdown setlocal spell spelllang=en_us
-autocmd FileType markdown setlocal wrap
-" }}}
-
-" Debugging {{{
-packadd termdebug
-let termdebugger = "rust-gdb"
+let g:vim_markdown_math = 1                 " formatting options
+let g:vim_markdown_toml_frontmatter = 1     " |
+let g:vim_markdown_frontmatter = 1          " |
+let g:vim_markdown_strikethrough = 1        " |
+let g:vim_markdown_autowrite = 1            " |
+let g:vim_markdown_edit_url_in = 'tab'      " |
+let g:vim_markdown_follow_anchor = 1        " |
+autocmd FileType markdown setlocal spell spelllang=en_us    " enable spell check
+autocmd FileType markdown setlocal wrap                     " enable wrapping for Markdown
 " }}}
 
 " Colors {{{
@@ -94,8 +88,8 @@ set termguicolors
 let edge_style = "aura"
 let g:edge_enable_italic = 1
 colorscheme space-vim-dark
-hi Comment cterm=italic
-hi Normal guibg=NONE ctermbg=NONE
+hi Comment    cterm=italic
+hi Normal     guibg=NONE ctermbg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
 " }}}

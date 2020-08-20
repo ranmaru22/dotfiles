@@ -13,32 +13,30 @@
 "
 " Plugins {{{
 call plug#begin()
-    " Syntax scripts
+    " Syntax plugins
     Plug 'sheerun/vim-polyglot'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'arzg/vim-rust-syntax-ext'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'mattn/emmet-vim'
-    " Useful scripts
-    Plug 'vim-airline/vim-airline'
+    " Utilities
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'junegunn/goyo.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'airblade/vim-rooter'
-    Plug 'tpope/vim-fugitive'
-    Plug 'junegunn/gv.vim'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
-    if has('nvim') || has('patch-8.0.902')
-        Plug 'mhinz/vim-signify'
-    else
-        Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-    endif
     Plug 'machakann/vim-highlightedyank'
-    " Color schemes & eye candy
+    " Git plugins
+    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/gv.vim'
+    Plug 'mhinz/vim-signify'
+    " Eye candy plugins
+    Plug 'junegunn/goyo.vim'
+    Plug 'vim-airline/vim-airline'
     Plug 'ryanoasis/vim-devicons'
+    " Colour schemes
     Plug 'sainnhe/edge'
     Plug 'liuchengxu/space-vim-dark'
 call plug#end() 
