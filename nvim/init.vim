@@ -13,19 +13,20 @@
 "
 " Plugins {{{
 call plug#begin()
+    " Syntax scripts
     Plug 'sheerun/vim-polyglot'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'arzg/vim-rust-syntax-ext'
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'peitalin/vim-jsx-typescript'
-    Plug 'vim-airline/vim-airline'
     Plug 'mattn/emmet-vim'
+    " Useful scripts
+    Plug 'vim-airline/vim-airline'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'junegunn/goyo.vim'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'airblade/vim-rooter'
-    Plug 'justinmk/vim-sneak'
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
     Plug 'tpope/vim-commentary'
@@ -35,14 +36,11 @@ call plug#begin()
     else
         Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
     endif
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'Yggdroot/indentLine'
     Plug 'machakann/vim-highlightedyank'
-    " Color schemes
-    Plug 'ayu-theme/ayu-vim'
+    " Color schemes & eye candy
+    Plug 'ryanoasis/vim-devicons'
     Plug 'sainnhe/edge'
     Plug 'liuchengxu/space-vim-dark'
-    Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end() 
 " }}}
 

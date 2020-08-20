@@ -1,17 +1,13 @@
 " PLUGIN-SPECIFIC SETTINGS
 
 " Signify {{{
+set updatetime=100
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
 let g:signify_sign_add    = '┃'
 let g:signify_sign_change = '┃'
 let g:signify_sign_delete = '•'
 " }}}
-
-" Sneak {{{
-let g:sneak#label = 1
-let g:sneak#s_next = 1
-"}}}
 
 " CoC Extensions {{{
 let g:coc_global_extensions = [
@@ -27,16 +23,6 @@ let g:coc_global_extensions = [
     \ 'coc-ccls',
     \ 'coc-snippets'
     \ ]
-" }}}
-
-" Indent Line {{{
-let g:indentLine_fileTypeExclude = ['markdown']
-let g:indentLine_char = '│'
-let g:indentLine_first_char = '│'
-" let g:indentLine_char_list = ['│', '┆', '┊']
-let g:indentLine_showFirstIndentLevel = 1
-let g:indentLine_setColors = 1
-let g:indentLine_defaultGroup = 'Comment'
 " }}}
 
 " Highlighted Yank {{{
@@ -135,10 +121,6 @@ let g:airline_skip_empty_sections = 1
 
 " Emmet {{{
 let g:user_emmet_leader_key = ','
-" }}}
-
-" Signify {{{
-set updatetime=100
 " }}}
 
 " Ctrlp / fzf {{{

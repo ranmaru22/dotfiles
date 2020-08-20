@@ -91,11 +91,8 @@ let termdebugger = "rust-gdb"
 " Colors {{{
 set background=dark
 set termguicolors
-let ayucolor = "mirage"
 let edge_style = "aura"
 let g:edge_enable_italic = 1
-let g:nord_italic = 1
-let g:embark_terminal_italics = 1
 colorscheme space-vim-dark
 hi Comment cterm=italic
 hi Normal guibg=NONE ctermbg=NONE
