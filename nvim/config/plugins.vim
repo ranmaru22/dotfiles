@@ -13,20 +13,10 @@ let g:signify_sign_delete = '•'
 let g:highlightedyank_highlight_duration = 200
 " }}}
 
-" Airline {{{
-let g:airline#extensions#tabline#enabled = 1 
-let g:airline#extensions#tabline#left_sep = "\ue0b8"
-let g:airline#extensions#tabline#right_sep = "\ue0be"
-let g:airline#extensions#tabline#left_alt_sep = "\ue0bb"
-let g:airline#extensions#tabline#right_alt_sep = "\ue0bb"
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline_left_sep = "\ue0b8"
-let g:airline_right_sep = "\ue0be"
-let g:airline_left_alt_sep = "\ue0bb"
-let g:airline_right_alt_sep = "\ue0bb"
-let g:airline_powerline_fonts = 1
-let g:airline_theme='violet'
-let g:airline_skip_empty_sections = 1
+" Spaceline {{{
+let g:spaceline_seperate_style = "slant-fade"
+let g:spaceline_colorscheme = "space"
+let g:spaceline_git_branch_icon = " "
 " }}}
 
 " Emmet {{{

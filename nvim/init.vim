@@ -34,7 +34,7 @@ call plug#begin()
     Plug 'mhinz/vim-signify'
     " Eye candy plugins
     Plug 'junegunn/goyo.vim'
-    Plug 'vim-airline/vim-airline'
+    Plug 'hardcoreplayers/spaceline.vim'
     Plug 'ryanoasis/vim-devicons'
     " Colour schemes
     Plug 'sainnhe/edge'
