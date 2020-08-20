@@ -39,9 +39,9 @@ call plug#begin()
     Plug 'Yggdroot/indentLine'
     Plug 'machakann/vim-highlightedyank'
     " Color schemes
-    Plug 'arzg/vim-colors-xcode'
     Plug 'ayu-theme/ayu-vim'
     Plug 'sainnhe/edge'
+    Plug 'liuchengxu/space-vim-dark'
     Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end() 
 " }}}

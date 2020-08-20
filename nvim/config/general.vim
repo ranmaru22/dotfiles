@@ -12,6 +12,7 @@ set hidden
 set confirm
 set modeline
 set modelines=5
+set mouse=
 
 let mapleader = "\<Space>"
 
@@ -79,6 +80,7 @@ let g:vim_markdown_autowrite = 1
 let g:vim_markdown_edit_url_in = 'tab'
 let g:vim_markdown_follow_anchor = 1
 autocmd FileType markdown setlocal spell spelllang=en_us
+autocmd FileType markdown setlocal wrap
 " }}}
 
 " Debugging {{{
@@ -92,8 +94,13 @@ set termguicolors
 let ayucolor = "mirage"
 let edge_style = "aura"
 let g:edge_enable_italic = 1
-colorscheme edge
+let g:nord_italic = 1
+let g:embark_terminal_italics = 1
+colorscheme space-vim-dark
+hi Comment cterm=italic
 hi Normal guibg=NONE ctermbg=NONE
+hi LineNr     ctermbg=NONE guibg=NONE
+hi SignColumn ctermbg=NONE guibg=NONE
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0

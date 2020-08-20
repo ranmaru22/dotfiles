@@ -129,7 +129,7 @@ let g:airline_right_sep = "\ue0be"
 let g:airline_left_alt_sep = "\ue0bb"
 let g:airline_right_alt_sep = "\ue0bb"
 let g:airline_powerline_fonts = 1
-let g:airline_theme='edge'
+let g:airline_theme='violet'
 let g:airline_skip_empty_sections = 1
 " }}}
 
