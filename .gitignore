@@ -1,5 +1,4 @@
-nvim/plugged
-nvim/.netrwhist
-tmux/plugins
-weechat/sec.conf
-weechat/logs
+.DS_Store
+nvim/.config/nvim/plugged
+nvim/.config/nvim/.netrwhist
+tmux/.config/tmux/plugins
