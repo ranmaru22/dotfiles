@@ -45,7 +45,7 @@ alias reload="source ~/.zshrc"
 # }}}
 
 # Misc {{{
-source ~/.dotfiles/zsh/zsh-theme-edge-dark
+source ~/.config/zsh/zsh-theme-edge-dark
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
