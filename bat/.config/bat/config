@@ -12,7 +12,7 @@
 #
 
 # Theme
---theme="ansi-dark"
+--theme="base16"
 
 # Syntax mapping
 --map-syntax ".ignore:Git Ignore"
