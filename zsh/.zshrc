@@ -11,8 +11,9 @@
 # GitHub:      https://github.com/ranmaru22/dotfiles
 #
 
-# Path {{{
+# Variables {{{
 export PATH=~/.cabal/bin:~/.cargo/bin:$PATH
+export EDITOR=nvim
 # }}}
 
 # Enable p10k {{{
