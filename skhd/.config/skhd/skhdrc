@@ -49,9 +49,6 @@ alt - 0 : yabai -m space --balance
 # Others {{{
 alt - r : brew services restart yabai
 
-# Spawn a terminal
-cmd - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
-
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
