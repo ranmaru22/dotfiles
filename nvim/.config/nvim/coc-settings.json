@@ -21,6 +21,7 @@
   "explorer.width": 30,
   "explorer.floating.width": -10,
   "explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableVimDevicons": true,
   "explorer.previewAction.onHover": true,
   "explorer.presets": {
     "floating": {
