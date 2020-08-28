@@ -5,7 +5,7 @@
 " ██║██║╚██╗██║██║   ██║      ╚██╗ ██╔╝██║██║╚██╔╝██║
 " ██║██║ ╚████║██║   ██║   ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║
 " ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
-"                            
+"
 " File:        init.vim
 " Maintainer:  Alex Sun (ranmaru22)
 " GitHub:      https://github.com/ranmaru22/dotfiles
@@ -27,19 +27,21 @@ call plug#begin()
     Plug 'airblade/vim-rooter'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-obsession'
     Plug 'machakann/vim-highlightedyank'
     " Git plugins
     Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
     Plug 'mhinz/vim-signify'
     " Eye candy plugins
     Plug 'junegunn/goyo.vim'
-    Plug 'hardcoreplayers/spaceline.vim'
+    Plug 'vim-airline/vim-airline'
     Plug 'ryanoasis/vim-devicons'
     " Colour schemes
     Plug 'sainnhe/edge'
     Plug 'liuchengxu/space-vim-dark'
-call plug#end() 
+call plug#end()
 " }}}
 
 source $HOME/.config/nvim/config/general.vim
