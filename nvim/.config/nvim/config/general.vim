@@ -58,7 +58,7 @@ if !has('nvim') && &timeoutlen == -1
 endif
 " }}}
 
-" Syntax Settings {{{
+" Special syntax settings {{{
 let g:asmsyntax = 'nasm'                    " set nasm as default assembler syntax
 
 let g:haskell_enable_quantification = 1     " to enable highlighting of `forall`
@@ -80,14 +80,15 @@ let g:vim_markdown_edit_url_in = 'tab'      " |
 let g:vim_markdown_follow_anchor = 1        " |
 " }}}
 
-" Colors {{{
+" Colours {{{
 set background=dark
 set termguicolors
-let edge_style = "aura"
-let g:edge_enable_italic = 1
+colorscheme space_vim_theme
 colorscheme space-vim-dark
-hi Comment    cterm=italic
-hi Normal     guibg=NONE ctermbg=NONE
+let g:space_vim_italic = 1 
+let g:space_vim_filetype_hi_groups = 1 
+let g:space_vim_plugin_hi_groups = 1 
+hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
 " }}}
