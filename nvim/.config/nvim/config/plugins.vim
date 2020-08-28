@@ -25,12 +25,13 @@ let g:user_emmet_leader_key = ','
 " }}}
 
 " Ctrlp / fzf {{{
-nnoremap <C-p> :GFiles<CR>
-nnoremap <C-f> :Files<CR>
-nnoremap <C-q> :Rg<CR>
-nnoremap <C-b> :Buffers<CR>
+nnoremap <silent><C-p> :GFiles<CR>
+nnoremap <silent><C-f> :Files<CR>
+nnoremap <silent><C-q> :Rg<CR>
+nnoremap <silent><C-b> :Buffers<CR>
 let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
-let $FZF_DEFAULT_COMMAND="rg --files --hidden"
+let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
+let g:fzf_layout = { "window": { "width": 0.8, "height": 0.8 } }
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
