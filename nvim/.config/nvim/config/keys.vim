@@ -2,15 +2,16 @@
 
 " Custom key mappings {{{
 " Git 
-nmap <leader>gs :G<CR>
-nmap <leader>gv :GV<CR>
-nmap <leader>ggd :Gdiff<CR>
+nmap <silent><leader>gs :G<CR>
+nmap <silent><leader>gv :GV<CR>
+nmap <silent><leader>gc :GCheckout<CR>
+nmap <silent><leader>ggd :Gdiff<CR>
 
 " Buffers
-nmap <leader>bn :bn<CR>
-nmap <leader>bp :bp<CR>
-nmap <leader>bd :bd<CR>
-nmap <leader>bc :bc<CR>
+nmap <silent><leader>bn :bn<CR>
+nmap <silent><leader>bp :bp<CR>
+nmap <silent><leader>bd :bd<CR>
+nmap <silent><leader>bc :bc<CR>
 
 " Consistent yanking
 nnoremap Y y$
