@@ -1,11 +1,43 @@
 " CUSTOM KEY-BINDINGS AND COMMANDS
 
 " Custom key mappings {{{
+" Git 
 nmap <leader>gs :G<CR>
-nmap <C-l> :bn<CR>
-nmap <C-h> :bp<CR>
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC <bar> :doautocmd BufRead<CR>
+nmap <leader>gv :GV<CR>
+nmap <leader>ggd :Gdiff<CR>
+
+" Buffers
+nmap <leader>bn :bn<CR>
+nmap <leader>bp :bp<CR>
+nmap <leader>bd :bd<CR>
+nmap <leader>bc :bc<CR>
+
+" Consistent yanking
+nnoremap Y y$
+vnoremap Y y$
+
+" Clear highlighting
+nnoremap <silent><BS> :nohlsearch<CR>
+
+" Prettify
+noremap <leader>pp =ip
+
+" Change all occurences of a word
+nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
+nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
+nnoremap d* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgn
+nnoremap d# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgN
+
+" Quick-select previously pasted text
+nnoremap <expr> sp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Macros
+nnoremap Q @q
+vnoremap Q :norm !q<CR>
+
+" Config
+nnoremap <leader>ve :vsp $MYVIMRC<CR>
+nnoremap <leader>vs :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 " }}}
 
 " Custom Commands {{{
