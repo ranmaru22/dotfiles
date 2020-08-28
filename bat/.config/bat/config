@@ -12,7 +12,7 @@
 #
 
 # Theme
---theme="base16"
+--theme="Dracula"
 
 # Syntax mapping
 --map-syntax ".ignore:Git Ignore"
