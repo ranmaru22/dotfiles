@@ -33,6 +33,7 @@ call plug#begin()
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
+    Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
     " Eye candy plugins
     Plug 'junegunn/goyo.vim'
@@ -41,6 +42,7 @@ call plug#begin()
     " Colour schemes
     Plug 'sainnhe/edge'
     Plug 'liuchengxu/space-vim-dark'
+    Plug 'liuchengxu/space-vim-theme'
 call plug#end()
 " }}}
 
