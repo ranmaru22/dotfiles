@@ -23,6 +23,7 @@ call plug#begin()
     " Utilities
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'voldikss/vim-floaterm'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'airblade/vim-rooter'
     Plug 'tpope/vim-commentary'

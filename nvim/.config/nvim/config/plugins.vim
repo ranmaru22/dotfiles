@@ -24,6 +24,12 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 let g:user_emmet_leader_key = ','
 " }}}
 
+" Floaterm {{{
+let g:floaterm_autoclose = 1
+nnoremap <silent><leader>f :FloatermNew ranger<CR>
+nnoremap <silent><leader>' :FloatermNew<CR>
+" }}}
+
 " Ctrlp / fzf {{{
 nnoremap <silent><C-p> :GFiles<CR>
 nnoremap <silent><C-f> :Files<CR>
