@@ -11,37 +11,29 @@
 # GitHub:      https://github.com/ranmaru22/dotfiles
 #
 
-# Enable p10k {{{
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-# }}}
-
 # Enable starship {{{
 eval "$(starship init zsh)"
 # }}}
 
-# Source Prezto {{{
+# Sourcing {{{
+source ~/.config/zsh/zsh-theme-edge-dark
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 # }}}
 
 # Custom aliases {{{
-alias c=clear
-alias vim=nvim
-alias cvi="nvim ~/.config/nvim/init.vim"
 alias myip="curl http://ipecho.net/plain; echo"
-alias reload="source ~/.zshrc"
-# }}}
+alias reload="source ~/.zprofile; source ~/.zshrc; source ~/.zshenv"
 
-# Source p10k {{{
-# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-# [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
-# }}}
+if ! type "$nvim" > /dev/null; then
+    alias vim=nvim
+    alias cvi="nvim ~/.config/nvim/init.vim"
+fi
 
-# Misc {{{
-source ~/.config/zsh/zsh-theme-edge-dark
+if ! type "$lsd" > /dev/null; then
+    alias ls=lsd
+fi
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
