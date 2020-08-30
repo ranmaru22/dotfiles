@@ -36,6 +36,9 @@ call plug#begin()
     Plug 'junegunn/gv.vim'
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
+    " Snippets
+    Plug 'hrsh7th/vim-vsnip'
+    Plug 'hrsh7th/vim-vsnip-integ'
     " Eye candy plugins
     Plug 'junegunn/goyo.vim'
     Plug 'vim-airline/vim-airline'

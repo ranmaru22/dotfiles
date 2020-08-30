@@ -30,6 +30,12 @@ nnoremap <silent><leader>f :FloatermNew --height=0.8 --width=0.8 ranger<CR>
 nnoremap <silent><leader>' :FloatermNew<CR>
 " }}}
 
+" vsnip {{{
+let g:vsnip_snippet_dir = $HOME . '/.config/nvim/snippets'
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+" }}}
+
 " Ctrlp / fzf {{{
 nnoremap <silent><C-p> :GFiles<CR>
 nnoremap <silent><C-f> :Files<CR>
