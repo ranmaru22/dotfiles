@@ -29,6 +29,7 @@ call plug#begin()
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-obsession'
+    Plug 'tpope/vim-sleuth'
     Plug 'machakann/vim-highlightedyank'
     " Git plugins
     Plug 'tpope/vim-fugitive'
