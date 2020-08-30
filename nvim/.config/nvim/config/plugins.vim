@@ -26,7 +26,7 @@ let g:user_emmet_leader_key = ','
 
 " Floaterm {{{
 let g:floaterm_autoclose = 1
-nnoremap <silent><leader>f :FloatermNew ranger<CR>
+nnoremap <silent><leader>f :FloatermNew --height=0.8 --width=0.8 ranger<CR>
 nnoremap <silent><leader>' :FloatermNew<CR>
 " }}}
 
