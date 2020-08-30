@@ -11,6 +11,7 @@ let g:coc_global_extensions = [
     \ 'coc-rls',
     \ 'coc-sh',
     \ 'coc-ccls',
+    \ 'coc-vimlsp',
     \ 'coc-snippets'
     \ ]
 " }}}
