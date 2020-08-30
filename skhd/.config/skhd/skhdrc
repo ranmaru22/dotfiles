@@ -42,8 +42,8 @@ shift + alt - d : yabai -m window --resize right:20:0;\
 # }}}
 
 # Spaces {{{
-alt - down : yabai -m space --rotate 90
-alt - 0 : yabai -m space --balance
+alt + t         : yabai -m space --rotate 90
+shift + alt - 0 : yabai -m space --balance
 # }}}
 
 # Others {{{
