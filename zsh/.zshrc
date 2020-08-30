@@ -15,7 +15,7 @@
 export PATH=~/.cabal/bin:~/.cargo/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin:$PATH
 
 if ! type "$highlight" > /dev/null; then
-    export HIGHLIGHT_STYLE='base16/spacemacs'
+    export HIGHLIGHT_STYLE='duotone-dark-space'
 fi
 
 if ! type "$nvim" > /dev/null; then
