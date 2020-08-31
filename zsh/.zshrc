@@ -26,16 +26,19 @@ export PATH
 # }}}
 
 # Environment variables {{{
-if ! type "$highlight" > /dev/null; then
+if type highlight > /dev/null; then
   export HIGHLIGHT_STYLE='duotone-dark-space'
 fi
 
-if ! type "$nvim" > /dev/null; then
+if type nvim &> /dev/null; then
   export EDITOR='nvim'
   export VISUAL='nvim'
-else
+elif type vim &> /dev/null; then
   export EDITOR='vim'
   export VISUAL='vim'
+else
+  export EDITOR='vi'
+  export VISUAL='vi'
 fi
 
 export PAGER='less'
@@ -43,7 +46,9 @@ export CLICOLOR=1
 # }}}
 
 # Enable starship {{{
-eval "$(starship init zsh)"
+if type starship &> /dev/null; then
+  eval "$(starship init zsh)"
+fi
 # }}}
 
 # Sourcing {{{
@@ -56,7 +61,7 @@ fi
 alias myip="curl http://ipecho.net/plain; echo"
 alias reload="source ~/.zshrc"
 
-if ! type "$nvim" > /dev/null; then
+if type nvim &> /dev/null; then
   alias vim=nvim
   alias cvi="nvim ~/.config/nvim/init.vim"
 fi
