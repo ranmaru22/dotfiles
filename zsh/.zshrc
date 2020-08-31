@@ -11,19 +11,31 @@
 # GitHub:      https://github.com/ranmaru22/dotfiles
 #
 
-# Environment variables {{{
-export PATH=~/.cabal/bin:~/.cargo/bin:/Library/Frameworks/Python.framework/Versions/3.8/bin:$PATH
+# PATH {{{
+function pathAppend {
+  if [ -d "$1" ] && ! echo $PATH | grep -Eq "(^|:)$1($|:)"; then
+    PATH="${PATH:+${PATH}:}$1"
+  fi
+}
 
+pathAppend ~/.cabal/bin:~/.cargo/bin
+pathAppend Library/Frameworks/Python.framework/Versions/3.8/bin
+pathAppend ~/.scripts/bin
+
+export PATH
+# }}}
+
+# Environment variables {{{
 if ! type "$highlight" > /dev/null; then
-    export HIGHLIGHT_STYLE='duotone-dark-space'
+  export HIGHLIGHT_STYLE='duotone-dark-space'
 fi
 
 if ! type "$nvim" > /dev/null; then
-    export EDITOR='nvim'
-    export VISUAL='nvim'
+  export EDITOR='nvim'
+  export VISUAL='nvim'
 else
-    export EDITOR='vim'
-    export VISUAL='vim'
+  export EDITOR='vim'
+  export VISUAL='vim'
 fi
 
 export PAGER='less'
@@ -45,8 +57,8 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias reload="source ~/.zshrc"
 
 if ! type "$nvim" > /dev/null; then
-    alias vim=nvim
-    alias cvi="nvim ~/.config/nvim/init.vim"
+  alias vim=nvim
+  alias cvi="nvim ~/.config/nvim/init.vim"
 fi
 # }}}
 
