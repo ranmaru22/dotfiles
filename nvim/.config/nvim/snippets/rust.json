@@ -1,0 +1,19 @@
+{
+  "Derive Debug": {
+    "prefix": "deb",
+    "body": ["#[derive(Debug)]"],
+    "description": "Derive Debug trait"
+  },
+
+  "Derive PartialEq": {
+    "prefix": "peq",
+    "body": ["#[derive(PartialEq)]"],
+    "description": "Derive PartialEq trait"
+  },
+
+  "Derive Eq": {
+    "prefix": "eq",
+    "body": ["#[derive(Eq)]"],
+    "description": "Derive Eq trait"
+  }
+}
