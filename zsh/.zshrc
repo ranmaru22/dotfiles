@@ -18,7 +18,8 @@ function pathAppend {
   fi
 }
 
-pathAppend ~/.cabal/bin:~/.cargo/bin
+pathAppend ~/.cabal/bin
+pathAppend ~/.cargo/bin
 pathAppend Library/Frameworks/Python.framework/Versions/3.8/bin
 pathAppend ~/.scripts/bin
 
