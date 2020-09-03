@@ -68,4 +68,8 @@ if type nvim &> /dev/null; then
 fi
 # }}}
 
+# Enable kitty completion {{{
+kitty + complete setup zsh | source /dev/stdin
+# }}}
+
 # vim:foldmethod=marker:foldlevel=0
