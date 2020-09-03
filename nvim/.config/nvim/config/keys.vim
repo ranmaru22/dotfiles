@@ -17,6 +17,10 @@ nmap <silent><leader>bc :bc<CR>
 nnoremap Y y$
 vnoremap Y y$
 
+" Better deleting
+noremap x "_x
+noremap X "_D
+
 " Clear highlighting
 nnoremap <silent><BS> :nohlsearch<CR>
 
