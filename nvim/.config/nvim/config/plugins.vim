@@ -40,10 +40,14 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css,jsx,tsx EmmetInstall
 " }}}
 
-" Floaterm {{{
-let g:floaterm_autoclose = 1
-nnoremap <silent><leader>f :FloatermNew --height=0.8 --width=0.8 ranger<CR>
-nnoremap <silent><leader>' :FloatermNew<CR>
+" nnn {{{
+let g:nnn#set_default_mappings = 0
+nnoremap <leader>f :NnnPicker '%:p:h'<CR>
+let g:nnn#command = 'nnn -d'
+let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
+let g:nnn#action = {
+      \ '<c-s>': 'split',
+      \ '<c-v>': 'vsplit' }
 " }}}
 
 " vsnip {{{
