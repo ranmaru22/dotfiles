@@ -1,7 +1,7 @@
 " CUSTOM KEY-BINDINGS AND COMMANDS
 
 " Custom key mappings {{{
-" Git 
+" Git
 nmap <silent><leader>gs :G<CR>
 nmap <silent><leader>gv :GV<CR>
 nmap <silent><leader>gc :GCheckout<CR>
