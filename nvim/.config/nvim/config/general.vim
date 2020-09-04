@@ -85,9 +85,9 @@ set background=dark
 set termguicolors
 colorscheme space_vim_theme
 colorscheme space-vim-dark
-let g:space_vim_italic = 1 
-let g:space_vim_filetype_hi_groups = 1 
-let g:space_vim_plugin_hi_groups = 1 
+let g:space_vim_italic = 1
+let g:space_vim_filetype_hi_groups = 1
+let g:space_vim_plugin_hi_groups = 1
 hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
