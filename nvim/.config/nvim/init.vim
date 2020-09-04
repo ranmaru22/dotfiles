@@ -41,7 +41,6 @@ call plug#begin()
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
     " Eye candy plugins
-    Plug 'junegunn/goyo.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'ryanoasis/vim-devicons'
     " Colour schemes

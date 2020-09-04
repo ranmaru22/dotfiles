@@ -15,13 +15,29 @@ let g:highlightedyank_highlight_duration = 200
 
 " Airline {{{
 let g:airline_powerline_fonts = 1
-let g:airline_theme = "violet" 
+let g:airline_theme = "violet"
+let g:airline_skip_empty_sections = 1
+let g:airline_highlighting_cache = 1
+let g:airline#extensions#branch#vcs_checks = []
+let g:airline_section_y = ''
+let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
+
+" Symbols
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_symbols.branch = ''
+let g:airline_symbols.spell = ''
+
+" Tabline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " }}}
 
 " Emmet {{{
 let g:user_emmet_leader_key = ','
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,jsx,tsx EmmetInstall
 " }}}
 
 " Floaterm {{{
