@@ -60,17 +60,6 @@ function! s:show_documentation()
 endfunction
 " }}}
 
-" " CoC Explorer {{{
-" let g:coc_explorer_global_presets = {
-"     \ 'floating': {
-"         \ 'position': 'floating',
-"         \ 'open-action-strategy': 'sourceWindow'
-"         \ }
-"     \ }
-" map <C-n> :CocCommand explorer<CR>
-" nmap <Leader>f :CocCommand explorer --preset floating<CR>
-" " }}}
-
 " CoC Key mappings {{{
 nnoremap <silent><nowait> <Leader>ca  :<C-u>CocList diagnostics<cr>
 nnoremap <silent><nowait> <Leader>ce  :<C-u>CocList extensions<cr>
