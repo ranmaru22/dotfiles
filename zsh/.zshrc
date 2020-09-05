@@ -46,6 +46,28 @@ export PAGER='less'
 export CLICOLOR=1
 # }}}
 
+# nnn settings {{{
+function nLaunch {
+  if [ -n $NNNLVL ] && [ "${NNNLVL:-0}" -ge 1 ]; then
+    echo "nnn is already running"
+    return
+  fi
+
+  export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
+  nnn "$@"
+
+  if [ -f "$NNN_TMPFILE" ]; then
+    . "$NNN_TMPFILE"
+    rm -f "$NNN_TMPFILE" > /dev/null
+  fi
+}
+
+if type nnn &> /dev/null; then
+  export NNN_PLUG='f:fzcd;o:fzopen;p:preview-tui'
+  alias n=nLaunch
+fi
+# }}}
+
 # Enable starship {{{
 if type starship &> /dev/null; then
   eval "$(starship init zsh)"
@@ -58,13 +80,19 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 # }}}
 
-# Custom aliases {{{
+# Custom aliases & bindings {{{
 alias myip="curl http://ipecho.net/plain; echo"
 alias reload="source ~/.zshrc"
+
+bindkey -s '^H' 'cd ~\n'
 
 if type nvim &> /dev/null; then
   alias vim=nvim
   alias cvi="nvim ~/.config/nvim/init.vim"
+fi
+
+if type exa &> /dev/null; then
+  alias ls="exa --icons"
 fi
 # }}}
 
