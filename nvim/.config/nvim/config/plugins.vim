@@ -37,7 +37,7 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 " Emmet {{{
 let g:user_emmet_leader_key = ','
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,jsx,tsx EmmetInstall
+autocmd FileType html,css,javascriptreact,typescriptreact EmmetInstall
 " }}}
 
 " nnn {{{
