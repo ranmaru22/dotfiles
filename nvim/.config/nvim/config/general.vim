@@ -19,6 +19,9 @@ set backspace=indent,eol,start
 set smarttab
 set noshowmode
 
+" Spelling
+set spell spelllang=en_ca
+
 set autoindent
 set smartindent
 set expandtab
