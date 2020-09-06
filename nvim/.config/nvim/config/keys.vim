@@ -20,7 +20,14 @@ vnoremap Y y$
 " Deleting without yanking
 noremap x  "_x
 noremap X  "_D
-noremap dx "_dd
+
+" Yanking & pasting from clipboard
+nnoremap sy "*y
+vnoremap sy "*y
+nnoremap sp "*p
+vnoremap sp "*p
+nnoremap sP "*P
+vnoremap sP "*P
 
 " Clear highlighting
 nnoremap <silent><BS> :nohlsearch<CR>
@@ -33,9 +40,10 @@ nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 nnoremap d* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgn
 nnoremap d# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgN
+nnoremap d# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgN
 
 " Quick-select previously pasted text
-nnoremap <expr> sp '`[' . strpart(getregtype(), 0, 1) . '`]'
+nnoremap <expr> qp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " Macros
 nnoremap Q @q
