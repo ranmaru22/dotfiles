@@ -54,7 +54,7 @@ function nLaunch {
   fi
 
   export NNN_TMPFILE="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/.lastd"
-  nnn -c "$@"
+  nnn "$@"
 
   if [ -f "$NNN_TMPFILE" ]; then
     . "$NNN_TMPFILE"
@@ -64,8 +64,7 @@ function nLaunch {
 
 if type nnn &> /dev/null; then
   export NNN_OPENER="${XDG_CONFIG_HOME:-$HOME/.config}/nnn/plugins/nuke"
-  export NNN_PLUG='f:fzcd;o:fzopen;p:preview-tui'
-  alias nnn="nnn -c"
+  export NNN_PLUG='f:fzcd;o:fzopen;t:treeview;i:imgview'
   alias n=nLaunch
 fi
 # }}}
