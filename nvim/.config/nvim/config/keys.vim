@@ -2,9 +2,9 @@
 
 " Custom key mappings {{{
 " Git
-nmap <silent><leader>gs :G<CR>
-nmap <silent><leader>gv :GV<CR>
-nmap <silent><leader>gc :GCheckout<CR>
+nmap <silent><leader>gs  :G<CR>
+nmap <silent><leader>gv  :GV<CR>
+nmap <silent><leader>gc  :GCheckout<CR>
 nmap <silent><leader>ggd :Gdiff<CR>
 
 " Buffers
@@ -17,9 +17,10 @@ nmap <silent><leader>bc :bc<CR>
 nnoremap Y y$
 vnoremap Y y$
 
-" Better deleting
-noremap x "_x
-noremap X "_D
+" Deleting without yanking
+noremap x  "_x
+noremap X  "_D
+noremap xd "_dd
 
 " Clear highlighting
 nnoremap <silent><BS> :nohlsearch<CR>
