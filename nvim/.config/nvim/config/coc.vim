@@ -41,15 +41,17 @@ else
 endif
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
-nmap <leader>rn <Plug>(coc-rename)
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementations)
-nmap <silent> gr <Plug>(coc-references)
+nmap <leader>rr <Plug>(coc-rename)
+xmap <leader>cf <Plug>(coc-format-selected)
+nmap <leader>cf <Plug>(coc-format-selected)
+nmap <silent>gd <Plug>(coc-definition)
+nmap <silent>gy <Plug>(coc-type-definition)
+nmap <silent>gi <Plug>(coc-implementations)
+nmap <silent>gr <Plug>(coc-references)
 nmap <leader>qf <Plug>(coc-fix-current)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> <leader>grw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 function! s:show_documentation()
     if (index(['vim', 'help'], &filetype) >= 0)
@@ -61,17 +63,14 @@ endfunction
 " }}}
 
 " CoC Key mappings {{{
-nnoremap <silent><nowait> <Leader>ca  :<C-u>CocList diagnostics<cr>
-nnoremap <silent><nowait> <Leader>ce  :<C-u>CocList extensions<cr>
-nnoremap <silent><nowait> <Leader>cc  :<C-u>CocList commands<cr>
-nnoremap <silent><nowait> <Leader>co  :<C-u>CocList outline<cr>
-nnoremap <silent><nowait> <Leader>cs  :<C-u>CocList -I symbols<cr>
-nnoremap <silent><nowait> <Leader>cj  :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <Leader>ck  :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <Leader>cp  :<C-u>CocListResume<CR>
-
-nmap <Leader>rr <Plug>(coc-rename)
-nnoremap <Leader>grw :CocSearch <C-R>=expand("<cword>")<CR><CR>
+nnoremap <silent><nowait> <Leader>ca :<C-u>CocList diagnostics<cr>
+nnoremap <silent><nowait> <Leader>ce :<C-u>CocList extensions<cr>
+nnoremap <silent><nowait> <Leader>cc :<C-u>CocList commands<cr>
+nnoremap <silent><nowait> <Leader>co :<C-u>CocList outline<cr>
+nnoremap <silent><nowait> <Leader>cs :<C-u>CocList -I symbols<cr>
+nnoremap <silent><nowait> <Leader>cj :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <Leader>ck :<C-u>CocPrev<CR>
+nnoremap <silent><nowait> <Leader>cp :<C-u>CocListResume<CR>
 " }}}
 
 " CoC Snippets {{{
