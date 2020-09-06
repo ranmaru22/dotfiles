@@ -20,7 +20,7 @@ vnoremap Y y$
 " Deleting without yanking
 noremap x  "_x
 noremap X  "_D
-noremap xd "_dd
+noremap dx "_dd
 
 " Clear highlighting
 nnoremap <silent><BS> :nohlsearch<CR>
