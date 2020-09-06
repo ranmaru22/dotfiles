@@ -43,7 +43,7 @@ autocmd FileType html,css,javascriptreact,typescriptreact EmmetInstall
 " nnn {{{
 let g:nnn#set_default_mappings = 0
 nnoremap <leader>f :NnnPicker '%:p:h'<CR>
-let g:nnn#command = 'nnn -d'
+let g:nnn#command = 'nnn -cd'
 let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 let g:nnn#action = {
       \ '<c-s>': 'split',
