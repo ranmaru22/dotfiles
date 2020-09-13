@@ -18,6 +18,7 @@ let mapleader = "\<Space>"
 set backspace=indent,eol,start
 set smarttab
 set noshowmode
+set nojoinspaces
 
 set autoindent
 set smartindent
