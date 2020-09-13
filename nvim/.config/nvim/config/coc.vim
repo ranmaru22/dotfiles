@@ -2,6 +2,7 @@
 
 " CoC Extensions {{{
 let g:coc_global_extensions = [
+    \ 'coc-git',
     \ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-eslint',
