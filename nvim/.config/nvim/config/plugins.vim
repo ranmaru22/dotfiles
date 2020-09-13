@@ -13,48 +13,35 @@ let g:signify_sign_delete = '•'
 let g:highlightedyank_highlight_duration = 200
 " }}}
 
-" Lightline {{{
-let g:lightline = {
-    \ 'active': {
-    \   'left':  [ [ 'mode', 'paste' ],
-    \              [ 'branch', 'filename', 'readonly', 'modified' ] ],
-    \   'right': [ [ 'lineinfo' ],
-    \              [ 'percent' ],
-    \              [ 'spell', 'fileformat', 'fileencoding', 'filetype' ] ]
-    \ },
-    \ 'component_function': {
-    \   'branch': 'LightLineGitBranch',
-    \ },
+" Buftabline {{{
+hi! link BufTabLineCurrent FileName
+hi! link BufTabLineActive  GitInfo
+hi! link BufTabLineHidden  LineFormatRight
+hi! link BufTabLineFill    CocBar
+let g:buftabline_separators = "on"
+" }}}
+
+" Spaceline {{{
+hi! HomeMode gui=bold
+let g:spaceline_seperate_style= 'slant-fade'
+let g:spaceline_colorscheme = 'space'
+let g:spaceline_git_branch_icon = ' '
+let g:spaceline_funcicon = ' '
+let g:spaceline_diagnostic_warnsign = ' '
+let g:spaceline_diagnostic_errorsign = '✘'
+let g:spaceline_custom_vim_status = {
+    \ "n":"NORMAL",
+    \ "V":"V-LINE", "v":"VISUAL", "\<C-v>":"V-BLOCK",
+    \ "i":"INSERT", "R":"REPLACE",
+    \ "s":"SELECT", "t":"TERM", "c":"COMMAND", "!":"SE"
     \ }
-
-function! LightLineGitBranch()
-    if exists('*FugitiveHead')
-        let branch = FugitiveHead()
-        return branch !=# '' ? ' '.branch : ''
-    endif
-    return ''
-endfunction
-
-let g:lightline.colorscheme = 'one'
-let g:lightline.separator = { 'left': "\uE0BC", 'right': "\uE0BE" }
-" let g:lightline.subseparator = { 'left': "\uE0BD", 'right': "\uE0BF" }
-
+let g:spaceline_custom_diff_icon = [' ', ' ', ' ']
 " }}}
 
 " Emmet {{{
 let g:user_emmet_leader_key = ','
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,javascriptreact,typescriptreact EmmetInstall
-" }}}
-
-" nnn {{{
-let g:nnn#set_default_mappings = 0
-nnoremap <silent><leader>f :NnnPicker '%:p:h'<CR>
-let g:nnn#command = 'nnn -cd'
-let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
-let g:nnn#action = {
-      \ '<c-s>': 'split',
-      \ '<c-v>': 'vsplit' }
 " }}}
 
 " vsnip {{{

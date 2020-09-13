@@ -24,8 +24,6 @@ call plug#begin()
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
-    " File management
-    Plug 'mcchrish/nnn.vim'
     " Utilities
     Plug 'justinmk/vim-sneak'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -34,6 +32,9 @@ call plug#begin()
     Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-sleuth'
     Plug 'machakann/vim-highlightedyank'
+    " File manager
+    Plug 'ptzz/lf.vim'
+    Plug 'rbgrouleff/bclose.vim'
     " Git plugins
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'
@@ -44,8 +45,8 @@ call plug#begin()
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
     " Eye candy plugins
-    " Plug 'vim-airline/vim-airline'
-    Plug 'itchyny/lightline.vim'
+    Plug 'ap/vim-buftabline'
+    Plug 'glepnir/spaceline.vim'
     Plug 'ryanoasis/vim-devicons'
     " Colour schemes
     Plug 'liuchengxu/space-vim-dark'
