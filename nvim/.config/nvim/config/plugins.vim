@@ -13,25 +13,32 @@ let g:signify_sign_delete = '•'
 let g:highlightedyank_highlight_duration = 200
 " }}}
 
-" Airline {{{
-let g:airline_powerline_fonts = 1
-let g:airline_theme = "violet"
-let g:airline_skip_empty_sections = 1
-let g:airline_highlighting_cache = 1
-let g:airline#extensions#branch#vcs_checks = []
-let g:airline_section_y = ''
-let g:webdevicons_enable_airline_statusline_fileformat_symbols = 0
+" Lightline {{{
+let g:lightline = {
+    \ 'active': {
+    \   'left':  [ [ 'mode', 'paste' ],
+    \              [ 'branch', 'filename', 'readonly', 'modified' ] ],
+    \   'right': [ [ 'lineinfo' ],
+    \              [ 'percent' ],
+    \              [ 'spell', 'fileformat', 'fileencoding', 'filetype' ] ]
+    \ },
+    \ 'component_function': {
+    \   'branch': 'LightLineGitBranch',
+    \ },
+    \ }
 
-" Symbols
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_symbols.branch = ''
-let g:airline_symbols.spell = ''
+function! LightLineGitBranch()
+    if exists('*FugitiveHead')
+        let branch = FugitiveHead()
+        return branch !=# '' ? ' '.branch : ''
+    endif
+    return ''
+endfunction
 
-" Tabline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+let g:lightline.colorscheme = 'one'
+let g:lightline.separator = { 'left': "\uE0BC", 'right': "\uE0BE" }
+" let g:lightline.subseparator = { 'left': "\uE0BD", 'right': "\uE0BF" }
+
 " }}}
 
 " Emmet {{{
@@ -42,7 +49,7 @@ autocmd FileType html,css,javascriptreact,typescriptreact EmmetInstall
 
 " nnn {{{
 let g:nnn#set_default_mappings = 0
-nnoremap <leader>f :NnnPicker '%:p:h'<CR>
+nnoremap <silent><leader>f :NnnPicker '%:p:h'<CR>
 let g:nnn#command = 'nnn -cd'
 let g:nnn#layout = { 'window': { 'width': 0.9, 'height': 0.6, 'highlight': 'Debug' } }
 let g:nnn#action = {

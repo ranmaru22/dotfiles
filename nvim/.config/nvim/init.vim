@@ -14,18 +14,21 @@
 " Plugins {{{
 call plug#begin()
     " Syntax plugins
+    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'sheerun/vim-polyglot'
     Plug 'neovimhaskell/haskell-vim'
     Plug 'arzg/vim-rust-syntax-ext'
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'peitalin/vim-jsx-typescript'
     Plug 'mattn/emmet-vim'
-    " Utilities
+    " Fuzzy finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'mcchrish/nnn.vim'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'airblade/vim-rooter'
+    " File management
+    Plug 'mcchrish/nnn.vim'
+    " Utilities
+    Plug 'justinmk/vim-sneak'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-obsession'
@@ -41,10 +44,10 @@ call plug#begin()
     Plug 'hrsh7th/vim-vsnip'
     Plug 'hrsh7th/vim-vsnip-integ'
     " Eye candy plugins
-    Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline'
+    Plug 'itchyny/lightline.vim'
     Plug 'ryanoasis/vim-devicons'
     " Colour schemes
-    Plug 'sainnhe/edge'
     Plug 'liuchengxu/space-vim-dark'
     Plug 'liuchengxu/space-vim-theme'
 call plug#end()
