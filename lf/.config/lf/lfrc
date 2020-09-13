@@ -1,0 +1,93 @@
+#
+#  ██╗     ███████╗██████╗  ██████╗
+#  ██║     ██╔════╝██╔══██╗██╔════╝
+#  ██║     █████╗  ██████╔╝██║     
+#  ██║     ██╔══╝  ██╔══██╗██║     
+#  ███████╗██║     ██║  ██║╚██████╗
+#  ╚══════╝╚═╝     ╚═╝  ╚═╝ ╚═════╝
+#
+# File:         lfrc
+# Maintainer:   Alex Sun (ranmaru22)
+# GitHub:       https://github.com/ranmaru22/dotfiles
+#
+
+# Basic settings {{{
+set shell sh
+set shellopts '-eu'
+set ifs "\n"
+
+set scrolloff 10
+
+set drawbox true
+set icons true
+set color256 true
+# }}}
+
+# Custom key mappings {{{
+# use enter for shell commands
+map <enter> shell
+
+# execute current file (must be executable)
+map x $$f
+map X !$f
+
+# dedicated keys for file opener actions
+map o open $f
+map O $open $f
+
+# fuzzy find
+map <c-p> fzf-dir .
+map <c-f> fzf-file .
+# }}}
+
+# Commands {{{
+cmd fzf-dir ${{
+    path=$(fd -t=d -H -E .git "$1" | fzf)
+    lf -remote "send cd ${path:=.}"
+}}
+
+cmd fzf-file ${{
+    path=$(fd -t=f -H -E .git "$1" | fzf | xargs -I{} dirname {})
+    lf -remote "send cd ${path:=.}"
+}}
+
+cmd open ${{
+    case $(file --mime-type $f -b) in
+        text/*) $EDITOR $fx;;
+        *) for f in $fx; do setsid $OPENER $f > /dev/null 2> /dev/null & done;;
+    esac
+}}
+
+# Auto file extraction
+cmd extract ${{
+    set -f
+    case $f in
+        *.tar.bz|*.tar.bz2|*.tbz|*.tbz2) tar xjvf $f;;
+        *.tar.gz|*.tgz) tar xzvf $f;;
+        *.tar.xz|*.txz) tar xJvf $f;;
+        *.zip) unzip $f;;
+        *.rar) unrar x $f;;
+        *.7z) 7z x $f;;
+    esac
+}}
+
+# Tar
+cmd tar ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    tar czf $1.tar.gz $1
+    rm -rf $1
+}}
+
+# Zip
+cmd zip ${{
+    set -f
+    mkdir $1
+    cp -r $fx $1
+    zip -r $1.zip $1
+    rm -rf $1
+}}
+# }}}
+
+# vim:foldmethod=marker:foldlevel=0:syntax=conf
