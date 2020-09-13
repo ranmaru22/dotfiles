@@ -22,12 +22,12 @@ noremap x  "_x
 noremap X  "_D
 
 " Yanking & pasting from clipboard
-nnoremap sy "*y
-vnoremap sy "*y
-nnoremap sp "*p
-vnoremap sp "*p
-nnoremap sP "*P
-vnoremap sP "*P
+nnoremap 'y "*y
+vnoremap 'y "*y
+nnoremap 'p "*p
+vnoremap 'p "*p
+nnoremap 'P "*P
+vnoremap 'P "*P
 
 " Clear highlighting
 nnoremap <silent><BS> :nohlsearch<CR>
