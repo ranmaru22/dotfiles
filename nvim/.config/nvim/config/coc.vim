@@ -16,6 +16,10 @@ let g:coc_global_extensions = [
     \ ]
 " }}}
 
+" CoC Pairs {{{
+autocmd FileType markdown let b:coc_pairs_disabled = ['`']
+" }}}
+
 " CoC Intellisense {{{
 set cmdheight=2
 set updatetime=300
