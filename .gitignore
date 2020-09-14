@@ -2,4 +2,4 @@
 nvim/.config/nvim/plugged
 nvim/.config/nvim/.netrwhist
 tmux/.config/tmux/plugins
-ranger/.config/ranger/plugins
+zsh/.config/zsh/load_plugins.sh
