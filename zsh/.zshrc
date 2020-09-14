@@ -12,8 +12,7 @@
 #
 
 zstyle ':completion:*' menu select
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 zmodload -i zsh/complist
 
 # Plugins & addons {{{
@@ -47,12 +46,8 @@ if type starship &> /dev/null; then
 fi
 # }}}
 
-# Custom aliases & bindings {{{
-# }}}
-
 # Enable kitty completion {{{
 kitty + complete setup zsh | source /dev/stdin
 # }}}
-
 
 # vim:foldmethod=marker:foldlevel=0
