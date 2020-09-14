@@ -1,0 +1,6 @@
+Tarrasch/zsh-command-not-found
+Aloxaf/fzf-tab
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+zdharma/fast-syntax-highlighting
