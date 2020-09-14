@@ -10,6 +10,8 @@ if type exa &> /dev/null; then
   alias ls="exa --icons"
 fi
 
+alias rm="rm -v"
+
 # Git aliases {{{
 alias gp="git push"
 alias gf="git fetch"

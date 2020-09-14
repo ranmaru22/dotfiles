@@ -18,13 +18,24 @@ zmodload -i zsh/complist
 # Plugins & addons {{{
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
 
-source <(antibody init)
-antibody bundle < "$ZSH_CONFIG_DIR/plugins.txt"
+function loadZshPlugins {
+  antibody bundle < $ZSH_CONFIG_DIR/plugins.txt > $ZSH_CONFIG_DIR/load_plugins.sh
+}
+
+source "$ZSH_CONFIG_DIR/load_plugins.sh"
 source "$ZSH_CONFIG_DIR/icons.zsh"
 source "$ZSH_CONFIG_DIR/aliases.zsh"
 # }}}
 
+# Language {{{
+if [[ -z "$LANG" ]]; then
+  export LANG='en_CA.UTF-8'
+fi
+# }}}
+
 # PATH {{{
+typeset -gU cdpath fpath mailpath path
+
 function pathAppend {
   if [ -d "$1" ] && ! echo $PATH | grep -Eq "(^|:)$1($|:)"; then
     PATH="${PATH:+${PATH}:}$1"
