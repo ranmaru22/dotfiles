@@ -22,6 +22,9 @@ function loadZshPlugins {
   antibody bundle < $ZSH_CONFIG_DIR/plugins.txt > $ZSH_CONFIG_DIR/load_plugins.sh
 }
 
+bindkey '^J' history-substring-search-down
+bindkey '^K' history-substring-search-up
+
 source "$ZSH_CONFIG_DIR/load_plugins.sh"
 source "$ZSH_CONFIG_DIR/icons.zsh"
 source "$ZSH_CONFIG_DIR/aliases.zsh"
