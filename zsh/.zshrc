@@ -20,6 +20,7 @@ function pathAppend {
 
 pathAppend ~/.cabal/bin
 pathAppend ~/.cargo/bin
+pathAppend ~/.go/bin
 pathAppend Library/Frameworks/Python.framework/Versions/3.8/bin
 pathAppend ~/.scripts/bin
 
@@ -42,6 +43,9 @@ else
   export VISUAL='vi'
 fi
 
+export GOPATH=$HOME/.go
+
+export XDG_CONFIG_HOME=$HOME/.config
 export PAGER='less'
 export CLICOLOR=1
 # }}}
