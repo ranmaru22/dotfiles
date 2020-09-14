@@ -50,6 +50,16 @@ imap <expr><C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
 smap <expr><C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
 " }}}
 
+" Floaterm {{{
+hi FloatermBorder guibg=none guifg=teal
+let g:floaterm_width = 0.8
+let g:floaterm_height = 0.8
+let g:floaterm_autoclose = 1
+let g:floaterm_borderchars = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
+
+nnoremap <silent><leader>f :FloatermNew --title=lf lf<CR>
+" }}}
+
 " Ctrlp / fzf {{{
 nnoremap <silent><C-p> :GFiles<CR>
 nnoremap <silent><C-f> :Files<CR>

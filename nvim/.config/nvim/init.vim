@@ -32,9 +32,7 @@ call plug#begin()
     Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-sleuth'
     Plug 'machakann/vim-highlightedyank'
-    " File manager
-    Plug 'ptzz/lf.vim'
-    Plug 'rbgrouleff/bclose.vim'
+    Plug 'voldikss/vim-floaterm'
     " Git plugins
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-rhubarb'

@@ -13,6 +13,14 @@ nmap <silent><leader>bp :bp<CR>
 nmap <silent><leader>bd :bd<CR>
 nmap <silent><leader>bc :bc<CR>
 
+" Splits
+nmap <silent><leader>sv :vsplit<CR>
+nmap <silent><leader>sh :split<CR>
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+
 " Consistent yanking
 nnoremap Y y$
 vnoremap Y y$
