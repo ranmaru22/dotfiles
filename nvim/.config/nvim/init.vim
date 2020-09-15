@@ -25,6 +25,7 @@ call plug#begin()
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
     " Utilities
+    Plug 'easymotion/vim-easymotion'
     Plug 'justinmk/vim-sneak'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'tpope/vim-commentary'
