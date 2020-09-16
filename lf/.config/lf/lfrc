@@ -29,15 +29,34 @@ map x $$f
 map X !$f
 
 # dedicated keys for file opener actions
+map <enter> open $f
 map o open $f
 map O $open $f
 
 # fuzzy find
 map <c-p> fzf-dir .
 map <c-f> fzf-file .
+
+# create file
+map <c-n> touch
 # }}}
 
 # Commands {{{
+cmd touch %{{
+    printf "[f]ile, [d]ir? "
+    read ftype
+    printf " "
+    case $ftype in
+        "f") read name
+             touch $name
+             ;;
+        "d") read name 
+             mkdir -p $name
+             ;;
+        *)   ;;
+    esac
+}}
+
 cmd fzf-dir ${{
     path=$(fd -t=d -H -E .git "$1" | fzf)
     lf -remote "send cd ${path:=.}"
