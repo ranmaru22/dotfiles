@@ -12,6 +12,8 @@ nmap <silent><leader>bn :bn<CR>
 nmap <silent><leader>bp :bp<CR>
 nmap <silent><leader>bd :bd<CR>
 nmap <silent><leader>bc :bc<CR>
+nmap <silent><C-n> :bp<CR>
+nmap <silent><C-m> :bn<CR>
 
 " Splits
 nmap <silent><leader>sv :vsplit<CR>
