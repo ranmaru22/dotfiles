@@ -17,10 +17,13 @@ alias gp="git push"
 alias gf="git fetch"
 alias gc="git clone"
 alias gb="git branch"
-alias gb="git merge"
+alias gm="git merge"
 alias gip="git pull"
+
+# add
 alias gia="git add"
-alias giA="git add -A"
+alias gaa="git add -A"
+alias gap="git add -p"
 
 # checkout
 alias gco="git checkout"
