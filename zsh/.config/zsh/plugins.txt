@@ -1,5 +1,6 @@
 Tarrasch/zsh-command-not-found
 Aloxaf/fzf-tab
+bigH/git-fuzzy path:bin kind:path
 zsh-users/zsh-completions
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search

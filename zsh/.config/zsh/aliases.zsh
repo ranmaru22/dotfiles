@@ -54,4 +54,14 @@ alias gcA="git commit -a --amend"
 function guc {
   git reset @~ "$@" && git commit --amend --no-edit
 }
+
+# git fuzzy
+alias gzf="git fuzzy"
+alias gzs="git fuzzy status"
+alias gzb="git fuzzy branch"
+alias gzl="git fuzzy log"
+alias gzr="git fuzzy reflog"
+alias gzst="git fuzzy stash"
+alias gzd="git fuzzy diff"
+alias gzp="git fuzzy pr"
 # }}}
