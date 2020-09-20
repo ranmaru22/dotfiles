@@ -25,7 +25,6 @@ call plug#begin()
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
     " Utilities
-    Plug 'easymotion/vim-easymotion'
     Plug 'justinmk/vim-sneak'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'tpope/vim-commentary'
@@ -40,9 +39,6 @@ call plug#begin()
     Plug 'junegunn/gv.vim'
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
-    " Snippets
-    Plug 'hrsh7th/vim-vsnip'
-    Plug 'hrsh7th/vim-vsnip-integ'
     " Eye candy plugins
     Plug 'ap/vim-buftabline'
     Plug 'glepnir/spaceline.vim'

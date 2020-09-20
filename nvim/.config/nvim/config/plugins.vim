@@ -38,22 +38,10 @@ let g:spaceline_custom_vim_status = {
 let g:spaceline_custom_diff_icon = [' ', ' ', ' ']
 " }}}
 
-" Easymotion {{{
-nmap <leader><leader>f <Plug>(easymotion-overwin-f)
-nmap <leader><leader>s <Plug>(easymotion-overwin-f2)
-nmap <leader><leader>w <Plug>(easymotion-overwin-w)
-" }}}
-
 " Emmet {{{
 let g:user_emmet_leader_key = ','
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,javascriptreact,typescriptreact EmmetInstall
-" }}}
-
-" vsnip {{{
-let g:vsnip_snippet_dir = $HOME . '/.config/nvim/snippets'
-imap <expr><C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
-smap <expr><C-j> vsnip#expandable() ? '<Plug>(vsnip-expand)' : '<C-j>'
 " }}}
 
 " Floaterm {{{

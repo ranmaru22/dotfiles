@@ -6,6 +6,7 @@ let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-eslint',
+    \ 'coc-prettier',
     \ 'coc-json',
     \ 'coc-css',
     \ 'coc-python',
@@ -54,6 +55,9 @@ nmap <silent>gy <Plug>(coc-type-definition)
 nmap <silent>gi <Plug>(coc-implementations)
 nmap <silent>gr <Plug>(coc-references)
 nmap <leader>qf <Plug>(coc-fix-current)
+
+nmap <silent><C-n> <Plug>(coc-diagnostic-next)
+nmap <silent><C-m> <Plug>(coc-diagnostic-prev)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> <leader>grw :CocSearch <C-R>=expand("<cword>")<CR><CR>
