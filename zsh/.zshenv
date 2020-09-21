@@ -21,6 +21,9 @@ export CLICOLOR=1
 # Highlighting
 export HIGHLIGHT_STYLE='duotone-dark-space'
 
+# Program specific
+export PF_INFO="ascii title os kernel shell uptime pkgs memory"
+
 # Editor
 # if type nvim &> /dev/null; then
   export EDITOR='nvim'
