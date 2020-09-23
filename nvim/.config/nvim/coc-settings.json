@@ -14,7 +14,8 @@
     "typescriptreact",
     "json",
     "markdown",
-    "rust"
+    "rust",
+    "python"
   ],
   "diagnostic.checkCurrentLine": false,
   "diagnostic.messageTarget": "float",
