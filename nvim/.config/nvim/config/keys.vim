@@ -49,7 +49,6 @@ nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 nnoremap d* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgn
 nnoremap d# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgN
-nnoremap d# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgN
 
 " Quick-select previously pasted text
 nnoremap <expr> qp '`[' . strpart(getregtype(), 0, 1) . '`]'
