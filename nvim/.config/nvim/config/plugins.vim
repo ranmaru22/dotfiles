@@ -48,4 +48,4 @@ let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
 let g:fzf_layout = { "window": { "width": 0.8, "height": 0.8 } }
 " }}}
 
-" pluginsvim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker:foldlevel=0
