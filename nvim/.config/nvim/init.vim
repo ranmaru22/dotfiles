@@ -51,8 +51,8 @@ call plug#end()
 source $HOME/.config/nvim/config/general.vim
 source $HOME/.config/nvim/config/syntax.vim
 source $HOME/.config/nvim/config/coc.vim
-source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/statusline.vim
+source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/keys.vim
 
 " vim:foldmethod=marker:foldlevel=0
