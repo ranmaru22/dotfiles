@@ -10,7 +10,7 @@
 " Maintainer:  Alex Sun (ranmaru22)
 " GitHub:      https://github.com/ranmaru22/dotfiles
 "
-"
+
 " Plugins {{{
 call plug#begin()
     " Syntax plugins
@@ -35,7 +35,6 @@ call plug#begin()
     Plug 'voldikss/vim-floaterm'
     " Git plugins
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
@@ -50,8 +49,10 @@ call plug#end()
 " }}}
 
 source $HOME/.config/nvim/config/general.vim
+source $HOME/.config/nvim/config/syntax.vim
 source $HOME/.config/nvim/config/coc.vim
 source $HOME/.config/nvim/config/plugins.vim
+source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/keys.vim
 
 " vim:foldmethod=marker:foldlevel=0
