@@ -17,13 +17,19 @@ let g:haskell_indent_guard = 4
 " Markdown {{{
 let g:vim_markdown_conceal = 2              " to avoid folding of links
 let g:vim_markdown_conceal_code_blocks = 0  " to avoid folding of code blocks
-let g:vim_markdown_math = 1                 " formatting options
-let g:vim_markdown_toml_frontmatter = 1     " |
-let g:vim_markdown_frontmatter = 1          " |
-let g:vim_markdown_strikethrough = 1        " |
-let g:vim_markdown_autowrite = 1            " |
-let g:vim_markdown_edit_url_in = 'tab'      " |
-let g:vim_markdown_follow_anchor = 1        " |
+let g:vim_markdown_math = 1
+let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_strikethrough = 1
+let g:vim_markdown_autowrite = 1
+let g:vim_markdown_edit_url_in = 'tab'
+let g:vim_markdown_follow_anchor = 1
+" }}}
+
+" Rust {{{
+let g:rust_fold = 1
+let g:rust_cargo_check_tests = 1
+let g:rust_cargo_check_benches = 1
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0

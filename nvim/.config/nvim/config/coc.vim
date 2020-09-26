@@ -1,6 +1,6 @@
-" COC SETTINGS
+ " COC SETTINGS
 
-" CoC Extensions {{{
+" Coc Extensions {{{
 let g:coc_global_extensions = [
     \ 'coc-git',
     \ 'coc-pairs',
@@ -17,27 +17,26 @@ let g:coc_global_extensions = [
     \ ]
 " }}}
 
-" CoC Pairs {{{
-autocmd FileType markdown let b:coc_pairs_disabled = ['`']
+" Coc Pairs {{{
+autocmd filetype markdown let b:coc_pairs_disabled = ['`']
 " }}}
 
-" CoC Intellisense {{{
+" Coc Intellisense {{{
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
-inoremap <silent><expr><TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <silent><expr><Tab>
+    \ (pumvisible() ? "\<C-n>" :
+    \ <sid>check_back_space() ? "\<Tab>" : coc#refresh())
+inoremap <expr><S-Tab> (pumvisible() ? "\<C-p>" : "\<C-h>")
 
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <c-k> coc#refresh()
+inoremap <silent><expr> <C-k> coc#refresh()
 
 if exists('*complete_info')
     inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
@@ -46,20 +45,6 @@ else
 endif
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
-nmap <leader>rr <Plug>(coc-rename)
-xmap <leader>cf <Plug>(coc-format-selected)
-nmap <leader>cf <Plug>(coc-format-selected)
-nmap <silent>gd <Plug>(coc-definition)
-nmap <silent>gy <Plug>(coc-type-definition)
-nmap <silent>gi <Plug>(coc-implementations)
-nmap <silent>gr <Plug>(coc-references)
-nmap <leader>qf <Plug>(coc-fix-current)
-
-nmap <silent><C-n> <Plug>(coc-diagnostic-next)
-nmap <silent><C-m> <Plug>(coc-diagnostic-prev)
-
-nnoremap <silent>K :call <SID>show_documentation()<CR>
-nnoremap <silent><leader>grw :CocSearch <C-R>=expand("<cword>")<CR><CR>
 
 function! s:show_documentation()
     if (index(['vim', 'help'], &filetype) >= 0)
@@ -70,15 +55,29 @@ function! s:show_documentation()
 endfunction
 " }}}
 
-" CoC Key mappings {{{
-nnoremap <silent><nowait> <Leader>ca :<C-u>CocList diagnostics<CR>
-nnoremap <silent><nowait> <Leader>ce :<C-u>CocList extensions<CR>
-nnoremap <silent><nowait> <Leader>cc :<C-u>CocList commands<CR>
-nnoremap <silent><nowait> <Leader>co :<C-u>CocList outline<CR>
-nnoremap <silent><nowait> <Leader>cs :<C-u>CocList -I symbols<CR>
-nnoremap <silent><nowait> <Leader>cj :<C-u>CocNext<CR>
-nnoremap <silent><nowait> <Leader>ck :<C-u>CocPrev<CR>
-nnoremap <silent><nowait> <Leader>cp :<C-u>CocListResume<CR>
+" Coc key mappings {{{
+nmap <Leader>rr <plug>(coc-rename)
+xmap <Leader>cf <plug>(coc-format-selected)
+nmap <Leader>cf <plug>(coc-format-selected)
+nmap <silent>gd <plug>(coc-definition)
+nmap <silent>gy <plug>(coc-type-definition)
+nmap <silent>gi <plug>(coc-implementations)
+nmap <silent>gr <plug>(coc-references)
+nmap <Leader>qf <plug>(coc-fix-current)
+
+nmap <silent><C-n> <plug>(coc-diagnostic-next)
+nmap <silent><C-m> <plug>(coc-diagnostic-prev)
+
+nnoremap <silent>K                  :call <sid>show_documentation()<CR>
+nnoremap <silent><Leader>grw        :CocSearch <C-r>=expand("<cword>")<CR><CR>
+nnoremap <silent><nowait><Leader>ca :<C-u>CocList diagnostics<CR>
+nnoremap <silent><nowait><Leader>ce :<C-u>CocList extensions<CR>
+nnoremap <silent><nowait><Leader>cc :<C-u>CocList commands<CR>
+nnoremap <silent><nowait><Leader>co :<C-u>CocList outline<CR>
+nnoremap <silent><nowait><Leader>cs :<C-u>CocList -i symbols<CR>
+nnoremap <silent><nowait><Leader>cj :<C-u>CocNext<CR>
+nnoremap <silent><nowait><Leader>ck :<C-u>CocPrev<CR>
+nnoremap <silent><nowait><Leader>cp :<C-u>CocListResume<CR>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
