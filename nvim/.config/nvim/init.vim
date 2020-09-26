@@ -27,7 +27,6 @@ call plug#begin()
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-obsession'
-    Plug 'junegunn/vim-easy-align'
     Plug 'machakann/vim-highlightedyank'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     " Git plugins
@@ -36,7 +35,6 @@ call plug#begin()
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
     " Colour schemes
-    Plug 'cocopon/iceberg.vim'
     Plug 'arzg/vim-substrata'
 call plug#end()
 " }}}
