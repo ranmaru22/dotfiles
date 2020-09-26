@@ -12,7 +12,9 @@
 #
 
 # Theme
---theme="Dracula"
+--theme="Nord"
 
 # Syntax mapping
 --map-syntax ".ignore:Git Ignore"
+--italic-text=always
+--style="numbers,changes,header,grid"
