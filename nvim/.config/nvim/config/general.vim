@@ -4,9 +4,12 @@
 set encoding=UTF-8
 set fileencoding=utf-8
 set fileformat=unix
+
 filetype on
 filetype plugin indent on
+let g:asmsyntax = 'nasm'    " set nasm as default assembler syntax
 syntax on
+
 set title
 set hidden
 set confirm
@@ -61,6 +64,7 @@ if !has('nvim') && &timeoutlen == -1
     set ttimeoutlen=100
 endif
 " }}}
+
 
 " Colours {{{
 set background=dark
