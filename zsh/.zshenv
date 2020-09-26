@@ -15,11 +15,13 @@
 export XDG_CONFIG_HOME="$HOME/.config"
 export DOTFILES="$HOME/.dotfiles"
 export PAGER='less'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 export CLICOLOR=1
 
 # Highlighting
-export HIGHLIGHT_STYLE='duotone-dark-space'
+export HIGHLIGHT_STYLE='dracula'
 
 # Program specific
 export PF_INFO="ascii title os kernel shell uptime pkgs memory"
