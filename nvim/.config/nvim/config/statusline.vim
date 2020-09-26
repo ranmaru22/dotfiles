@@ -35,7 +35,9 @@ if has('statusline')
 	set statusline+=\ %y
 	set statusline+=%=
 	set statusline+=\ \-\ %2l/%02c\ \|
-	set statusline+=\ %3p%%\ -\ 
+	set statusline+=\ %3p%%\ -
+	set statusline+=\ %{ObsessionStatus()}
+	set statusline+=\ 
 endif
 " }}}
 
