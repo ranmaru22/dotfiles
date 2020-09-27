@@ -26,6 +26,7 @@ set cmdheight=2
 set updatetime=300
 set shortmess+=c
 set signcolumn=yes
+
 inoremap <silent><expr><Tab>
     \ (pumvisible() ? "\<C-n>" :
     \ <sid>check_back_space() ? "\<Tab>" : coc#refresh())
@@ -78,6 +79,8 @@ nnoremap <silent><nowait><Leader>cs :<C-u>CocList -i symbols<CR>
 nnoremap <silent><nowait><Leader>cj :<C-u>CocNext<CR>
 nnoremap <silent><nowait><Leader>ck :<C-u>CocPrev<CR>
 nnoremap <silent><nowait><Leader>cp :<C-u>CocListResume<CR>
+
+nnoremap <silent><nowait><Leader>cR :<C-u>CocRestart<CR>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
