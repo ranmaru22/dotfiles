@@ -17,7 +17,7 @@ let g:mode={
 " Functions {{{
 function! GitBranch()
 	let ahead = strlen(get(b:, "coc_git_status", "")) ? "!" : ""
-	return strlen(fugitive#head()) ? "‹‹ \uF418 " . fugitive#head() . ahead . " ››" : "| "
+	return strlen(fugitive#head()) ? "‹‹ \uF418 " . fugitive#head() . ahead . " ››" : "|"
 endfunction 
 
 function! Filename()
