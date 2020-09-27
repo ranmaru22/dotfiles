@@ -7,6 +7,7 @@ let g:mode={
        \ 'V':  'V-LINE',
        \ '': 'V-BLOCK',
        \ 'i':  'INSERT',
+       \ 's':  'SELECT',
        \ 't':  'TERM',
        \ 'R':  'REPLACE',
        \ 'Rv': 'V-REPL',
