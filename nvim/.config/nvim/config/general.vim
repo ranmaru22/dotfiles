@@ -65,7 +65,6 @@ if !has('nvim') && &timeoutlen == -1
 endif
 " }}}
 
-
 " Colours {{{
 set background=dark
 set termguicolors

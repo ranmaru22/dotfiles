@@ -16,18 +16,18 @@ let g:highlightedyank_highlight_duration = 200
 " }}}
 
 " Emmet {{{
-let g:user_emmet_leader_key = ','
+let g:user_emmet_leader_key     = ','
 let g:user_emmet_install_global = 0
 
 autocmd FileType html,css,javascriptreact,typescriptreact EmmetInstall
 " }}}
 
 " fzf {{{
-let $FZF_DEFAULT_OPTS = "--layout=reverse --info=inline"
+let $FZF_DEFAULT_OPTS    = "--layout=reverse --info=inline"
 let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
-let g:fzf_layout = { "down": "~40%" }
+let g:fzf_layout         = { "down": "~40%" }
 
-if has ('nvim') && !exists('g:fzf_colors')
+if has('nvim') && !exists('g:fzf_colors')
     let g:fzf_colors = {
         \ 'fg':      ['fg', 'Normal'],
         \ 'bg':      ['bg', 'Normal'],
