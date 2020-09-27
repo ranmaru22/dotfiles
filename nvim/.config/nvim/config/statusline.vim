@@ -22,8 +22,9 @@ function! GitBranch()
 endfunction 
 
 function! Filename()
+	let filename = strlen(expand('%')) ? expand('%') : "[New]"
 	let modified = &filetype == "help" ? "" : &modified ? " \uF448" : &modifiable ? "" : " \uF8EE"
-	return expand('%') . modified
+	return filename . modified
 endfunction
 " }}}
 
