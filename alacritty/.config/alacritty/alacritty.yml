@@ -1,0 +1,50 @@
+live_config_reload: true
+
+window:
+  decorations: transparent
+  padding:
+    x: 10
+    y: 25
+  dynamic_padding: true
+
+colors:
+  # Default colours
+  primary:
+    foreground: "#b5b4c9"
+    background: "#191c25"
+
+  # Normal colours
+  normal:
+    black: "#2e313d"
+    red: "#cf8164"
+    green: "#76a065"
+    yellow: "#ab924c"
+    blue: "#8296b0"
+    magenta: "#a18daf"
+    cyan: "#659ea2"
+    white: "#b5b4c9"
+
+  # Bright colours
+  bright:
+    black: "#5b5f71"
+    red: "#fe9f7c"
+    green: "#92c47e"
+    yellow: "#d2b45f"
+    blue: "#a0b9d8"
+    magenta: "#c6aed7"
+    cyan: "#7dc2c7"
+    white: "#f0ecfe"
+
+# background_opacity: 0.95
+draw_bold_text_with_bright_colors: false
+
+font:
+  size: 13.0
+  normal:
+    family: "Rec Mono Duotone"
+  offset:
+    x: 1
+    y: 0
+  glyph_offset:
+    x: 0
+    y: 1
