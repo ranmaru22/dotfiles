@@ -65,4 +65,16 @@ fi
 kitty + complete setup zsh | source /dev/stdin
 # }}}
 
+# Tmux {{{
+function startTmux {
+  if type tmux &> /dev/null; then
+    if [[ -z "$TMUX" && -z "$TERMINAL_CONTEXT" ]]; then
+      (tmux -2 attach || tmux -2 new-session)
+    fi
+  fi
+}
+
+startTmux
+# }}}
+
 # vim:foldmethod=marker:foldlevel=0
