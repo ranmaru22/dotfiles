@@ -12,6 +12,7 @@ if type exa &> /dev/null; then
 fi
 
 alias rm="rm -v"
+alias :q="exit"
 
 # Git aliases {{{
 alias gp="git push"
@@ -65,3 +66,5 @@ alias gzst="git fuzzy stash"
 alias gzd="git fuzzy diff"
 alias gzp="git fuzzy pr"
 # }}}
+
+# vim:foldmethod=marker:foldlevel=0
