@@ -26,6 +26,12 @@ export HIGHLIGHT_STYLE='dracula'
 # Program specific
 export PF_INFO="ascii title os kernel shell uptime pkgs memory"
 
+# Custom terminfo for tmux (~/.config/terminfo)
+# Supports italics inside tmux; must be compiled with tic
+if type tmux &> /dev/null; then
+    export TERM=xterm-256color
+fi
+
 # Editor
 # if type nvim &> /dev/null; then
   export EDITOR='nvim'
