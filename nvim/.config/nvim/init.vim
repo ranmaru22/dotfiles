@@ -44,5 +44,6 @@ source $HOME/.config/nvim/config/coc.vim
 source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/keys.vim
+source $HOME/.config/nvim/config/commands.vim
 
 " vim:foldmethod=marker:foldlevel=0
