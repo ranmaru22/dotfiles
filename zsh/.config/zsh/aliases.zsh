@@ -17,7 +17,11 @@ alias :q="exit"
 # Quick open config files {{{
 function confedit {
   if [ -n "$1" ]; then
+<<<<<<< HEAD
     FILE=$(find "$DOTFILES" -name "*$1*" -type f)
+=======
+    FILE=$(find "$DOTFILES" -name "$1" -type f)
+>>>>>>> e3abd9ccfd46d755b05b473973749afd915d50c4
     FNUM=$(echo "$FILE" | wc -l)
     if [ "$FNUM" -gt 1 ]; then
       echo "$FILE" | fzf | xargs nvim
