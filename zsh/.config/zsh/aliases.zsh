@@ -14,7 +14,7 @@ fi
 alias rm="rm -v"
 alias :q="exit"
 
-# Quick open config files
+# Quick open config files {{{
 function confedit {
   if [ -n "$1" ]; then
     FILE=$(find "$DOTFILES" -name "$1" -type f)
@@ -27,7 +27,7 @@ function confedit {
   else
     find "$DOTFILES" -type f | fzf | xargs nvim
   fi
-}
+} # }}}
 alias ce=confedit
 
 # Git aliases {{{
