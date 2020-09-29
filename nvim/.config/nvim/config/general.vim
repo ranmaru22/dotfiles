@@ -4,6 +4,7 @@
 set encoding=UTF-8
 set fileencoding=utf-8
 set fileformat=unix
+set mouse=a
 
 filetype on
 filetype plugin indent on
@@ -29,6 +30,7 @@ set undofile
 set autoindent
 set smartindent
 set expandtab
+set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set foldmethod=syntax
