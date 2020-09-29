@@ -44,6 +44,9 @@ nnoremap <silent><BS> :nohlsearch<CR>
 " Prettify paragraph
 noremap <Leader>pp =ip
 
+" Enable/disable spell checking
+map <silent><Leader>ss :setlocal spell! spelllang=en_ca<CR>
+
 " Change all occurences of a word
 nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
@@ -62,7 +65,7 @@ nnoremap <Leader>ve :vsp $MYVIMRC<CR>
 nnoremap <Leader>vs :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 " }}}
 
-" Plugin-specific mappsings {{{
+" Plugin-specific mappings {{{
 " Signify
 nmap <Leader>gj <plug>(signify-next-hunk)
 nmap <Leader>gk <plug>(signify-prev-hunk)
