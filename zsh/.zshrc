@@ -1,8 +1,8 @@
-# 
+#
 # ███████╗███████╗██╗  ██╗██████╗  ██████╗
 # ╚══███╔╝██╔════╝██║  ██║██╔══██╗██╔════╝
-#   ███╔╝ ███████╗███████║██████╔╝██║     
-#  ███╔╝  ╚════██║██╔══██║██╔══██╗██║     
+#   ███╔╝ ███████╗███████║██████╔╝██║
+#  ███╔╝  ╚════██║██╔══██║██╔══██╗██║
 # ███████╗███████║██║  ██║██║  ██║╚██████╗
 # ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
 #
@@ -12,7 +12,7 @@
 #
 
 zstyle ':completion:*' menu select
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -i
 zmodload -i zsh/complist
 
 # Plugins & addons {{{
@@ -68,7 +68,7 @@ kitty + complete setup zsh | source /dev/stdin
 # Tmux {{{
 function startTmux {
   if type tmux &> /dev/null; then
-    if [[ -z "$TMUX" && -z "$TERMINAL_CONTEXT" ]]; then
+    if [[ -z "$TMUX" && -z "$TERMINAL_CONTEXT" && $(whoami) -ne "root" ]]; then
       (tmux -2 attach || tmux -2 new-session)
     fi
   fi
