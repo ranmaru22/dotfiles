@@ -40,6 +40,7 @@ call plug#end()
 " }}}
 
 source $HOME/.config/nvim/config/general.vim
+source $HOME/.config/nvim/config/syntax_settings.vim
 source $HOME/.config/nvim/config/coc.vim
 source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/plugins.vim
