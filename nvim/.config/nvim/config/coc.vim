@@ -2,7 +2,6 @@
 
 " Coc Extensions {{{
 let g:coc_global_extensions = [
-    \ 'coc-git',
     \ 'coc-pairs',
     \ 'coc-tsserver',
     \ 'coc-eslint',
@@ -37,7 +36,7 @@ function! s:check_back_space() abort
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <C-k> coc#refresh()
+inoremap <silent><expr> <C-space> coc#refresh()
 
 if exists('*complete_info')
     inoremap <expr> <CR> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
