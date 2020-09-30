@@ -44,10 +44,16 @@ nnoremap <silent><BS> :nohlsearch<CR>
 " Prettify paragraph
 noremap <Leader>pp =ip
 
+" Move current line up/down
+nnoremap <silent><A-j> :m +1<CR>==
+nnoremap <silent><A-k> :m -2<CR>==
+xnoremap <silent><A-j> :m '>+1<CR>gv=gv
+xnoremap <silent><A-k> :m '<-2<CR>gv=gv
+
 " Enable/disable spell checking
 map <silent><Leader>ss :setlocal spell! spelllang=en_ca<CR>
 
-" Change all occurences of a word
+" Change all occurrences of a word
 nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 nnoremap d* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgn
