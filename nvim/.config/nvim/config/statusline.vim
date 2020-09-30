@@ -1,7 +1,6 @@
 " STATUSLINE SETTINGS
 
 " Modes {{{
-hi ObsStatus ctermbg=008 ctermfg=007 guibg=#b5b4c9 guibg=#5b5f71
 hi SLMode ctermbg=None ctermfg=008 guibg=#2e313d guibg=fgcolor
 
 let g:mode_map={
