@@ -68,7 +68,7 @@ kitty + complete setup zsh | source /dev/stdin
 # Tmux {{{
 function startTmux {
   if type tmux &> /dev/null; then
-    if [[ -z "$TMUX" && -z "$TERMINAL_CONTEXT" && $(whoami) -ne "root" ]]; then
+    if [[ -z "$TMUX" && -z "$TERMINAL_CONTEXT" && $(whoami) != "root" ]]; then
       (tmux -2 attach || tmux -2 new-session)
     fi
   fi
