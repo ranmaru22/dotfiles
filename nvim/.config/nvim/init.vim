@@ -36,7 +36,7 @@ call plug#begin()
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
     " Colour schemes
-    Plug 'arzg/vim-substrata'
+    Plug 'ranmaru22/vim-substrata'
 call plug#end()
 " }}}
 

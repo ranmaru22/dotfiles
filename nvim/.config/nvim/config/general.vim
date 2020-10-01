@@ -70,15 +70,6 @@ endif
 set background=dark
 set termguicolors
 colorscheme substrata
-
-" Adjustments
-hi SignifySignAdd    ctermfg=green  guifg=#92c47e cterm=NONE gui=NONE
-hi SignifySignDelete ctermfg=red    guifg=#fe9f7c cterm=NONE gui=NONE
-hi SignifySignChange ctermfg=blue   guifg=#a0b9d8 cterm=NONE gui=NONE
-hi SpellBad   ctermfg=red   guifg=#cf8164 guibg=NONE guisp=#cf8164 gui=undercurl cterm=undercurl
-hi SpellCap   ctermfg=blue  guifg=#a0b9d8 guibg=NONE guisp=#cf8164 gui=undercurl cterm=undercurl
-hi SpellLocal ctermfg=green guifg=#92c47e guibg=NONE guisp=#cf8164 gui=undercurl cterm=undercurl
-hi SpellRare  ctermfg=blue  guifg=#8296b0 guibg=NONE guisp=#cf8164 gui=undercurl cterm=undercurl
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
