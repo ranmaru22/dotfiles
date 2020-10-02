@@ -1,3 +1,5 @@
+ # CUSTOM ALIASES
+
 alias myip="curl http://ipecho.net/plain; echo"
 alias shal="bat $XDG_CONFIG_HOME/zsh/aliases.zsh"
 alias reload="source ~/.zshrc"

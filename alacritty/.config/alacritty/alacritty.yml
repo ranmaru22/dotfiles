@@ -1,3 +1,9 @@
+# =============================================================================
+# File:        alacritty.yml
+# Maintainer:  Alex Sun (ranmaru22)
+# GitHub:      https://github.com/ranmaru22/dotfiles
+# =============================================================================
+
 live_config_reload: true
 
 window:
@@ -41,7 +47,14 @@ draw_bold_text_with_bright_colors: false
 font:
   size: 13.0
   normal:
-    family: "LigaLex Mono"
+    family: "BlexMono Nerd Font"
+    style: Book
+  bold:
+    style: Bold
+  italic:
+    style: Italic
+  bold_italic:
+    style: Bold Italic
   offset:
     x: 1
     y: 0

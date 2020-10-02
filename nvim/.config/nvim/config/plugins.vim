@@ -19,7 +19,7 @@ let g:highlightedyank_highlight_duration = 200
 let g:user_emmet_leader_key     = ','
 let g:user_emmet_install_global = 0
 
-autocmd FileType html,css,javascriptreact,typescriptreact EmmetInstall
+autocmd FileType html,css,javascriptreact,typescriptreact,vue EmmetInstall
 " }}}
 
 " fzf {{{

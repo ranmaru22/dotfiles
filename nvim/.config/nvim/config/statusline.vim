@@ -1,7 +1,8 @@
 " STATUSLINE SETTINGS
 
 " Modes {{{
-hi SLMode ctermbg=None ctermfg=008 guibg=#2e313d guibg=fgcolor
+hi SLDark ctermfg=007 ctermbg=NONE guifg=fgcolor guibg=NONE gui=NONE cterm=NONE
+hi SLDarkBold ctermfg=007 ctermbg=NONE guifg=fgcolor guibg=NONE gui=bold cterm=bold
 
 let g:mode_map={
     \ 'n': 'NORMAL', 'no': 'N-OP', 'v': 'VISUAL', 'V': 'V-LINE',
@@ -13,36 +14,18 @@ let g:mode_map={
 " }}}
 
 " Component functions {{{
-function ColouredMode(mode)
-	if a:mode =~# '\v(v|V|s|S||)'
-		" Visual + Select modes
- 		exe 'hi! SLMode ctermfg=004 ctermbg=236 guifg=#8296b0 guibg=#2e313d gui=bold cterm=bold'
-	elseif a:mode =~# '\v(i)'
-		" Insert mode
-		exe 'hi! SLMode ctermfg=005 ctermbg=236 guifg=#a18daf guibg=#2e313d gui=bold cterm=bold'
-	elseif a:mode =~# '\v(R|Rv)'
-		" Replace modes 
-		exe 'hi! SLMode ctermfg=001 ctermbg=236 guifg=#cf8164 guibg=#2e313d gui=bold cterm=bold'
-	else
-		" Everything else
-		exe 'hi! SLMode ctermfg=008 ctermbg=236 guifg=fgcolor guibg=#2e313d gui=bold cterm=bold'
-	endif
-	return get(g:mode_map, a:mode, "")
-endfunction
-
 function! GitBranch()
-	let ahead = strlen(get(b:, "coc_git_status", "")) ? "!" : ""
-	return strlen(fugitive#head()) ? "‹‹ \uF418 " . fugitive#head() . ahead . " ›› " : ""
-endfunction
-
-function! Filepath()
-	return strlen(expand('%')) ? pathshorten(fnamemodify(expand('%:h'), ":~:.")) . "/" : ""
+	let ahead = strlen(get(b:, "coc_git_status", "")) ? "↑" : ""
+	let [add, chn, del] = sy#repo#get_stats()
+	let status = add || chn || del ? "*" : ""
+	return strlen(fugitive#head()) ? " ‹‹" . fugitive#head() . status . "›› " : ""
 endfunction
 
 function! Filename()
-    let filename = strlen(expand('%')) ? expand('%:t') : "[New]"
-	let modified = &filetype == "help" ? "" : &modified ? " \uF448" : &modifiable ? "" : " \uF8EE"
-    return filename . modified
+	let readonly = &readonly ? "[RO]" : "" . !&modifiable ? "[-]" : ""
+    let filename = strlen(expand('%')) ? pathshorten(fnamemodify(expand('%'), ":~:.")) . " " : ""
+	let modified = &filetype == "help" ? "" : &modifiable && &modified ? "[+]" : ""
+    return filename . modified . readonly
 endfunction
 
 function! SpellLang()
@@ -51,23 +34,24 @@ endfunction
 
 function! CocStatus() abort
     let status = get(g:, 'coc_status', '')
-    return strlen(status) ? " " . status : ""
+    return strlen(status) ? status : ""
 endfunction
 " }}}
 
 " Set statusline {{{
 function! SetStatusLine(which)
-	let statusline = ""
+	let statusline = " "
 	if a:which == "active" && &modifiable
-		let statusline.="\ %#SLMode#%{ColouredMode(mode())}%*"
-		let statusline.="\ %{GitBranch()}%"
+		let statusline.="%{&buflisted ? bufnr('%') : ''} "
+		let statusline.="%#SLDarkBold# %{g:mode_map[mode()]} %*"
+		let statusline.="%{GitBranch()}"
 	endif
-	let statusline.="<%{Filepath()}%{Filename()}\ %y%r%{SpellLang()}%="
+	let statusline.="%<%{Filename()}%y%{SpellLang()}%="
 	if a:which == "active"
 		let statusline.="%{CocStatus()}"
-		let statusline.="\ ‹‹\ %02l/%02L\ ::\ %02v\ ››\ "
-		let statusline.="%{ObsessionStatus()}"
+		let statusline.=" %#SLDark# ‹‹ %02l/%02L :: %02v ›› %*"
 	endif
+	let statusline.="%{ObsessionStatus()}"
 	return statusline
 endfunction
 

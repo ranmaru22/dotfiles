@@ -8,7 +8,6 @@ set mouse=a
 
 filetype on
 filetype plugin indent on
-let g:asmsyntax = 'nasm'    " set nasm as default assembler syntax
 syntax on 
 set title
 set hidden

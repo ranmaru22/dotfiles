@@ -1,3 +1,5 @@
+# ICONS
+
 export LF_ICONS="\
 tw=:\
 st=:\
