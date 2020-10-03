@@ -31,12 +31,12 @@ noremap x  "_x
 noremap X  "_D
 
 " Yanking & pasting from clipboard
-nnoremap 'y "*y
-vnoremap 'y "*y
-nnoremap 'p "*p
-vnoremap 'p "*p
-nnoremap 'P "*P
-vnoremap 'P "*P
+nnoremap \y "*y
+vnoremap \y "*y
+nnoremap \p "*p
+vnoremap \p "*p
+nnoremap \P "*P
+vnoremap \P "*P
 
 " Clear highlighting
 nnoremap <silent><BS> :nohlsearch<CR>
