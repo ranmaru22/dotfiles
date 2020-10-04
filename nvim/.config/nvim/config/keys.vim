@@ -41,7 +41,7 @@ vnoremap \P "*P
 " Clear highlighting
 nnoremap <silent><BS> :nohlsearch<CR>
 
-" Prettify paragraph
+" Prettify indentation
 noremap <Leader>pp =ip
 
 " Move current line up/down
@@ -72,6 +72,9 @@ nnoremap <Leader>vs :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 " }}}
 
 " Plugin-specific mappings {{{
+" Coc
+nnoremap <silent><nowait><Leader>pf :<C-u>CocCommand prettier.formatFile<CR>
+
 " Signify
 nmap <Leader>gj <plug>(signify-next-hunk)
 nmap <Leader>gk <plug>(signify-prev-hunk)
