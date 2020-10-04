@@ -25,6 +25,9 @@ set nojoinspaces
 set undodir=~/.config/nvim/.vimundo
 set undofile
 
+set ignorecase
+set smartcase
+
 set autoindent
 set smartindent
 set expandtab
