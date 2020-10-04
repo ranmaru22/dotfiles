@@ -6,11 +6,18 @@
 
 live_config_reload: true
 
+env:
+  TERM: xterm-256color
+
+dpi:
+  x: 96.0
+  y: 96.0
+
 window:
   decorations: transparent
   padding:
-    x: 10
-    y: 25
+    x: 5
+    y: 18
   dynamic_padding: true
 
 colors:
@@ -61,3 +68,4 @@ font:
   glyph_offset:
     x: 0
     y: 1
+  use_thin_strokes: true
