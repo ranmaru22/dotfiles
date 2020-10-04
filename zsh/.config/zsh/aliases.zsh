@@ -1,3 +1,5 @@
+ # CUSTOM ALIASES
+
 alias myip="curl http://ipecho.net/plain; echo"
 alias shal="bat $XDG_CONFIG_HOME/zsh/aliases.zsh"
 alias reload="source ~/.zshrc"
@@ -12,6 +14,23 @@ if type exa &> /dev/null; then
 fi
 
 alias rm="rm -v"
+alias :q="exit"
+
+# Quick open config files {{{
+function confedit {
+  if [ -n "$1" ]; then
+    FILE=$(fd -t f -H "$1" "$DOTFILES")
+    FNUM=$(echo "$FILE" | wc -l)
+    if [ "$FNUM" -gt 1 ]; then
+      echo "$FILE" | fzf | xargs nvim
+    else
+      nvim "$FILE"
+    fi
+  else
+    fd -t f -H . "$DOTFILES" | fzf | xargs nvim
+  fi
+} # }}}
+alias ce=confedit
 
 # Git aliases {{{
 alias gp="git push"
@@ -50,6 +69,10 @@ alias gcpc="git cherry-pick --continue"
 alias gcm="git commit -m"
 alias gcA="git commit -a --amend"
 
+# rebasing
+alias grb="git rebase"
+alias gri="git rebase -i"
+
 # uncommitting
 function guc {
   git reset @~ "$@" && git commit --amend --no-edit
@@ -65,3 +88,5 @@ alias gzst="git fuzzy stash"
 alias gzd="git fuzzy diff"
 alias gzp="git fuzzy pr"
 # }}}
+
+# vim:foldmethod=marker:foldlevel=0

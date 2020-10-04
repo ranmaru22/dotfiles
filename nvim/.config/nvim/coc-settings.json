@@ -2,32 +2,44 @@
   "suggest.noselect": false,
   "suggest.enablePreview": true,
   "suggest.removeDuplicateItems": true,
+
   "codeLens.enable": true,
+
   "coc.preferences.jumpCommand": "drop",
   "coc.preferences.rootPatterns": [".git", ".vscode"],
   "coc.preferences.formatOnSaveFiletypes": [
-    "css",
-    "html",
-    "javascript",
-    "typescript",
-    "javascriptreact",
-    "typescriptreact",
     "json",
     "markdown",
     "rust",
     "python"
   ],
+
   "diagnostic.checkCurrentLine": false,
   "diagnostic.messageTarget": "float",
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+
   "python.jediEnabled": false,
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
   "python.linting.flake8Enabled": true,
   "python.formatting.provider": "black",
+
+  "prettier.eslintIntegration": true,
+
   "javascript.referencesCodeLens.enable": false,
   "javascript.implementationsCodeLens.enable": false,
+
   "typescript.referencesCodeLens.enable": false,
   "typescript.implementationsCodeLens.enable": false,
+
+  "vetur.validation.templateProps": true,
+  "vetur.format.options.tabSize": 2,
+  "vetur.experimental.templateInterpolationService": true,
+  "vetur.format.enable": false,
+
   "languageserver": {
     "ccls": {
       "command": "ccls",
@@ -52,6 +64,7 @@
         }
       }
     },
+
     "haskell": {
       "command": "ghcide",
       "args": ["--lsp"],

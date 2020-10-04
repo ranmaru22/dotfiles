@@ -2,66 +2,52 @@
 
 " Signify {{{
 set updatetime=100
-nmap <leader>gj <plug>(signify-next-hunk)
-nmap <leader>gk <plug>(signify-prev-hunk)
 let g:signify_sign_add    = '┃'
 let g:signify_sign_change = '┃'
-let g:signify_sign_delete = '•'
+let g:signify_sign_delete = '-'
+" }}}
+
+" Sneak {{{
+let g:sneak#label = 1
 " }}}
 
 " Highlighted Yank {{{
 let g:highlightedyank_highlight_duration = 200
 " }}}
 
-" Buftabline {{{
-hi! link BufTabLineCurrent FileName
-hi! link BufTabLineActive  GitInfo
-hi! link BufTabLineHidden  LineFormatRight
-hi! link BufTabLineFill    CocBar
-let g:buftabline_separators = "on"
-" }}}
-
-" Spaceline {{{
-hi! HomeMode gui=bold
-let g:spaceline_seperate_style= 'slant-fade'
-let g:spaceline_colorscheme = 'space'
-let g:spaceline_git_branch_icon = ' '
-let g:spaceline_funcicon = ' '
-let g:spaceline_diagnostic_warnsign = ' '
-let g:spaceline_diagnostic_errorsign = '✘'
-let g:spaceline_custom_vim_status = {
-    \ "n":"NORMAL",
-    \ "V":"V-LINE", "v":"VISUAL", "\<C-v>":"V-BLOCK",
-    \ "i":"INSERT", "R":"REPLACE",
-    \ "s":"SELECT", "t":"TERM", "c":"COMMAND", "!":"SE"
-    \ }
-let g:spaceline_custom_diff_icon = [' ', ' ', ' ']
-" }}}
-
 " Emmet {{{
-let g:user_emmet_leader_key = ','
+let g:user_emmet_leader_key     = ','
 let g:user_emmet_install_global = 0
-autocmd FileType html,css,javascriptreact,typescriptreact EmmetInstall
+
+autocmd FileType html,css,javascriptreact,typescriptreact,vue EmmetInstall
 " }}}
 
-" Floaterm {{{
-hi FloatermBorder guibg=none guifg=teal
-let g:floaterm_width = 0.8
-let g:floaterm_height = 0.8
-let g:floaterm_autoclose = 1
-let g:floaterm_borderchars = ['─', '│', '─', '│', '╭', '╮', '╯', '╰']
-
-nnoremap <silent><leader>f :FloatermNew --title=lf lf<CR>
-" }}}
-
-" Ctrlp / fzf {{{
-nnoremap <silent><C-p> :GFiles<CR>
-nnoremap <silent><C-f> :Files<CR>
-nnoremap <silent><C-q> :Rg<CR>
-nnoremap <silent><C-b> :Buffers<CR>
-let $FZF_DEFAULT_OPTS = '--layout=reverse --info=inline'
+" fzf {{{
+let $FZF_DEFAULT_OPTS    = "--layout=reverse --info=inline"
 let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
-let g:fzf_layout = { "window": { "width": 0.8, "height": 0.8 } }
+let g:fzf_layout         = { "down": "~40%" }
+
+if has('nvim') && !exists('g:fzf_colors')
+    let g:fzf_colors = {
+        \ 'fg':      ['fg', 'Normal'],
+        \ 'bg':      ['bg', 'Normal'],
+        \ 'hl':      ['fg', 'Comment'],
+        \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+        \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+        \ 'hl+':     ['fg', 'Statement'],
+        \ 'info':    ['fg', 'PreProc'],
+        \ 'border':  ['fg', 'Ignore'],
+        \ 'prompt':  ['fg', 'Conditional'],
+        \ 'pointer': ['fg', 'Exception'],
+        \ 'marker':  ['fg', 'Keyword'],
+        \ 'spinner': ['fg', 'Label'],
+        \ 'header':  ['fg', 'Comment']
+        \ }
+
+    autocmd! FileType fzf
+    autocmd  FileType fzf set laststatus=0 noshowmode noruler
+        \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+endif
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0

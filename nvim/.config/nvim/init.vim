@@ -1,57 +1,44 @@
-"
-" ██╗███╗   ██╗██╗████████╗   ██╗   ██╗██╗███╗   ███╗
-" ██║████╗  ██║██║╚══██╔══╝   ██║   ██║██║████╗ ████║
-" ██║██╔██╗ ██║██║   ██║      ██║   ██║██║██╔████╔██║
-" ██║██║╚██╗██║██║   ██║      ╚██╗ ██╔╝██║██║╚██╔╝██║
-" ██║██║ ╚████║██║   ██║   ██╗ ╚████╔╝ ██║██║ ╚═╝ ██║
-" ╚═╝╚═╝  ╚═══╝╚═╝   ╚═╝   ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝
-"
+" =============================================================================
 " File:        init.vim
 " Maintainer:  Alex Sun (ranmaru22)
 " GitHub:      https://github.com/ranmaru22/dotfiles
-"
-"
+" =============================================================================
+
 " Plugins {{{
 call plug#begin()
     " Syntax plugins
     Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     Plug 'sheerun/vim-polyglot'
-    Plug 'neovimhaskell/haskell-vim'
     Plug 'arzg/vim-rust-syntax-ext'
-    Plug 'peitalin/vim-jsx-typescript'
     Plug 'mattn/emmet-vim'
     " Fuzzy finder
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'airblade/vim-rooter'
     " Utilities
+    Plug 'airblade/vim-rooter'
     Plug 'justinmk/vim-sneak'
-    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-obsession'
-    Plug 'tpope/vim-sleuth'
+    Plug 'tpope/vim-repeat'
     Plug 'machakann/vim-highlightedyank'
-    Plug 'voldikss/vim-floaterm'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     " Git plugins
     Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-rhubarb'
     Plug 'junegunn/gv.vim'
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
-    " Eye candy plugins
-    Plug 'ap/vim-buftabline'
-    Plug 'glepnir/spaceline.vim'
-    Plug 'ryanoasis/vim-devicons'
     " Colour schemes
-    Plug 'liuchengxu/space-vim-dark'
-    Plug 'liuchengxu/space-vim-theme'
+    Plug 'arzg/vim-substrata'
 call plug#end()
 " }}}
 
 source $HOME/.config/nvim/config/general.vim
+source $HOME/.config/nvim/config/syntax_settings.vim
 source $HOME/.config/nvim/config/coc.vim
+source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/keys.vim
+source $HOME/.config/nvim/config/commands.vim
 
 " vim:foldmethod=marker:foldlevel=0

@@ -1,18 +1,11 @@
-# 
-# ███████╗███████╗██╗  ██╗██████╗  ██████╗
-# ╚══███╔╝██╔════╝██║  ██║██╔══██╗██╔════╝
-#   ███╔╝ ███████╗███████║██████╔╝██║     
-#  ███╔╝  ╚════██║██╔══██║██╔══██╗██║     
-# ███████╗███████║██║  ██║██║  ██║╚██████╗
-# ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
-#
+# =============================================================================
 # File:        .zshrc
 # Maintainer:  Alex Sun (ranmaru22)
 # GitHub:      https://github.com/ranmaru22/dotfiles
-#
+# =============================================================================
 
 zstyle ':completion:*' menu select
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -i
 zmodload -i zsh/complist
 
 # Plugins & addons {{{
@@ -63,6 +56,18 @@ fi
 
 # Enable kitty completion {{{
 kitty + complete setup zsh | source /dev/stdin
+# }}}
+
+# Tmux {{{
+function startTmux {
+  if type tmux &> /dev/null; then
+    if [[ -z "$TMUX" && -z "$TERMINAL_CONTEXT" && $(whoami) != "root" ]]; then
+      (tmux -2 attach || tmux -2 new-session)
+    fi
+  fi
+}
+
+startTmux
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
