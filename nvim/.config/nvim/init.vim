@@ -6,11 +6,13 @@
 
 " Plugins {{{
 call plug#begin()
-    " Syntax plugins
+    " LSP plugins
     Plug 'neovim/nvim-lspconfig'
     Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-lua/diagnostic-nvim'
     Plug 'nvim-lua/lsp-status.nvim'
+    " Syntax plugins
+    let g:polyglot_disabled = ['autoindent']
     Plug 'sheerun/vim-polyglot'
     Plug 'arzg/vim-rust-syntax-ext'
     Plug 'mattn/emmet-vim'
@@ -20,6 +22,7 @@ call plug#begin()
     " Utilities
     Plug 'airblade/vim-rooter'
     Plug 'justinmk/vim-sneak'
+    Plug 'tpope/vim-sleuth'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-obsession'
