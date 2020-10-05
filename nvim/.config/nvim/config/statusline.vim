@@ -15,15 +15,15 @@ let g:mode_map={
 
 " Component functions {{{
 function! GitBranch()
-	let [add, chn, del] = sy#repo#get_stats()
-	let status = add || chn || del ? "*" : ""
-	return strlen(fugitive#head()) ? " ‹‹" . fugitive#head() . status . "›› " : ""
+    let [add, chn, del] = sy#repo#get_stats()
+    let status = add || chn || del ? "*" : ""
+    return strlen(fugitive#head()) ? " ‹‹" . fugitive#head() . status . "›› " : ""
 endfunction
 
 function! Filename()
-	let readonly = &readonly ? "[RO]" : "" . !&modifiable ? "[-]" : ""
+    let readonly = &readonly ? "[RO]" : "" . !&modifiable ? "[-]" : ""
     let filename = strlen(expand('%')) ? pathshorten(fnamemodify(expand('%'), ":~:.")) . " " : ""
-	let modified = &filetype == "help" ? "" : &modifiable && &modified ? "[+]" : ""
+    let modified = &filetype == "help" ? "" : &modifiable && &modified ? "[+]" : ""
     return filename . modified . readonly
 endfunction
 
@@ -32,34 +32,33 @@ function! SpellLang()
 endfunction
 
 function! LspStatus() abort
-	if luaeval('#vim.lsp.buf_get_clients() > 0')
-		return luaeval("require('lsp-status').status()")
-	endif
-	return ""
+    if luaeval('#vim.lsp.buf_get_clients() > 0')
+	return luaeval("require('lsp-status').status()")
+    endif
+    return ""
 endfunction
 " }}}
 
 " Set statusline {{{
 function! SetStatusLine(which)
-	let statusline = " "
-	if a:which == "active" && &modifiable
-		let statusline.="%{&buflisted ? bufnr('%') : ''} "
-		let statusline.="%#SLDarkBold# %{g:mode_map[mode()]} %*"
-		let statusline.="%{GitBranch()}"
-	endif
-	let statusline.="%<%{Filename()}%y%{SpellLang()}%="
-	if a:which == "active"
-		let statusline.="%{LspStatus()}"
-		let statusline.=" %#SLDark# ‹‹ %2l/%02L :: %02v ›› %*"
-	endif
+    let statusline = ""
+    if a:which == "active" && &modifiable
 	let statusline.="%{ObsessionStatus()}"
-	return statusline
+	let statusline.="%#SLDarkBold# %{g:mode_map[mode()]} %*"
+	let statusline.="%{GitBranch()}"
+    endif
+    let statusline.="%<%{Filename()}%y%{SpellLang()}%="
+    if a:which == "active"
+	let statusline.="%{LspStatus()}"
+	let statusline.=" %#SLDark# ‹‹ %2l/%02L :: %02v ›› %*"
+    endif
+    return statusline
 endfunction
 
 if has('statusline')
-	au WinEnter * setlocal statusline=%!SetStatusLine('active')
-	au WinLeave * setlocal statusline=%!SetStatusLine('inactive')
-	set statusline=%!SetStatusLine('active')
+    au WinEnter * setlocal statusline=%!SetStatusLine('active')
+    au WinLeave * setlocal statusline=%!SetStatusLine('inactive')
+    set statusline=%!SetStatusLine('active')
 endif
 " }}}
 
