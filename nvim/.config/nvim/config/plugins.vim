@@ -2,9 +2,15 @@
 
 " Signify {{{
 set updatetime=100
-let g:signify_sign_add    = '┃'
-let g:signify_sign_change = '┃'
-let g:signify_sign_delete = '-'
+let g:signify_sign_show_count = 1
+
+let g:signify_sign_add               = '┃'
+let g:signify_sign_change            = '┃'
+let g:signify_sign_delete            = '-'
+
+" Key mappings
+nmap <Leader>gj <plug>(signify-next-hunk)
+nmap <Leader>gk <plug>(signify-prev-hunk)
 " }}}
 
 " Highlighted Yank {{{
@@ -44,6 +50,12 @@ if has('nvim') && !exists('g:fzf_colors')
     autocmd  FileType fzf set laststatus=0 noshowmode noruler
         \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 endif
+
+" Key mappings
+nnoremap <silent><C-p> :GFiles<CR>
+nnoremap <silent><C-f> :Files<CR>
+nnoremap <silent><C-q> :Rg<CR>
+nnoremap <silent><C-b> :Buffers<CR>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0

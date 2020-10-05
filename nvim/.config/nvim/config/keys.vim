@@ -1,19 +1,20 @@
 " CUSTOM KEY-BINDINGS AND COMMANDS
 
-" Custom key mappings {{{
-" Git
+" Git {{{
 nmap <silent><Leader>gs  :G<CR>
 nmap <silent><Leader>gv  :GV<CR>
 nmap <silent><Leader>gc  :GBranches<CR>
 nmap <silent><Leader>ggd :Gdiff<CR>
+" }}}
 
-" Buffers
+" Buffers {{{
 nmap <silent><Leader>bn       :bn<CR>
 nmap <silent><Leader>bp       :bp<CR>
 nmap <silent><Leader>bd       :bd<CR>
 nmap <silent><Leader><Leader> :e#<CR>
+" }}}
 
-" Splits
+" Splits {{{
 nmap <silent><Leader>sv :vsplit<CR>
 nmap <silent><Leader>sh :split<CR>
 nmap <silent><Leader>sc <C-w>q
@@ -21,69 +22,61 @@ nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+" }}}
 
-" Consistent yanking
+" Consistent yanking {{{
 nnoremap Y y$
 vnoremap Y y$
+" }}}
 
-" Deleting without yanking
+" Deleting without yanking {{{
 noremap x  "_x
 noremap X  "_D
+" }}}
 
-" Yanking & pasting from clipboard
+" Yanking & pasting from clipboard {{{
 nnoremap \y "*y
 vnoremap \y "*y
 nnoremap \p "*p
 vnoremap \p "*p
 nnoremap \P "*P
 vnoremap \P "*P
+" }}}
 
-" Clear highlighting
+" Clear highlighting {{{
 nnoremap <silent><BS> :nohlsearch<CR>
+" }}}
 
-" Prettify
-nnoremap <Leader>pp =ip
-nnoremap <silent><nowait><Leader>pf <cmd>lua vim.lsp.buf.formatting()<CR>
+" Move current line up/down {{{
+nnoremap <silent><M-j> :m +1<CR>==
+nnoremap <silent><M-k> :m -2<CR>==
+xnoremap <silent><M-j> :m '>+1<CR>gv=gv
+xnoremap <silent><M-k> :m '<-2<CR>gv=gv
+" }}}
 
-" Move current line up/down
-nnoremap <silent><A-j> :m +1<CR>==
-nnoremap <silent><A-k> :m -2<CR>==
-xnoremap <silent><A-j> :m '>+1<CR>gv=gv
-xnoremap <silent><A-k> :m '<-2<CR>gv=gv
-
-" Enable/disable spell checking
+" Enable/disable spell checking {{{
 map <silent><Leader>ss :setlocal spell! spelllang=en_ca<CR>
+" }}}
 
-" Change all occurrences of a word
+" Change all occurrences of a word {{{
 nnoremap c* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgn
 nnoremap c# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``cgN
 nnoremap d* /\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgn
 nnoremap d# ?\<<C-R>=expand('<cword>')<CR>\>\C<CR>``dgN
-
-" Quick-select previously pasted text
-nnoremap <expr>qp '`[' . strpart(getregtype(), 0, 1) . '`]'
-
-" Better macros
-nnoremap Q @q
-vnoremap Q :norm !q<CR>
-
-" Reload config
-nnoremap <Leader>ve :vsp $MYVIMRC<CR>
-nnoremap <Leader>vs :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 " }}}
 
-" Coc
+" Quick-select previously pasted text {{{
+nnoremap <expr>qp '`[' . strpart(getregtype(), 0, 1) . '`]'
+" }}}
 
-" Plugin-specific mappings {{{
-" Signify
-nmap <Leader>gj <plug>(signify-next-hunk)
-nmap <Leader>gk <plug>(signify-prev-hunk)
+" Better macros {{{
+nnoremap Q @q
+vnoremap Q :norm !q<CR>
+" }}}
 
-" fzf
-nnoremap <silent><C-p> :GFiles<CR>
-nnoremap <silent><C-f> :Files<CR>
-nnoremap <silent><C-q> :Rg<CR>
-nnoremap <silent><C-b> :Buffers<CR>
+" Reload config {{{
+nnoremap <Leader>ve :vsp $MYVIMRC<CR>
+nnoremap <Leader>vs :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
