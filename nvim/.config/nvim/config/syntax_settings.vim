@@ -1,7 +1,5 @@
 " SYNTAX SETTINGS
 
-let g:vimsyn_embed = 'lP'
-
 " Assembly {{{
 let g:asmsyntax = 'nasm'                    " set nasm as default assembler syntax
 " }}}
