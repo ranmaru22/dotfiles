@@ -39,6 +39,7 @@ function pathAppend {
 }
 
 pathAppend /usr/local/sbin
+pathAppend ~/.local/bin
 pathAppend ~/.cabal/bin
 pathAppend ~/.cargo/bin
 pathAppend ~/.go/bin
