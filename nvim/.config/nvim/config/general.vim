@@ -9,6 +9,7 @@ set mouse=a
 filetype on
 filetype plugin indent on
 syntax on 
+let g:vimsyn_embed = 'lP'
 set title
 set hidden
 set confirm
@@ -36,9 +37,12 @@ set expandtab
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
-set foldmethod=syntax
-set foldlevel=10
 set complete-=i
+
+set foldenable
+set foldmethod=syntax
+set foldlevel=99
+set foldopen=all
 
 set splitbelow
 set splitright
