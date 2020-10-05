@@ -15,7 +15,6 @@ let g:mode_map={
 
 " Component functions {{{
 function! GitBranch()
-	let ahead = strlen(get(b:, "coc_git_status", "")) ? "↑" : ""
 	let [add, chn, del] = sy#repo#get_stats()
 	let status = add || chn || del ? "*" : ""
 	return strlen(fugitive#head()) ? " ‹‹" . fugitive#head() . status . "›› " : ""
@@ -32,9 +31,11 @@ function! SpellLang()
     return &spell ? "[" . &spelllang . "]" : ""
 endfunction
 
-function! CocStatus() abort
-    let status = get(g:, 'coc_status', '')
-    return strlen(status) ? status : ""
+function! LspStatus() abort
+	if luaeval('#vim.lsp.buf_get_clients() > 0')
+		return luaeval("require('lsp-status').status()")
+	endif
+	return ""
 endfunction
 " }}}
 
@@ -48,8 +49,8 @@ function! SetStatusLine(which)
 	endif
 	let statusline.="%<%{Filename()}%y%{SpellLang()}%="
 	if a:which == "active"
-		let statusline.="%{CocStatus()}"
-		let statusline.=" %#SLDark# ‹‹ %02l/%02L :: %02v ›› %*"
+		let statusline.="%{LspStatus()}"
+		let statusline.=" %#SLDark# ‹‹ %2l/%02L :: %02v ›› %*"
 	endif
 	let statusline.="%{ObsessionStatus()}"
 	return statusline

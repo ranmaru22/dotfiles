@@ -7,7 +7,10 @@
 " Plugins {{{
 call plug#begin()
     " Syntax plugins
-    Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-lua/diagnostic-nvim'
+    Plug 'nvim-lua/lsp-status.nvim'
     Plug 'sheerun/vim-polyglot'
     Plug 'arzg/vim-rust-syntax-ext'
     Plug 'mattn/emmet-vim'
@@ -35,7 +38,7 @@ call plug#end()
 
 source $HOME/.config/nvim/config/general.vim
 source $HOME/.config/nvim/config/syntax_settings.vim
-source $HOME/.config/nvim/config/coc.vim
+source $HOME/.config/nvim/config/lsp.vim
 source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/keys.vim
