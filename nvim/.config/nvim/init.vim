@@ -5,6 +5,11 @@
 " =============================================================================
 
 " Plugins {{{
+if empty(glob('${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'))
+    silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+endif
+
 call plug#begin()
     " LSP plugins
     Plug 'neovim/nvim-lspconfig'
@@ -37,9 +42,12 @@ call plug#begin()
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
     " Colour schemes
-    Plug 'bluz71/vim-moonfly-colors'
     Plug 'arzg/vim-substrata'
 call plug#end()
+
+if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 " }}}
 
 source $HOME/.config/nvim/config/general.vim
