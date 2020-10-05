@@ -69,3 +69,11 @@ font:
     x: 0
     y: 1
   use_thin_strokes: true
+
+# Key bindings
+key_bindings:
+  # Bind Alt to Meta (on certain keys)
+  - { key: H, mods: Alt, chars: "\x1bh" }
+  - { key: J, mods: Alt, chars: "\x1bj" }
+  - { key: K, mods: Alt, chars: "\x1bk" }
+  - { key: L, mods: Alt, chars: "\x1bl" }
