@@ -28,6 +28,8 @@ set undofile
 set ignorecase
 set smartcase
 
+set signcolumn=yes
+
 set autoindent
 set smartindent
 set expandtab
