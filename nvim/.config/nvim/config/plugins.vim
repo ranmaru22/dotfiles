@@ -58,4 +58,14 @@ nnoremap <silent><C-q> :Rg<CR>
 nnoremap <silent><C-b> :Buffers<CR>
 " }}}
 
+" Colorizer.lua {{{
+lua << EOF
+require('colorizer').setup({
+    'html';
+    css = { css = true; };
+    scss = { css = true; };
+})
+EOF
+" }}}
+
 " vim:foldmethod=marker:foldlevel=0
