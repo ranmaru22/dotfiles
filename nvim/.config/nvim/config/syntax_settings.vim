@@ -1,10 +1,13 @@
 " SYNTAX SETTINGS
 
+let g:vimsyn_embed = 'lP'
+
 " Assembly {{{
 let g:asmsyntax = 'nasm'                    " set nasm as default assembler syntax
 " }}}
 
-" Rust {{{ let g:rust_fold = 1
+" Rust {{{ 
+let g:rust_fold = 1
 let g:rust_cargo_check_tests = 1
 let g:rust_cargo_check_benches = 1
 " }}}
