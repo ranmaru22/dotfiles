@@ -11,12 +11,13 @@ call plug#begin()
     Plug 'nvim-lua/completion-nvim'
     Plug 'nvim-lua/diagnostic-nvim'
     Plug 'nvim-lua/lsp-status.nvim'
+    " Treesitter
+    Plug 'nvim-treesitter/nvim-treesitter'
     " Syntax plugins
     let g:polyglot_disabled = ['autoindent']
     Plug 'sheerun/vim-polyglot'
-    Plug 'arzg/vim-rust-syntax-ext'
     Plug 'mattn/emmet-vim'
-    " Fuzzy finder
+    " fzf
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     " Utilities
@@ -29,12 +30,14 @@ call plug#begin()
     Plug 'tpope/vim-repeat'
     Plug 'machakann/vim-highlightedyank'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    Plug 'norcalli/nvim-colorizer.lua'
     " Git plugins
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
     Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
     " Colour schemes
+    Plug 'bluz71/vim-moonfly-colors'
     Plug 'arzg/vim-substrata'
 call plug#end()
 " }}}
@@ -42,6 +45,7 @@ call plug#end()
 source $HOME/.config/nvim/config/general.vim
 source $HOME/.config/nvim/config/syntax_settings.vim
 source $HOME/.config/nvim/config/lsp.vim
+source $HOME/.config/nvim/config/treesitter.vim
 source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/keys.vim
