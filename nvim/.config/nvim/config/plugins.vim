@@ -7,10 +7,6 @@ let g:signify_sign_change = '┃'
 let g:signify_sign_delete = '-'
 " }}}
 
-" Sneak {{{
-let g:sneak#label = 1
-" }}}
-
 " Highlighted Yank {{{
 let g:highlightedyank_highlight_duration = 200
 " }}}
