@@ -21,7 +21,7 @@ let g:highlightedyank_highlight_duration = 200
 let g:user_emmet_leader_key     = ','
 let g:user_emmet_install_global = 0
 
-autocmd FileType html,css,javascriptreact,typescriptreact,vue EmmetInstall
+autocmd FileType html,css,scss,javascriptreact,typescriptreact,vue EmmetInstall
 " }}}
 
 " fzf {{{
@@ -57,6 +57,10 @@ nnoremap <silent><C-f> :Files<CR>
 nnoremap <silent><C-q> :Rg<CR>
 nnoremap <silent><C-b> :Buffers<CR>
 " }}}
+
+" Put stuff that depends on termguicolors after this.
+" Execution will end here if it is not set.
+if !exists('+termguicolors') | finish | endif
 
 " Colorizer.lua {{{
 lua << EOF

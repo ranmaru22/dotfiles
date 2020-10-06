@@ -4,6 +4,10 @@
 let g:asmsyntax = 'nasm'                    " set nasm as default assembler syntax
 " }}}
 
+" TeX {{{
+let g:tex_flavor = "latex"
+" }}}
+
 " Rust {{{ 
 let g:rust_fold = 1
 let g:rust_cargo_check_tests = 1
