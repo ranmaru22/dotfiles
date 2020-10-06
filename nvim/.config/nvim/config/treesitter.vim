@@ -9,7 +9,7 @@ treesitter.setup({
        enable = true
     },
     -- enable incremental selection
-    -- 'vit' for 'visual inner tree'
+    -- 'vit' for 'visual inside tree'
     incremental_selection = {
         enable = true,
         keymaps = {
