@@ -17,7 +17,7 @@ alias rm="rm -v"
 alias :q="exit"
 
 # Quick open config files {{{
-function confedit {
+confedit() {
   if [ -n "$1" ]; then
     FILE=$(fd -t f -H "$1" "$DOTFILES")
     FNUM=$(echo "$FILE" | wc -l)
@@ -74,7 +74,7 @@ alias grb="git rebase"
 alias gri="git rebase -i"
 
 # uncommitting
-function guc {
+guc() {
   git reset @~ "$@" && git commit --amend --no-edit
 }
 

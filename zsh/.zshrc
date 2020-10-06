@@ -11,7 +11,7 @@ zmodload -i zsh/complist
 # Plugins & addons {{{
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
 
-function loadZshPlugins {
+loadZshPlugins() {
   antibody bundle < $ZSH_CONFIG_DIR/plugins.txt > $ZSH_CONFIG_DIR/load_plugins.sh
 }
 
@@ -32,19 +32,19 @@ fi
 # PATH {{{
 typeset -gU cdpath fpath mailpath path
 
-function pathAppend {
+_pathAppend() {
   if [ -d "$1" ] && ! echo $PATH | grep -Eq "(^|:)$1($|:)"; then
     PATH="${PATH:+${PATH}:}$1"
   fi
 }
 
-pathAppend /usr/local/sbin
-pathAppend ~/.local/bin
-pathAppend ~/.cabal/bin
-pathAppend ~/.cargo/bin
-pathAppend ~/.go/bin
-pathAppend Library/Frameworks/Python.framework/Versions/3.8/bin
-pathAppend ~/.scripts/bin
+_pathAppend /usr/local/sbin
+_pathAppend ~/.local/bin
+_pathAppend ~/.cabal/bin
+_pathAppend ~/.cargo/bin
+_pathAppend ~/.go/bin
+_pathAppend Library/Frameworks/Python.framework/Versions/3.8/bin
+_pathAppend ~/.scripts/bin
 
 export PATH
 # }}}
@@ -60,7 +60,7 @@ kitty + complete setup zsh | source /dev/stdin
 # }}}
 
 # Tmux {{{
-function startTmux {
+_startTmux() {
   if type tmux &> /dev/null; then
     if [[ -z "$TMUX" && -z "$TERMINAL_CONTEXT" && $(whoami) != "root" ]]; then
       (tmux -2 attach || tmux -2 new-session)
@@ -68,7 +68,7 @@ function startTmux {
   fi
 }
 
-startTmux
+_startTmux
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
