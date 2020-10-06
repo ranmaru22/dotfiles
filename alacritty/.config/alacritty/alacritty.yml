@@ -14,14 +14,18 @@ dpi:
   x: 96.0
   y: 96.0
 
-window:
-  decorations: transparent
+# background_opacity: 0.95
+draw_bold_text_with_bright_colors: false
+
+window: # {{{
+  decorations: buttonless
   padding:
     x: 5
-    y: 18
+    y: 5
   dynamic_padding: true
+# }}}
 
-colors:
+colors: # {{{
   # Default colours
   primary:
     foreground: "#b5b4c9"
@@ -48,11 +52,9 @@ colors:
     magenta: "#c6aed7"
     cyan: "#7dc2c7"
     white: "#f0ecfe"
+# }}}
 
-# background_opacity: 0.95
-draw_bold_text_with_bright_colors: false
-
-font:
+font: # {{{
   size: 13.0
   normal:
     family: "BlexMono Nerd Font"
@@ -70,11 +72,14 @@ font:
     x: 0
     y: 1
   use_thin_strokes: true
+# }}}
 
-# Key bindings
-key_bindings:
+key_bindings: # {{{
   # Bind Alt to Meta (on certain keys)
   - { key: H, mods: Alt, chars: "\x1bh" }
   - { key: J, mods: Alt, chars: "\x1bj" }
   - { key: K, mods: Alt, chars: "\x1bk" }
   - { key: L, mods: Alt, chars: "\x1bl" }
+# }}}
+
+# vim:foldmethod=marker:foldlevel=0
