@@ -3,10 +3,9 @@
 " Signify {{{
 set updatetime=100
 let g:signify_sign_show_count = 1
-
-let g:signify_sign_add               = '┃'
-let g:signify_sign_change            = '┃'
-let g:signify_sign_delete            = '-'
+let g:signify_sign_add    = '┃'
+let g:signify_sign_change = '┃'
+let g:signify_sign_delete = '-'
 
 " Key mappings
 nmap <Leader>gj <plug>(signify-next-hunk)
@@ -17,10 +16,13 @@ nmap <Leader>gk <plug>(signify-prev-hunk)
 let g:highlightedyank_highlight_duration = 200
 " }}}
 
+" QuickScope {{{
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+" }}}
+
 " Emmet {{{
 let g:user_emmet_leader_key     = ','
 let g:user_emmet_install_global = 0
-
 autocmd FileType html,css,scss,javascriptreact,typescriptreact,vue EmmetInstall
 " }}}
 
