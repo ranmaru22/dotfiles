@@ -5,7 +5,7 @@
 # =============================================================================
 
 # Theme
---theme="Nord"
+--theme="Dracula"
 
 # Syntax mapping
 --map-syntax ".ignore:Git Ignore"
