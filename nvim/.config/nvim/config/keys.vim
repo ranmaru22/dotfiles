@@ -3,6 +3,7 @@
 " Git {{{
 nmap <silent><Leader>gs  :G<CR>
 nmap <silent><Leader>gv  :GV<CR>
+nmap <silent><Leader>ggv :GV?<CR>
 nmap <silent><Leader>gc  :GBranches<CR>
 nmap <silent><Leader>ggd :Gdiff<CR>
 " }}}
@@ -45,6 +46,12 @@ vnoremap \P "*P
 
 " Clear highlighting {{{
 nnoremap <silent><BS> :nohlsearch<CR>
+" }}}
+
+" Tab between results when searching {{{
+set wildcharm=<C-z>
+cnoremap <expr><Tab>   getcmdtype() =~ '[\/?]' ? "<C-g>" : "<C-z>"
+cnoremap <expr><S-Tab> getcmdtype() =~ '[\/?]' ? "<C-t>" : "<S-Tab>"
 " }}}
 
 " Move current line up/down {{{
