@@ -88,6 +88,7 @@ end
 local nvim_lsp = require('nvim_lsp')
 nvim_lsp.tsserver.setup({on_attach=attach_client})
 nvim_lsp.cssls.setup({on_attach=attach_client})
+nvim_lsp.jsonls.setup({on_attach=attach_client})
 nvim_lsp.html.setup({on_attach=attach_client})
 nvim_lsp.vuels.setup({on_attach=attach_client})
 nvim_lsp.rust_analyzer.setup({on_attach=attach_client})
