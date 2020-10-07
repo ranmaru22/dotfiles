@@ -10,6 +10,7 @@ export DOTFILES="$HOME/.dotfiles"
 export PAGER='less'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 export CLICOLOR=1
 
