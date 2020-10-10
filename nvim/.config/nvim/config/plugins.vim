@@ -34,9 +34,7 @@ call plug#begin()
     Plug 'junegunn/gv.vim'
     Plug 'mhinz/vim-signify'
     " Colour schemes
-    Plug 'ghifarit53/tokyonight-vim'
-    Plug 'drewtempelmeyer/palenight.vim'
-    Plug 'arzg/vim-substrata'
+    Plug 'chriskempson/base16-vim'
 call plug#end()
 
 if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
