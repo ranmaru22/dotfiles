@@ -2,11 +2,11 @@
 
 " Colours {{{
 let s:sl_colours_gui = {
-    \ "bg":      "#2e313d",
-    \ "fg":      "#b5b4c9",
-    \ "muted":   "#5b5f71",
-    \ "saved":   "#76a065",
-    \ "unsaved": "#cf8164",
+    \ "bg":      "#222222",
+    \ "fg":      "#c2c2b0",
+    \ "muted":   "#525b5b",
+    \ "saved":   "#719611",
+    \ "unsaved": "#aa4450",
     \ }
 let s:sl_colours_cterm = {
     \ "bg":      "236",
@@ -40,7 +40,12 @@ endfunction
 " }}}
 
 if has('statusline')
+    " Set the colours & reset them when changing the scheme
     execute statusline#highlight(s:sl_colours_gui, s:sl_colours_cterm)
+    au ColorScheme * call statusline#highlight(s:sl_colours_gui, s:sl_colours_cterm)
+    " Also reset colurs after leaving Goyo
+    au User GoyoLeave nested call statusline#highlight(s:sl_colours_gui, s:sl_colours_cterm)
+    " Switch between active and inactive statuslines
     au WinEnter * setlocal statusline=%!SetStatusLine('active')
     au WinLeave * setlocal statusline=%!SetStatusLine('inactive')
     set statusline=%!SetStatusLine('active')

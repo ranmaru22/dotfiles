@@ -21,7 +21,7 @@ function! statusline#highlight(guicol, ctermcol) abort
 	\ a:ctermcol.bg, a:ctermcol.unsaved, a:guicol.bg, a:guicol.unsaved)
 endfunction
 
-" Show whether the git brach is ahead or behind [wip].
+" Show whether the git branch is ahead or behind [wip].
 function! statusline#gitStatus() abort
     let [l:add, l:chn, l:del] = sy#repo#get_stats()
     return l:add || l:chn || l:del
@@ -33,7 +33,7 @@ function! statusline#gitBranch() abort
     return strlen(fugitive#head()) ? "  " . fugitive#head() . l:gitstatus . " ›› ": ""
 endfunction
 
-" Show a coloured bar based on the status.
+" Show a coloured bar based on the file status.
 function! statusline#lhsIndicator()
     let l:readonly = !&modifiable ? "  " : &readonly ? "  " : "   "
     if &modifiable && &modified
