@@ -1,77 +1,44 @@
-" PLUGIN-SPECIFIC SETTINGS
+" PLUGINS
 
-" Signify {{{
-set updatetime=100
-let g:signify_sign_show_count = 1
-let g:signify_sign_add    = '┃'
-let g:signify_sign_change = '┃'
-let g:signify_sign_delete = '-'
-
-" Key mappings
-nmap <Leader>gj <plug>(signify-next-hunk)
-nmap <Leader>gk <plug>(signify-prev-hunk)
-" }}}
-
-" Highlighted Yank {{{
-let g:highlightedyank_highlight_duration = 200
-" }}}
-
-" QuickScope {{{
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-" }}}
-
-" Emmet {{{
-let g:user_emmet_leader_key     = ','
-let g:user_emmet_install_global = 0
-autocmd FileType html,css,scss,javascriptreact,typescriptreact,vue EmmetInstall
-" }}}
-
-" fzf {{{
-let $FZF_DEFAULT_OPTS    = "--layout=reverse --info=inline"
-let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
-let g:fzf_layout         = { "down": "~40%" }
-
-if has('nvim') && !exists('g:fzf_colors')
-    let g:fzf_colors = {
-        \ 'fg':      ['fg', 'Normal'],
-        \ 'bg':      ['bg', 'Normal'],
-        \ 'hl':      ['fg', 'Comment'],
-        \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-        \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-        \ 'hl+':     ['fg', 'Statement'],
-        \ 'info':    ['fg', 'PreProc'],
-        \ 'border':  ['fg', 'Ignore'],
-        \ 'prompt':  ['fg', 'Conditional'],
-        \ 'pointer': ['fg', 'Exception'],
-        \ 'marker':  ['fg', 'Keyword'],
-        \ 'spinner': ['fg', 'Label'],
-        \ 'header':  ['fg', 'Comment']
-        \ }
-
-    autocmd! FileType fzf
-    autocmd  FileType fzf set laststatus=0 noshowmode noruler
-        \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+if empty(glob('${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'))
+    silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 endif
 
-" Key mappings
-nnoremap <silent><C-p> :GFiles<CR>
-nnoremap <silent><C-f> :Files<CR>
-nnoremap <silent><C-q> :Rg<CR>
-nnoremap <silent><C-b> :Buffers<CR>
-" }}}
+call plug#begin()
+    " LSP plugins
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'nvim-lua/completion-nvim'
+    Plug 'nvim-lua/diagnostic-nvim'
+    Plug 'nvim-lua/lsp-status.nvim'
+    " Treesitter & syntax plugins
+    Plug 'nvim-treesitter/nvim-treesitter'
+    " fzf
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    " Utilities
+    Plug 'airblade/vim-rooter'
+    Plug 'unblevable/quick-scope'
+    Plug 'tpope/vim-sleuth'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-obsession'
+    Plug 'tpope/vim-repeat'
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+    Plug 'junegunn/goyo.vim'
+    Plug 'mattn/emmet-vim'
+    Plug 'norcalli/nvim-colorizer.lua'
+    " Git plugins
+    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/gv.vim'
+    Plug 'mhinz/vim-signify'
+    " Colour schemes
+    Plug 'ghifarit53/tokyonight-vim'
+    Plug 'drewtempelmeyer/palenight.vim'
+    Plug 'arzg/vim-substrata'
+call plug#end()
 
-" Put stuff that depends on termguicolors after this.
-" Execution will end here if it is not set.
-if !exists('+termguicolors') | finish | endif
-
-" Colorizer.lua {{{
-lua << EOF
-require('colorizer').setup({
-    'html';
-    css = { css = true; };
-    scss = { css = true; };
-})
-EOF
-" }}}
-
-" vim:foldmethod=marker:foldlevel=0
+if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif

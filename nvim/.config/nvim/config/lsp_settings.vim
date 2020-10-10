@@ -56,11 +56,6 @@ call sign_define("LspDiagnosticsErrorSign", {"text": "✘", "texthl" :"LspDiagno
 call sign_define("LspDiagnosticsWarningSign", {"text": "", "texthl": "LspDiagnosticsWarning"})
 call sign_define("LspDiagnosticsInformationSign", {"text": "", "texthl": "LspDiagnosticsInformation"})
 call sign_define("LspDiagnosticsHintSign", {"text": "", "texthl" :"LspDiagnosticsHint"})
-
-hi link LspDiagnosticsError ErrorMsg
-hi link LspDiagnosticsWarning WarningMsg
-hi link LspDiagnosticsInformation ModeMsg
-hi link LspDiagnosticsHint ModeMsg
 " }}}
 
 " Setting up language servers {{{
@@ -91,6 +86,7 @@ nvim_lsp.cssls.setup({on_attach=attach_client})
 nvim_lsp.jsonls.setup({on_attach=attach_client})
 nvim_lsp.html.setup({on_attach=attach_client})
 nvim_lsp.vuels.setup({on_attach=attach_client})
+nvim_lsp.ccls.setup({on_attach=attach_client})
 nvim_lsp.rust_analyzer.setup({on_attach=attach_client})
 nvim_lsp.vimls.setup({on_attach=attach_client})
 nvim_lsp.bashls.setup({on_attach=attach_client})

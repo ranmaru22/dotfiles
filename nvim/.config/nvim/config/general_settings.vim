@@ -15,7 +15,7 @@ set cursorline
 set nowrap
 
 set backspace=indent,eol,start
-set noshowmode
+set showmode
 set nojoinspaces
 
 set conceallevel=2
@@ -53,7 +53,6 @@ set shiftwidth=4
 
 " Folding settings {{{
 if has ('folding')
-    set fillchars+=fold:\ 
     set foldmethod=syntax
     set foldlevelstart=2
     set foldtext=utils#foldtext()

@@ -4,9 +4,7 @@ set background=dark
 
 if has('termguicolors')
     set termguicolors
-    let g:palenight_terminal_italics=1
-    colorscheme palenight
-else 
+    colorscheme tokyonight
+else
     colorscheme substrata
 endif
-
