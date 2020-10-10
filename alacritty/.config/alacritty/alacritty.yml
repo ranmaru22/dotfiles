@@ -6,6 +6,7 @@
 
 live_config_reload: true
 hide_cursor_when_typing: true
+draw_bold_text_with_bright_colors: false
 
 env:
   TERM: xterm-256color
@@ -13,9 +14,6 @@ env:
 dpi:
   x: 96.0
   y: 96.0
-
-# background_opacity: 0.95
-draw_bold_text_with_bright_colors: false
 
 window: # {{{
   decorations: buttonless
@@ -25,34 +23,56 @@ window: # {{{
   dynamic_padding: true
 # }}}
 
-colors: # {{{
-  # Default colours
-  primary:
-    foreground: "#b5b4c9"
-    background: "#191c25"
-
-  # Normal colours
-  normal:
-    black: "#2e313d"
-    red: "#cf8164"
-    green: "#76a065"
-    yellow: "#ab924c"
-    blue: "#8296b0"
-    magenta: "#a18daf"
-    cyan: "#659ea2"
-    white: "#b5b4c9"
-
-  # Bright colours
-  bright:
-    black: "#5b5f71"
-    red: "#fe9f7c"
-    green: "#92c47e"
-    yellow: "#d2b45f"
-    blue: "#a0b9d8"
-    magenta: "#c6aed7"
-    cyan: "#7dc2c7"
-    white: "#f0ecfe"
+schemes: # {{{
+  substrata: &substrata # {{{
+    primary:
+      background: '#191c25'
+      foreground: '#b5b4c9'
+    normal:
+      black:   '#2e313d'
+      red:     '#cf8164'
+      green:   '#76a065'
+      yellow:  '#ab924c'
+      blue:    '#8296b0'
+      magenta: '#a18daf'
+      cyan:    '#659ea2'
+      white:   '#b5b4c9'
+    bright:
+      black:   '#5b5f71'
+      red:     '#fe9f7c'
+      green:   '#92c47e'
+      yellow:  '#d2b45f'
+      blue:    '#a0b9d8'
+      magenta: '#c6aed7'
+      cyan:    '#7dc2c7'
+      white:   '#f0ecfe'
+  # }}}
+  tomorrow-night: &tomorrow-night # {{{
+    primary:
+      background: '#1d1f21'
+      foreground: '#c5c8c6'
+    normal:
+      black:   '#282a2e'
+      red:     '#cc6666'
+      green:   '#b5bd68'
+      yellow:  '#de935f'
+      blue:    '#81a2be'
+      magenta: '#b294bb'
+      cyan:    '#8abeb7'
+      white:   '#b4b7b4'
+    bright:
+      black:   '#474b51'
+      red:     '#FF3334'
+      green:   '#9ec400'
+      yellow:  '#f0c674'
+      blue:    '#91b2be'
+      magenta: '#b777e0'
+      cyan:    '#54ced6'
+      white:   '#e0e0e0'
+  # }}}
 # }}}
+
+colors: *tomorrow-night
 
 font: # {{{
   size: 13.0
@@ -67,7 +87,7 @@ font: # {{{
     style: Bold Italic
   offset:
     x: 1
-    y: 0
+    y: 1
   glyph_offset:
     x: 0
     y: 1
