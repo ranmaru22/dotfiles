@@ -14,6 +14,8 @@ set scrolloff 10
 set drawbox true
 set icons true
 set color256 true
+
+set previewer ~/.config/lf/bat_preview
 # }}}
 
 # Custom key mappings {{{
@@ -99,4 +101,4 @@ cmd zip ${{
 }}
 # }}}
 
-# vim:foldmethod=marker:foldlevel=0:syntax=conf
+# vim:foldmethod=marker:foldlevel=0:filetype=conf
