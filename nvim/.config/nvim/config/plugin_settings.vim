@@ -7,11 +7,6 @@ let g:signify_sign_add    = '┃'
 let g:signify_sign_change = '┃'
 let g:signify_sign_delete = '-'
 
-" Colour adjustments
-" highlight SignifySignAdd    ctermfg=green  guifg=lightgreen cterm=NONE gui=NONE
-" highlight SignifySignDelete ctermfg=red    guifg=lightred cterm=NONE gui=NONE
-" highlight SignifySignChange ctermfg=yellow guifg=orange cterm=NONE gui=NONE
-
 " Key mappings
 nmap <Leader>gj <plug>(signify-next-hunk)
 nmap <Leader>gk <plug>(signify-prev-hunk)
@@ -67,9 +62,7 @@ nnoremap <silent><C-b> :Buffers<CR>
 " Colorizer.lua {{{
 lua << EOF
 require('colorizer').setup({
-    'html';
-    'vim';
-    'yaml';
+    '*';
     css = { css = true; };
     scss = { css = true; };
 })
