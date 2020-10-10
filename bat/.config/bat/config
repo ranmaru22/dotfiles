@@ -5,7 +5,7 @@
 # =============================================================================
 
 # Theme
---theme="Dracula"
+--theme="TwoDark"
 
 # Syntax mapping
 --map-syntax ".ignore:Git Ignore"
