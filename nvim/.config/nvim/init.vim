@@ -9,8 +9,8 @@ source $HOME/.config/nvim/config/general_settings.vim
 
 " Plugins & related settings
 source $HOME/.config/nvim/config/plugins.vim
-source $HOME/.config/nvim/config/colours.vim
 source $HOME/.config/nvim/config/plugin_settings.vim
+source $HOME/.config/nvim/config/colours.vim
 
 " Syntax-related settings, LSPs, treesitter
 source $HOME/.config/nvim/config/syntax_settings.vim
