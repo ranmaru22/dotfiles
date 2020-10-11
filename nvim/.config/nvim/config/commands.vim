@@ -11,9 +11,14 @@ iab __gh https://github.com/ranmaru22/
 iab __ghd https://github.com/ranmaru22/dotfiles
 " }}}
 
-" Strip trailing whitespace on save
+" Highlight trailing whitespace {{{
+match TrailingWhitespace /\s\+$/
+" }}}
+
+" Strip trailing whitespace on save {{{
 " Runs on all filetypes not in blacklist
 let blacklist = ['vim', 'ruby', 'perl']
 autocmd BufWritePre * if index(blacklist, &ft) < 0 | %s/\s\+$//e
+" }}}
 
 " vim:foldmethod=marker:foldlevel=0
