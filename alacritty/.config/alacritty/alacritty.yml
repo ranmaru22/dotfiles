@@ -24,51 +24,46 @@ window: # {{{
 # }}}
 
 schemes: # {{{
-  substrata: &substrata # {{{
-    primary:
-      background: '#191c25'
-      foreground: '#b5b4c9'
-    normal:
-      black:   '#2e313d'
-      red:     '#cf8164'
-      green:   '#76a065'
-      yellow:  '#ab924c'
-      blue:    '#8296b0'
-      magenta: '#a18daf'
-      cyan:    '#659ea2'
-      white:   '#b5b4c9'
-    bright:
-      black:   '#5b5f71'
-      red:     '#fe9f7c'
-      green:   '#92c47e'
-      yellow:  '#d2b45f'
-      blue:    '#a0b9d8'
-      magenta: '#c6aed7'
-      cyan:    '#7dc2c7'
-      white:   '#f0ecfe'
-  # }}}
   tomorrow-night: &tomorrow-night # {{{
+    # Default colors
     primary:
       background: '#1d1f21'
       foreground: '#c5c8c6'
+
+    # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+      text:   '#1d1f21'
+      cursor: '#c5c8c6'
+
+    # Normal colors
     normal:
-      black:   '#282a2e'
+      black:   '#1d1f21'
       red:     '#cc6666'
       green:   '#b5bd68'
-      yellow:  '#de935f'
+      yellow:  '#f0c674'
       blue:    '#81a2be'
       magenta: '#b294bb'
       cyan:    '#8abeb7'
-      white:   '#b4b7b4'
+      white:   '#c5c8c6'
+
+    # Bright colors
     bright:
-      black:   '#474b51'
-      red:     '#FF3334'
-      green:   '#9ec400'
+      black:   '#969896'
+      red:     '#cc6666'
+      green:   '#b5bd68'
       yellow:  '#f0c674'
-      blue:    '#91b2be'
-      magenta: '#b777e0'
-      cyan:    '#54ced6'
-      white:   '#e0e0e0'
+      blue:    '#81a2be'
+      magenta: '#b294bb'
+      cyan:    '#8abeb7'
+      white:   '#ffffff'
+
+    indexed_colors:
+      - { index: 16, color: '#de935f' }
+      - { index: 17, color: '#a3685a' }
+      - { index: 18, color: '#282a2e' }
+      - { index: 19, color: '#373b41' }
+      - { index: 20, color: '#b4b7b4' }
+      - { index: 21, color: '#e0e0e0' }
   # }}}
 # }}}
 
@@ -78,7 +73,7 @@ font: # {{{
   size: 13.0
   normal:
     family: "BlexMono Nerd Font"
-    style: Book
+    # style: Regular
   bold:
     style: Bold
   italic:
@@ -87,11 +82,11 @@ font: # {{{
     style: Bold Italic
   offset:
     x: 1
-    y: 1
+    y: 0
   glyph_offset:
     x: 0
     y: 1
-  use_thin_strokes: true
+  use_thin_strokes: false
 # }}}
 
 key_bindings: # {{{
@@ -101,5 +96,6 @@ key_bindings: # {{{
   - { key: K, mods: Alt, chars: "\x1bk" }
   - { key: L, mods: Alt, chars: "\x1bl" }
 # }}}
+
 
 # vim:foldmethod=marker:foldlevel=0
