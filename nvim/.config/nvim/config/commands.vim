@@ -17,8 +17,8 @@ match TrailingWhitespace /\s\+$/
 
 " Strip trailing whitespace on save {{{
 " Runs on all filetypes not in blacklist
-let blacklist = ['vim', 'ruby', 'perl']
-autocmd BufWritePre * if index(blacklist, &ft) < 0 | %s/\s\+$//e
+let s:blacklist = ['vim', 'ruby', 'perl']
+autocmd BufWritePre * if index(s:blacklist, &ft) < 0 | %s/\s\+$//e
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
