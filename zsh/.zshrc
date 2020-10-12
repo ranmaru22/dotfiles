@@ -55,10 +55,6 @@ if type starship &> /dev/null; then
 fi
 # }}}
 
-# Enable kitty completion {{{
-kitty + complete setup zsh | source /dev/stdin
-# }}}
-
 # Tmux {{{
 _startTmux() {
   if type tmux &> /dev/null; then
@@ -68,7 +64,6 @@ _startTmux() {
   fi
 }
 
-_startTmux
 # }}}
 
 # vim:foldmethod=marker:foldlevel=0
