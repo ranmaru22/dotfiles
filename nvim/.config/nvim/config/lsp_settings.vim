@@ -7,6 +7,9 @@ set shortmess+=c
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 let g:completion_auto_change_source = 1
+let g:completion_enable_auto_popup = 1
+let g:completion_enable_auto_hover = 1
+let g:completion_enable_auto_signature = 1
 
 let g:diagnostic_insert_delay = 1
 let g:diagnostic_enable_virtual_text = 1
@@ -23,7 +26,7 @@ inoremap <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Jump to definitions etc.
 function! s:show_documentation()
-    if (index(['vim','help'], &ft) >= 0)
+    if index(['vim', 'help'], &ft) >= 0
         exe 'h '.expand('<cword>')
     else
         exe 'lua vim.lsp.buf.hover()'
@@ -85,20 +88,29 @@ end
 
 -- Loading servers
 local nvim_lsp = require('nvim_lsp')
+
 nvim_lsp.tsserver.setup({on_attach=attach_client})
 nvim_lsp.cssls.setup({on_attach=attach_client})
 nvim_lsp.jsonls.setup({on_attach=attach_client})
 nvim_lsp.html.setup({on_attach=attach_client})
-nvim_lsp.vuels.setup({on_attach=attach_client})
-nvim_lsp.ccls.setup({on_attach=attach_client})
+
+nvim_lsp.vuels.setup({ --{{{
+    on_attach = attach_client,
+    settings = {
+        vetur = {
+            format = { enable = false }
+        }
+    }
+}) --}}}
+
 nvim_lsp.rust_analyzer.setup({on_attach=attach_client})
+
 nvim_lsp.vimls.setup({on_attach=attach_client})
 nvim_lsp.bashls.setup({on_attach=attach_client})
-nvim_lsp.pyls.setup({on_attach=attach_client})
-nvim_lsp.texlab.setup({on_attach=attach_client})
 EOF
 
-autocmd BufWritePost * lua vim.lsp.buf.formatting()
+let s:blacklist = ['vue']
+autocmd BufWritePost * if index(s:blacklist, &ft) | lua vim.lsp.buf.formatting()
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
