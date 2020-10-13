@@ -21,4 +21,10 @@ let s:blacklist = ['vim', 'ruby', 'perl']
 autocmd BufWritePre * if index(s:blacklist, &ft) < 0 | %s/\s\+$//e
 " }}}
 
+" Highlight yanked text {{{
+if exists('##TextYankPost')
+    autocmd TextYankPost * silent! lua require('vim.highlight').on_yank({timeout=200})
+endif
+" }}}
+
 " vim:foldmethod=marker:foldlevel=0

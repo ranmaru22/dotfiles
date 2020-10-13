@@ -24,7 +24,6 @@ call plug#begin()
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-repeat'
-    Plug 'machakann/vim-highlightedyank'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'junegunn/goyo.vim'
     Plug 'mattn/emmet-vim'

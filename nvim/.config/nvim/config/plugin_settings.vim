@@ -20,10 +20,6 @@ nmap <Leader>gj <plug>(signify-next-hunk)
 nmap <Leader>gk <plug>(signify-prev-hunk)
 " }}}
 
-" Highlighted Yank {{{
-let g:highlightedyank_highlight_duration = 200
-" }}}
-
 " QuickScope {{{
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " }}}
