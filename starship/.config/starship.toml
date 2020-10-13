@@ -4,6 +4,10 @@
 # GitHub:      https://github.com/ranmaru22/dotfiles
 # =============================================================================
 
+[directory]
+truncation_symbol = "…/"
+read_only = " "
+
 [aws]
 symbol = " "
 
