@@ -35,6 +35,10 @@ noremap x  "_x
 noremap X  "_D
 " }}}
 
+" Paste over visual selection without yanking {{{
+vnoremap <Leader>p "_dP
+" }}}
+
 " Yanking & pasting from clipboard {{{
 nnoremap \y "*y
 vnoremap \y "*y
