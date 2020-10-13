@@ -1,5 +1,6 @@
 .DS_Store
 Session.vim
+karabiner/.config/karabiner/automatic_backups
 nvim/.config/nvim/spell
 nvim/.config/nvim/plugged
 nvim/.config/nvim/.netrwhist
