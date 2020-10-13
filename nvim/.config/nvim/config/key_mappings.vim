@@ -5,10 +5,16 @@ nmap <silent><Leader>gs  :G<CR>
 nmap <silent><Leader>gv  :GV<CR>
 nmap <silent><Leader>ggv :GV?<CR>
 nmap <silent><Leader>gc  :GBranches<CR>
-nmap <silent><Leader>ggd :Gdiff<CR>
+
+" Diff & merge conflict resolving
+nmap <silent><Leader>ggd :Gvdiff<CR>
+nmap <silent><Leader>gdh :diffget //2<CR>
+nmap <silent><Leader>gdl :diffget //3<CR>
 
 " vcs-jump bindings
-nmap <silent><Leader>gq  :VcsJump diff<CR>
+nmap <silent><Leader>gqd :VcsJump diff<CR>
+nmap <silent><Leader>gqm :VcsJump merge<CR>
+nmap <Leader>gq/         :VcsJump diff 
 nmap <silent><Leader>gn  :cnext<CR>
 nmap <silent><Leader>gp  :cprevious<CR>
 " }}}
