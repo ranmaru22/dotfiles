@@ -106,6 +106,7 @@ nvim_lsp.vuels.setup({ --{{{
 nvim_lsp.rust_analyzer.setup({on_attach=attach_client})
 
 nvim_lsp.vimls.setup({on_attach=attach_client})
+nvim_lsp.sumneko_lua.setup({on_attach=attach_client})
 nvim_lsp.bashls.setup({on_attach=attach_client})
 EOF
 
