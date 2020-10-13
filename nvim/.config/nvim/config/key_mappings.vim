@@ -6,6 +6,11 @@ nmap <silent><Leader>gv  :GV<CR>
 nmap <silent><Leader>ggv :GV?<CR>
 nmap <silent><Leader>gc  :GBranches<CR>
 nmap <silent><Leader>ggd :Gdiff<CR>
+
+" vcs-jump bindings
+nmap <silent><Leader>gq  :VcsJump diff<CR>
+nmap <silent><Leader>gn  :cnext<CR>
+nmap <silent><Leader>gp  :cprevious<CR>
 " }}}
 
 " Buffers {{{

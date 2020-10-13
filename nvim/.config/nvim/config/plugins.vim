@@ -32,6 +32,7 @@ call plug#begin()
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
     Plug 'mhinz/vim-signify'
+    Plug 'wincent/vcs-jump'
     " Colour schemes
     Plug 'chriskempson/base16-vim'
 call plug#end()
