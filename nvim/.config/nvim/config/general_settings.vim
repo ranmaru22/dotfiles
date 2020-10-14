@@ -4,6 +4,7 @@
 set encoding=UTF-8
 set fileencoding=utf-8
 set fileformat=unix
+set mouse=a
 
 set title
 set hidden
