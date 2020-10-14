@@ -44,7 +44,7 @@ _pathAppend ~/.local/bin
 _pathAppend ~/.cabal/bin
 _pathAppend ~/.cargo/bin
 _pathAppend ~/.go/bin
-_pathAppend Library/Frameworks/Python.framework/Versions/3.8/bin
+_pathAppend /Library/Frameworks/Python.framework/Versions/3.8/bin
 _pathAppend ~/.scripts/bin
 
 export PATH
