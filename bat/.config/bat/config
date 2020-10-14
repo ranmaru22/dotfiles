@@ -5,7 +5,7 @@
 # =============================================================================
 
 # Theme
---theme="TwoDark"
+--theme="base16"
 
 # Syntax mapping
 --map-syntax ".ignore:Git Ignore"
