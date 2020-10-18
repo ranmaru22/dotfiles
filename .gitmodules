@@ -1,0 +1,3 @@
+[submodule "kitty/.config/kitty/colours"]
+	path = kitty/.config/kitty/colours
+	url = https://github.com/kdrag0n/base16-kitty
