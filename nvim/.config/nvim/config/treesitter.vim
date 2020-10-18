@@ -21,3 +21,8 @@ treesitter.setup({
     }
 })
 EOF
+
+if has ('folding')
+    set foldmethod=expr
+    set foldexpr=nvim_treesitter#foldexpr()
+endif
