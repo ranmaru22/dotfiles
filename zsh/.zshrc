@@ -7,6 +7,9 @@
 zstyle ':completion:*' menu select
 autoload -Uz compinit && compinit -i
 zmodload -i zsh/complist
+if [[ "$TERM" == "xterm-kitty" ]]; then
+  kitty + complete setup zsh | source /dev/stdin
+fi
 
 # Plugins & addons {{{
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
