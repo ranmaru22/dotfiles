@@ -8,6 +8,8 @@ function! b16config#customize() abort
         \ g:base16_gui05, "", g:base16_cterm05, "", "bold", "bold")
     call Base16hi("htmlItalic",
         \ g:base16_gui04, "", g:base16_cterm04, "", "italic", "italic")
+    call Base16hi("matchParen",
+        \ g:base16_gui06, "NONE", g:base16_cterm06, "NONE", "bold", "bold")
 
     " Colour spelling highlights
     call Base16hi("SpellBad",
