@@ -13,6 +13,8 @@ call plug#begin()
     Plug 'nvim-lua/lsp-status.nvim'
     " Treesitter & syntax plugins
     Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'cespare/vim-toml'
+    Plug 'habamax/vim-godot'
     " fzf
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -27,10 +29,12 @@ call plug#begin()
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'junegunn/goyo.vim'
     Plug 'mattn/emmet-vim'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'norcalli/nvim-colorizer.lua'
     " Git plugins
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
+    Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
     Plug 'wincent/vcs-jump'
     " Colour schemes

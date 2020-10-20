@@ -8,7 +8,7 @@ let g:asmsyntax = 'nasm'                    " set nasm as default assembler synt
 let g:tex_flavor = "latex"
 " }}}
 
-" Rust {{{ 
+" Rust {{{
 let g:rust_fold = 1
 let g:rust_cargo_check_tests = 1
 let g:rust_cargo_check_benches = 1
