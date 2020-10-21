@@ -1,5 +1,17 @@
 " STATUSLINE FUNCTIONS
 
+" Add dynamic padding depending on sign and number column
+function! statusline#pad() abort
+    let l:signcol = 0
+    if exists('+signcolumn') && &signcolumn
+	let l:signcol = 2
+    endif
+    let l:min = 2
+    let l:width=max([strlen(line('$')) + 1, &numberwidth, l:min]) + l:signcol
+    let l:pad = repeat(" ", l:width)
+    return l:pad
+endfunction
+
 " Show whether the git branch is ahead or behind [wip].
 function! statusline#gitStatus() abort
     let [l:add, l:chn, l:del] = sy#repo#get_stats()
@@ -14,9 +26,10 @@ endfunction
 
 " Show a coloured bar based on the file status.
 function! statusline#lhsIndicator()
-    let l:readonly = !&modifiable ? "  " : &readonly ? "  " : "   "
+    let l:pad = statusline#pad()
+    let l:readonly = l:pad . (!&modifiable ? " " : &readonly ? " " : "  ")
     if &modifiable && &modified
-	return '%#SLUnsaved#'. "  " . '%#SLUnsavedDelim#%*'
+	return '%#SLUnsaved#' . l:pad . " " . '%#SLUnsavedDelim#%*'
     else 
 	return '%#SLSaved#' . l:readonly . '%#SLSavedDelim#%*'
     endif
