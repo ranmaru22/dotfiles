@@ -13,6 +13,9 @@ if type exa &> /dev/null; then
   alias ls="exa --icons"
 fi
 
+alias la="ls -a"
+alias ll="ls -la"
+
 alias rm="rm -v"
 alias :q="exit"
 
