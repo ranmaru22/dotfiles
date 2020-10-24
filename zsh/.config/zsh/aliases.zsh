@@ -38,7 +38,7 @@ alias ce=confedit
 # Git aliases {{{
 alias gp="git push"
 alias gf="git fetch"
-alias gc="git clone"
+alias gic="git clone"
 alias gb="git branch"
 alias gm="git merge"
 alias gip="git pull"
@@ -64,11 +64,12 @@ alias gst="git stash"
 alias gsp="git stash pop"
 
 # cherry picking
-alias gcp="git cherry-pick"
+alias gc="git cherry-pick"
 alias gcpa="git cherry-pick --abort"
 alias gcpc="git cherry-pick --continue"
 
 # committing
+alias gcc="git commit"
 alias gcm="git commit -m"
 alias gcA="git commit -a --amend"
 
