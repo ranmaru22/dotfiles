@@ -8,17 +8,9 @@ nmap <silent><Leader>gb  :GBranches<CR>
 nmap <silent><Leader>gc  :Commits<CR>
 
 " Diff & merge conflict resolving
-nmap <silent><Leader>ggd :Gvdiff<CR>
-nmap <silent><Leader>gdh :diffget //2<CR>
-nmap <silent><Leader>gdl :diffget //3<CR>
-
-" vcs-jump bindings
-nmap <silent><Leader>gqd :VcsJump diff<CR>
-nmap <silent><Leader>gqm :VcsJump merge<CR>
-nmap <Leader>gq/         :VcsJump diff 
-nmap <silent><Leader>gn  :cnext<CR>
-nmap <silent><Leader>gp  :cprevious<CR>
-" }}}
+nmap <silent><Leader>ggd :Gvdiffsplit!<CR>
+nmap gdh :diffget //2<CR>
+nmap gdl :diffget //3<CR>
 
 " Buffers {{{
 nmap <silent><Leader>bn       :bn<CR>
