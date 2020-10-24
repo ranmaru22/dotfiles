@@ -4,7 +4,8 @@
 nmap <silent><Leader>gs  :G<CR>
 nmap <silent><Leader>gv  :GV<CR>
 nmap <silent><Leader>ggv :GV?<CR>
-nmap <silent><Leader>gc  :GBranches<CR>
+nmap <silent><Leader>gb  :GBranches<CR>
+nmap <silent><Leader>gc  :Commits<CR>
 
 " Diff & merge conflict resolving
 nmap <silent><Leader>ggd :Gvdiff<CR>
