@@ -31,9 +31,11 @@ autocmd FileType html,css,scss,javascriptreact,typescriptreact,vue EmmetInstall
 " }}}
 
 " fzf {{{
-let $FZF_DEFAULT_OPTS    = "--layout=reverse --info=inline"
+let $FZF_DEFAULT_OPTS    = "--layout=reverse --info=inline --multi"
 let $FZF_DEFAULT_COMMAND = "rg --files --hidden"
-let g:fzf_layout         = { "down": "~40%" }
+let g:fzf_buffers_jump   = 1
+let g:fzf_layout         = { "down": "~35%" }
+let g:fzf_preview_window = ['right:50%', 'ctrl-L']
 
 if has('nvim') && !exists('g:fzf_colors')
     let g:fzf_colors = {
@@ -61,6 +63,10 @@ nnoremap <silent><C-p> :GFiles<CR>
 nnoremap <silent><C-f> :Files<CR>
 nnoremap <silent><C-q> :Rg<CR>
 nnoremap <silent><C-b> :Buffers<CR>
+nnoremap <silent><Leader>cc :Commands<CR>
+nnoremap <silent><Leader>ch :History<CR>
+nnoremap <silent><Leader>cl :BLines<CR>
+nnoremap <silent><Leader>cd :GFiles?<CR>
 " }}}
 
 " Colorizer.lua {{{

@@ -21,7 +21,7 @@ endfunction
 " Show the current git branch.
 function! statusline#gitBranch() abort
     let l:gitstatus = statusline#gitStatus() ? "*" : ""
-    return strlen(fugitive#head()) ? "  " . fugitive#head() . l:gitstatus . " ›› ": ""
+    return strlen(fugitive#head()) ? "  " . fugitive#head() . l:gitstatus . " ›› ": " "
 endfunction
 
 " Show a coloured bar based on the file status.
