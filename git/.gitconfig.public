@@ -12,8 +12,8 @@
     cp = cherry-pick
     ff = merge --ff-only
     cb = checkout -b
-    p = push origin $(git rev-parse --abbrev-ref HEAD)
-    sync = !git fetch --all && git rebase origin/master
+    p = !git push origin $(git rev-parse --abbrev-ref HEAD)
+    sync = !git fetch --all && git rebase --interactive origin/master
     pl = pull
     st = status
     m = merge
@@ -25,7 +25,7 @@
     staged = diff --cached --ignore-submodules=dirty
     pop = stash pop
     reword = commit --amend --only -v --
-    uncommit = "!f() { git reset HEAD~"${1}" && git commit --amend --no-edit; }; f"
+    uncommit = "!f() { git reset @~"$@" && git commit --amend --no-edit; }; f"
     abbrev = "!f() { git rev-parse --short "${1-`echo HEAD`}"; }; f"
     filediff = diff --name-only
 
@@ -56,3 +56,5 @@
 
 [rerere]
     enabled = true
+
+; vim:filetype=gitconfig
