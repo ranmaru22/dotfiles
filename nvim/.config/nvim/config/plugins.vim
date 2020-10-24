@@ -18,6 +18,7 @@ call plug#begin()
     " fzf
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'stsewd/fzf-checkout.vim'
     " Utilities
     Plug 'airblade/vim-rooter'
     Plug 'unblevable/quick-scope'
@@ -34,9 +35,7 @@ call plug#begin()
     " Git plugins
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
-    Plug 'stsewd/fzf-checkout.vim'
     Plug 'mhinz/vim-signify'
-    Plug 'wincent/vcs-jump'
     " Colour schemes
     Plug 'chriskempson/base16-vim'
 call plug#end()
