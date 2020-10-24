@@ -1,0 +1,65 @@
+[core]
+    excludesfile = ~/.gitignore_global
+    pager = delta
+
+[alias]
+    alias = "!git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /\\ =\\ /"
+    co = checkout
+    com = checkout master
+    ci = commit -v
+    cm = commit -m
+    amend = commit -a --amend
+    cp = cherry-pick
+    ff = merge --ff-only
+    cb = checkout -b
+    p = push origin $(git rev-parse --abbrev-ref HEAD)
+    sync = !git fetch --all && git rebase origin/master
+    pl = pull
+    st = status
+    m = merge
+    rb = rebase
+    a = add
+    aA = add -A
+    br = branch -a -v
+    patch = add -p
+    staged = diff --cached --ignore-submodules=dirty
+    pop = stash pop
+    reword = commit --amend --only -v --
+    uncommit = "!f() { git reset HEAD~"${1}" && git commit --amend --no-edit; }; f"
+    abbrev = "!f() { git rev-parse --short "${1-`echo HEAD`}"; }; f"
+    filediff = diff --name-only
+
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "sourcetree"]
+    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+
+[commit]
+    template = ~/.stCommitMsg
+
+[color]
+    ui = true
+
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+
+[delta]
+    features = side-by-side line-numbers decorations
+    plus-color = "#012800"
+    minus-color = "#340001"
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+
+[interactive]
+    diffFilter = delta --color-only
+
+[rerere]
+    enabled = true
