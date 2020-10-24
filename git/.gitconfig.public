@@ -35,12 +35,6 @@
 [color]
     ui = true
 
-[filter "lfs"]
-    clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
-    required = true
-
 [delta]
     features = side-by-side line-numbers decorations
     plus-color = "#012800"
