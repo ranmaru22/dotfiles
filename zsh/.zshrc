@@ -11,6 +11,8 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
   kitty + complete setup zsh | source /dev/stdin
 fi
 
+setopt extended_glob
+
 # Plugins & addons {{{
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
 
