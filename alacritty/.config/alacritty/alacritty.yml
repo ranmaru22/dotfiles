@@ -72,8 +72,8 @@ colors: *tomorrow-night
 font: # {{{
   size: 13.0
   normal:
-    family: "Fira Code"
-    # style: Regular
+    family: "BlexMono Nerd Font"
+    style: Book
   bold:
     style: Bold
   italic:
@@ -81,11 +81,11 @@ font: # {{{
   bold_italic:
     style: Bold Italic
   offset:
-    x: 0
+    x: 1
     y: 0
   glyph_offset:
     x: 0
-    y: 0
+    y: 1
   use_thin_strokes: false
   ligatures: true
 # }}}
