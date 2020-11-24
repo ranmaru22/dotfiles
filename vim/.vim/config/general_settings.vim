@@ -2,8 +2,10 @@
 
 " Basic settings {{{
 set encoding=UTF-8
+set term=xterm-256color
 set fileencoding=utf-8
 set fileformat=unix
+set laststatus=2
 set mouse=a
 
 set title
@@ -21,7 +23,7 @@ set nojoinspaces
 
 set conceallevel=2
 
-let mapleader = "\<Space>"
+let mapleader = "\<C-c>"
 " }}}
 
 " Enable syntax {{{

@@ -5,16 +5,7 @@ set complete-=i
 set completeopt=menuone,noinsert,noselect
 set shortmess+=c
 
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:completion_auto_change_source = 1
-let g:completion_enable_auto_popup = 1
-let g:completion_enable_auto_hover = 1
-let g:completion_enable_auto_signature = 1
-
-let g:diagnostic_insert_delay = 1
-let g:diagnostic_enable_virtual_text = 1
-let g:diagnostic_virtual_text_prefix = '―'
-let g:diagnostic_enable_underline = 1
+let g:deoplete#enable_at_startup = 1
 " }}}
 
 " Key mappings {{{
@@ -81,8 +72,6 @@ lsp_status.register_progress()
 
 -- On attach ...
 local attach_client = function(client)
-    require('completion').on_attach(client)
-    require('diagnostic').on_attach(client)
     lsp_status.on_attach(client)
 end
 
@@ -93,22 +82,9 @@ nvim_lsp.tsserver.setup({on_attach=attach_client})
 nvim_lsp.cssls.setup({on_attach=attach_client})
 nvim_lsp.jsonls.setup({on_attach=attach_client})
 nvim_lsp.html.setup({on_attach=attach_client})
-
-nvim_lsp.vuels.setup({ --{{{
-    on_attach = attach_client,
-    settings = {
-        vetur = {
-            format = { enable = false }
-        }
-    }
-}) --}}}
-
+nvim_lsp.omnisharp.setup({on_attach=attach_client})
 nvim_lsp.rust_analyzer.setup({on_attach=attach_client})
-
-nvim_lsp.gdscript.setup({on_attach=attach_client})
-
 nvim_lsp.vimls.setup({on_attach=attach_client})
-nvim_lsp.sumneko_lua.setup({on_attach=attach_client})
 nvim_lsp.bashls.setup({on_attach=attach_client})
 EOF
 

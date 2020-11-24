@@ -1,20 +1,15 @@
 " PLUGINS
 
-if empty(glob('${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim'))
-    silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
 call plug#begin()
-    " LSP plugins
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'nvim-lua/completion-nvim'
-    Plug 'nvim-lua/diagnostic-nvim'
-    Plug 'nvim-lua/lsp-status.nvim'
-    " Treesitter & syntax plugins
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'cespare/vim-toml'
-    Plug 'habamax/vim-godot'
+    " Completion plugins
+    " Syntax plugins
+    Plug 'sheerun/vim-polyglot'
     " fzf
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
@@ -28,18 +23,19 @@ call plug#begin()
     Plug 'tpope/vim-obsession'
     Plug 'tpope/vim-repeat'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-    Plug 'junegunn/goyo.vim'
     Plug 'mattn/emmet-vim'
     Plug 'jiangmiao/auto-pairs'
-    Plug 'norcalli/nvim-colorizer.lua'
+    Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase' }
     " Git plugins
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
     Plug 'mhinz/vim-signify'
     " Colour schemes
     Plug 'chriskempson/base16-vim'
+    Plug 'arzg/vim-substrata'
 call plug#end()
 
+" Run PlugInstall if there are missing plugins
 if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif

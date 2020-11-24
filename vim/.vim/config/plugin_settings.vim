@@ -69,14 +69,12 @@ nnoremap <silent><Leader>cl :BLines<CR>
 nnoremap <silent><Leader>cd :GFiles?<CR>
 " }}}
 
-" Colorizer.lua {{{
-lua << EOF
-require('colorizer').setup({
-    '*';
-    css = { css = true; };
-    scss = { css = true; };
-})
-EOF
+" Deoplete {{{
+let g:deoplete#enable_at_startup = 1
+
+" Rust
+let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src'
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0

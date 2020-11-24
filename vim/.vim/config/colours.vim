@@ -8,3 +8,4 @@ augroup onColourChange
 augroup END
 
 colorscheme base16-tomorrow-night
+" colorscheme substrata

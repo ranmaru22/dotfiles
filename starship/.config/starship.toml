@@ -8,6 +8,11 @@
 truncation_symbol = "…/"
 read_only = " "
 
+[character]
+success_symbol = "[λ](green)"
+error_symbol = "[λ](bold red)"
+vicmd_symbol = "[V](bold green)"
+
 [aws]
 symbol = " "
 

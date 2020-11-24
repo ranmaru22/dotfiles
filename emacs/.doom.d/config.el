@@ -19,7 +19,8 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "IBM Plex Mono" :size 14))
+(setq doom-font (font-spec :family "Fira Code" :size 14)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
@@ -41,10 +42,19 @@
 (use-package! ivy
   :bind (("C-s" . swiper)))
 
+(use-package! company
+  :bind
+  (:map company-active-map
+   ("<tab>" . company-complete-selection))
+  :custom
+  (company-idle-delay 0.0))
+
+(global-prettify-symbols-mode t)
+
 ;; Unbdind the unholy fuckery that is using SPC as a leader key and put
 ;; the functionality into a sane place where it belongs: behind C-c. :X
-(setq doom-leader-key "[F13]"
-      doom-localleader-key "[F14]")
+(setq doom-leader-key "<f13>"
+      doom-localleader-key "<f14>")
 (map! :map general-override-mode-map
       :nvm "C-c" #'doom/leader)
 
