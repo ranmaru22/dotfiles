@@ -1,8 +1,8 @@
 .DS_Store
 Session.vim
-vim/.vim/spell
-vim/.vim/plugged
-vim/.vim/.netrwhist
-vim/.vim/.vimundo
+nvim/.config/nvim/spell
+nvim/.config/nvim/plugged
+nvim/.config/nvim/.netrwhist
+nvim/.config/nvim/.vimundo
 tmux/.config/tmux/plugins
 zsh/.config/zsh/load_plugins.sh
