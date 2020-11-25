@@ -9,6 +9,9 @@
 (setq user-full-name "Alex Sun"
       user-mail-address "alexsun82@icloud.com")
 
+;; Default window sizing
+(setq initial-frame-alist '((top . 1) (left . 1) (width . 164) (height . 48)))
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -19,7 +22,7 @@
 ;;
 ;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
 ;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "Fira Code" :size 14)
+(setq doom-font (font-spec :family "IBM Plex Mono" :size 14)
       doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
@@ -38,6 +41,15 @@
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
 
+;; Face adjustments
+(custom-set-faces!
+  '(font-lock-keyword-face       :weight bold)
+  '(font-lock-function-name-face :weight bold)
+  '(font-lock-comment-face       :slant italic)
+  ;; Language specific
+  `(js2-jsdoc-tag                :foreground ,(doom-color 'blue) :slant italic)
+  '(css-selector                 :weight bold))
+
 ;; Custom package config
 (use-package! ivy
   :bind (("C-s" . swiper)))
@@ -55,6 +67,7 @@
         doom-themes-enable-italic t))
 
 (global-prettify-symbols-mode t)
+(setq doom-themes-treemacs-enable-variable-pitch nil)
 
 ;; Unbdind the unholy fuckery that is using SPC as a leader key and put
 ;; the functionality into a sane place where it belongs: behind C-c. :X
