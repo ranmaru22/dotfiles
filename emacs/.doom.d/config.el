@@ -10,7 +10,7 @@
       user-mail-address "alexsun82@icloud.com")
 
 ;; Default window sizing
-(setq initial-frame-alist '((top . 1) (left . 1) (width . 164) (height . 48)))
+(setq initial-frame-alist '((top . 1) (left . 1) (width . 164) (height . 46)))
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -29,6 +29,9 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-one)
+
+(setq +doom-dashboard-banner-dir "~/.doom.d/splash"
+      +doom-dashboard-banner-file "doom.png")
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -59,6 +62,7 @@
   (:map company-active-map
    ("<tab>" . company-complete-selection))
   :custom
+  (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
 
 (use-package! doom-themes
