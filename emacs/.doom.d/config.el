@@ -49,6 +49,11 @@
   :custom
   (company-idle-delay 0.0))
 
+(use-package! doom-themes
+  :config
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t))
+
 (global-prettify-symbols-mode t)
 
 ;; Unbdind the unholy fuckery that is using SPC as a leader key and put
@@ -58,7 +63,7 @@
 (map! :map general-override-mode-map
       :nvm "C-c" #'doom/leader)
 
-(setq racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src")
+(setq racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/library")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
