@@ -12,6 +12,7 @@ if [[ "$TERM" == "xterm-kitty" ]]; then
 fi
 
 setopt extended_glob
+bindkey -e
 
 # Plugins & addons {{{
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
