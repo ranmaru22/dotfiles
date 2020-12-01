@@ -1,5 +1,12 @@
 " CUSTOM KEY-BINDINGS AND COMMANDS
 
+" Emacs insert bindings {{{
+imap <C-f> <Right>
+imap <C-b> <Left>
+imap <C-a> <Home>
+imap <C-e> <End>
+" }}}
+
 " Git {{{
 nmap <silent><Leader>gs  :G<CR>
 nmap <silent><Leader>gv  :GV<CR>
@@ -11,6 +18,7 @@ nmap <silent><Leader>gc  :Commits<CR>
 nmap <silent><Leader>ggd :Gvdiffsplit!<CR>
 nmap gdh :diffget //2<CR>
 nmap gdl :diffget //3<CR>
+" }}}
 
 " Buffers {{{
 nmap <silent><Leader>bn       :bn<CR>

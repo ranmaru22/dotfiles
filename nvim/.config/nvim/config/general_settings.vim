@@ -21,7 +21,7 @@ set nojoinspaces
 
 set conceallevel=2
 
-let mapleader = "\<C-c>"
+let mapleader = "\<Space>"
 " }}}
 
 " Enable syntax {{{
