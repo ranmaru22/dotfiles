@@ -70,15 +70,18 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
 
+(global-git-gutter-mode t)
+
 (global-prettify-symbols-mode t)
+
 (setq doom-themes-treemacs-enable-variable-pitch nil)
 
 ;; Unbdind the unholy fuckery that is using SPC as a leader key and put
 ;; the functionality into a sane place where it belongs: behind C-c. :X
-(setq doom-leader-key "<f13>"
-      doom-localleader-key "<f14>")
-(map! :map general-override-mode-map
-      :nvm "C-c" #'doom/leader)
+;; (setq doom-leader-key "<f13>"
+;;       doom-localleader-key "<f14>")
+;; (map! :map general-override-mode-map
+;;       :nvm "C-c" #'doom/leader)
 
 (setq racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/library")
 
