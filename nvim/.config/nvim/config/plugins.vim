@@ -20,13 +20,13 @@ call plug#begin()
     Plug 'tpope/vim-repeat'
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
     Plug 'mattn/emmet-vim'
-    Plug 'jiangmiao/auto-pairs'
     " Git plugins
     Plug 'tpope/vim-fugitive'
     Plug 'junegunn/gv.vim'
     Plug 'mhinz/vim-signify'
     " Colour schemes
     Plug 'chriskempson/base16-vim'
+    Plug 'joshdick/onedark.vim'
 call plug#end()
 
 if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))

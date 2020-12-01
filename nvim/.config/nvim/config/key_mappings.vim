@@ -1,6 +1,6 @@
 " CUSTOM KEY-BINDINGS AND COMMANDS
 
-" Emacs insert bindings {{{
+" Emacs bindings {{{
 imap <C-f> <Right>
 imap <C-b> <Left>
 imap <C-a> <Home>
@@ -20,7 +20,22 @@ nmap gdh :diffget //2<CR>
 nmap gdl :diffget //3<CR>
 " }}}
 
+" Searching {{{
+nnoremap <silent><C-s> :BLines<CR>
+" }}}
+
+" Files {{{
+" Config
+nmap <silent><Leader>fp  :Files ~/.config/nvim<CR>
+" Project only
+nmap <silent><Leader>pf :GFiles<CR>
+nmap <silent><Leader>pd :GFiles?<CR>
+nmap <silent><Leader>pa :Files<CR>
+nmap <silent><Leader>ps :Rg<CR>
+" }}}
+
 " Buffers {{{
+nmap <silent><Leader>bb       :Buffers<CR>
 nmap <silent><Leader>bn       :bn<CR>
 nmap <silent><Leader>bp       :bp<CR>
 nmap <silent><Leader>bd       :bd<CR>

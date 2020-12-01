@@ -57,16 +57,6 @@ endif
 
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
     \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-" Key mappings
-nnoremap <silent><C-p> :GFiles<CR>
-nnoremap <silent><C-f> :Files<CR>
-nnoremap <silent><C-q> :Rg<CR>
-nnoremap <silent><C-b> :Buffers<CR>
-nnoremap <silent><Leader>cc :Commands<CR>
-nnoremap <silent><Leader>ch :History<CR>
-nnoremap <silent><Leader>cl :BLines<CR>
-nnoremap <silent><Leader>cd :GFiles?<CR>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
