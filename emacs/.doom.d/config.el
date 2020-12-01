@@ -9,11 +9,11 @@
 
 ;; Fonts
 (setq doom-font (font-spec :family "IBM Plex Mono" :size 14)
-      doom-big-font (font-spec :family "IBM Plex Mono" :size 36)
+      doom-big-font (font-spec :family "IBM Plex Mono" :size 24)
       doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
 
 ;; Theme & visuals
-(setq doom-theme 'doom-one)
+(setq doom-theme 'gruber-darker)
 
 (custom-set-faces!
   '(font-lock-keyword-face       :weight bold)
@@ -27,7 +27,6 @@
       +doom-dashboard-banner-file "doom.png")
 
 (setq doom-themes-treemacs-enable-variable-pitch nil
-      vi-tilde-fringe-mode nil
       display-line-numbers-type 'relative)
 
 (global-prettify-symbols-mode t)
