@@ -1,5 +1,6 @@
 .DS_Store
 Session.vim
+nvim/.config/nvim/tmp
 nvim/.config/nvim/spell
 nvim/.config/nvim/plugged
 nvim/.config/nvim/.netrwhist
