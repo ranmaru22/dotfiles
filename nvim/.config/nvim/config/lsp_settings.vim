@@ -2,27 +2,21 @@
 
 " Options {{{
 set complete-=i
-set completeopt=menuone,noinsert,noselect
+set completeopt=menuone,noinsert
 set shortmess+=c
 
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:completion_auto_change_source = 1
-let g:completion_enable_auto_popup = 1
-let g:completion_enable_auto_hover = 1
-let g:completion_enable_auto_signature = 1
-
-let g:diagnostic_insert_delay = 1
-let g:diagnostic_enable_virtual_text = 1
-let g:diagnostic_virtual_text_prefix = '―'
-let g:diagnostic_enable_underline = 1
+let g:completion_auto_change_source     = 1
+let g:completion_enable_auto_popup      = 1
+let g:completion_enable_auto_hover      = 1
+let g:completion_enable_auto_signature  = 1
 " }}}
 
 " Key mappings {{{
 " Cycle intellisense suggestions
-inoremap <expr><Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr><C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr><C-k>   pumvisible() ? "\<C-p>" : "\<C-k>"
+inoremap <expr><Tab> pumvisible() ? "\<Return>" : "\<Tab>"
+inoremap <expr><C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Jump to definitions etc.
 function! s:show_documentation()
@@ -33,36 +27,7 @@ function! s:show_documentation()
     endif
 endfunction
 
-nnoremap <silent>K          <cmd>call <SID>show_documentation()<CR>
-nnoremap <silent><Leader>gd <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent><Leader>gi <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent><Leader>gh <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent><Leader>gy <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent><Leader>gr <cmd>lua vim.lsp.buf.references()<CR>
-
-" Symbol lists
-nnoremap <silent><Leader>gD <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent><Leader>gW <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-
-" Jump diagnostics
-nnoremap <silent><Leader>]  :NextDiagnosticCycle<CR>
-nnoremap <silent><Leader>[  :PrevDiagnositcCycle<CR>
-nnoremap <silent><Leader>do :OpenDiagnostic<CR>
-
-" Prettify
-nnoremap <silent><nowait><Leader>pf <cmd>lua vim.lsp.buf.formatting()<CR>
-nnoremap <Leader>pp =ip
-" }}}
-
-" Styling {{{
-call sign_define("LspDiagnosticsErrorSign",
-    \ {"text": "✘", "texthl": "LspDiagnosticsErrorSign"})
-call sign_define("LspDiagnosticsWarningSign",
-    \ {"text": "", "texthl": "LspDiagnosticsWarningSign"})
-call sign_define("LspDiagnosticsInformationSign",
-    \ {"text": "", "texthl": "LspDiagnosticsInformationSign"})
-call sign_define("LspDiagnosticsHintSign",
-    \ {"text": "", "texthl" :"LspDiagnosticsHintSign"})
+nnoremap <silent>K <cmd>call <SID>show_documentation()<CR>
 " }}}
 
 " Setting up language servers {{{
@@ -70,50 +35,44 @@ lua << EOF
 -- Status line plugin
 local lsp_status = require('lsp-status')
 lsp_status.config({
-    status_symbol = '',
-    indicator_errors = '✘',
-    indicator_warnings = '',
-    indicator_info = '',
-    indicator_hint = '',
-    indicator_ok = '✓'
+    status_symbol = '%4*[LSP]%*',
+    indicator_errors = '%#UserRed#✘%*',
+    indicator_warnings = '%#UserYellow#%*',
+    indicator_info = '%#UserBlue#%*',
+    indicator_hint = '%#UserTeal#%*',
+    indicator_ok = '%#UserGreen#OK%*'
 })
 lsp_status.register_progress()
+
+-- Diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    signs = true,
+    update_in_insert = false,
+  }
+)
 
 -- On attach ...
 local attach_client = function(client)
     require('completion').on_attach(client)
-    require('diagnostic').on_attach(client)
     lsp_status.on_attach(client)
 end
 
 -- Loading servers
-local nvim_lsp = require('nvim_lsp')
+local lspconfig = require('lspconfig')
 
-nvim_lsp.tsserver.setup({on_attach=attach_client})
-nvim_lsp.cssls.setup({on_attach=attach_client})
-nvim_lsp.jsonls.setup({on_attach=attach_client})
-nvim_lsp.html.setup({on_attach=attach_client})
-
-nvim_lsp.vuels.setup({ --{{{
-    on_attach = attach_client,
-    settings = {
-        vetur = {
-            format = { enable = false }
-        }
-    }
-}) --}}}
-
-nvim_lsp.rust_analyzer.setup({on_attach=attach_client})
-
-nvim_lsp.gdscript.setup({on_attach=attach_client})
-
-nvim_lsp.vimls.setup({on_attach=attach_client})
-nvim_lsp.sumneko_lua.setup({on_attach=attach_client})
-nvim_lsp.bashls.setup({on_attach=attach_client})
+lspconfig.tsserver.setup({on_attach=attach_client})
+lspconfig.cssls.setup({on_attach=attach_client})
+lspconfig.jsonls.setup({on_attach=attach_client})
+lspconfig.html.setup({on_attach=attach_client})
+lspconfig.rust_analyzer.setup({on_attach=attach_client})
+lspconfig.vimls.setup({on_attach=attach_client})
+lspconfig.sumneko_lua.setup({on_attach=attach_client})
+lspconfig.bashls.setup({on_attach=attach_client})
 EOF
 
-let s:blacklist = ['vue']
-autocmd BufWritePost * if index(s:blacklist, &ft) | lua vim.lsp.buf.formatting()
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+
 " }}}
 
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker

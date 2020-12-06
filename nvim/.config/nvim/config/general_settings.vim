@@ -21,6 +21,9 @@ set nojoinspaces
 
 set conceallevel=2
 
+set list
+set listchars=tab:→\ ,trail:·
+
 let mapleader = "\<Space>"
 " }}}
 
@@ -31,7 +34,7 @@ endif
 
 filetype on
 filetype plugin indent on
-syntax on 
+syntax on
 
 " Allow Lua + Python syntax inside vimscript
 let g:vimsyn_embed = 'lP'
@@ -97,4 +100,4 @@ if !has('nvim') && &timeoutlen == -1
 endif
 " }}}
 
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker

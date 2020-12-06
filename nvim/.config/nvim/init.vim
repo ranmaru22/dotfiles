@@ -12,7 +12,9 @@ source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/plugin_settings.vim
 source $HOME/.config/nvim/config/colours.vim
 
-" Syntax-related settings, LSPs, treesitter
+" jntax-related settings, LSPs, treesitter
+source $HOME/.config/nvim/config/lsp_settings.vim
+source $HOME/.config/nvim/config/treesitter.vim
 source $HOME/.config/nvim/config/syntax_settings.vim
 
 " Custom statusline
@@ -22,4 +24,4 @@ source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/key_mappings.vim
 source $HOME/.config/nvim/config/commands.vim
 
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker

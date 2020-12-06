@@ -11,9 +11,6 @@ iab __gh https://github.com/ranmaru22/
 iab __ghd https://github.com/ranmaru22/dotfiles
 " }}}
 
-" Highlight trailing whitespace
-match TrailingWhitespace /\s\+$/
-
 " Auto-fit splits
 autocmd VimResized * execute "normal! \<C-w>="
 
@@ -24,7 +21,7 @@ autocmd BufWritePre * if index(s:blacklist, &ft) < 0 | %s/\s\+$//e
 
 " Highlight yanked text
 if exists('##TextYankPost')
-    autocmd TextYankPost * silent! lua require('vim.highlight').on_yank({timeout=200})
+    autocmd TextYankPost * silent! lua require('vim.highlight').on_yank({timeout=100})
 endif
 
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker

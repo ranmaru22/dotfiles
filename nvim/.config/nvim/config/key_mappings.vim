@@ -1,55 +1,117 @@
 " CUSTOM KEY-BINDINGS AND COMMANDS
 
-" Emacs bindings {{{
+" Emacs-style bindings for Insert mode {{{
 imap <C-f> <Right>
+imap <M-f> <C-o>w
 imap <C-b> <Left>
+imap <M-b> <C-o>b
 imap <C-a> <Home>
 imap <C-e> <End>
-" }}}
-
-" Git {{{
-nmap <silent><Leader>gs  :G<CR>
-nmap <silent><Leader>gv  :GV<CR>
-nmap <silent><Leader>ggv :GV?<CR>
-nmap <silent><Leader>gb  :GBranches<CR>
-nmap <silent><Leader>gc  :Commits<CR>
-
-" Diff & merge conflict resolving
-nmap <silent><Leader>ggd :Gvdiffsplit!<CR>
-nmap gdh :diffget //2<CR>
-nmap gdl :diffget //3<CR>
+imap <M-BS> <C-w>
 " }}}
 
 " Searching {{{
 nnoremap <silent><C-s> :BLines<CR>
 " }}}
 
-" Files {{{
-" Config
-nmap <silent><Leader>fp  :Files ~/.config/nvim<CR>
-" Project only
+" Code - Prefix c {{{
+" Eval
+nmap <Leader>ce  <Plug>SlimeParagraphSend
+xmap <Leader>ce  <Plug>SlimeRegionSend
+nmap <Leader>cxv <Plug>SlimeConfig
+
+" LSP actions
+nnoremap <silent><Leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
+" }}}
+
+" LSP - Prefix l {{{
+" LSP definitions
+nnoremap <silent><Leader>ld <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent><Leader>li <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent><Leader>ls <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent><Leader>lt <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent><Leader>lr <cmd>lua vim.lsp.buf.references()<CR>
+
+nnoremap <silent><Leader>lyd <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent><Leader>lyw <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+" }}}
+
+" Git - Prefix g {{{
+nmap <silent><Leader>gs :G<CR>
+nmap <silent><Leader>gv :GV<CR>
+nmap <silent><Leader>gb :GBranches<CR>
+nmap <silent><Leader>gc :Commits<CR>
+nmap <silent><Leader>ggv :GV?<CR>
+nmap <silent><Leader>ggd :Gvdiffsplit!<CR>
+
+" Signify hunk navigation
+nmap <Leader>gj <plug>(signify-next-hunk)
+nmap <Leader>gk <plug>(signify-prev-hunk)
+
+" Diff & merge conflict resolving
+nmap <Leader>g> :diffget //2<CR>
+nmap <Leader>g< :diffget //3<CR>
+" }}}
+
+" Files - Prefix f {{{
+" Config (personal) files
+nmap <silent><Leader>fp :Files ~/.config/nvim<CR>
+
+" Vim configuration
+nnoremap <Leader>fce :vsp $MYVIMRC<CR>
+nnoremap <Leader>fcl :source $MYVIMRC <bar> :doautocmd BufRead<CR>
+" }}}
+
+" Project - Prefix p {{{
 nmap <silent><Leader>pf :GFiles<CR>
 nmap <silent><Leader>pd :GFiles?<CR>
 nmap <silent><Leader>pa :Files<CR>
 nmap <silent><Leader>ps :Rg<CR>
 " }}}
 
-" Buffers {{{
-nmap <silent><Leader>bb       :Buffers<CR>
-nmap <silent><Leader>bn       :bn<CR>
-nmap <silent><Leader>bp       :bp<CR>
-nmap <silent><Leader>bd       :bd<CR>
+" Buffers - Prefix b {{{
+nmap <silent><Leader>bb :Buffers<CR>
+nmap <silent><Leader>bs :BLines<CR>
+nmap <silent><Leader>bn :bn<CR>
+nmap <silent><Leader>bp :bp<CR>
+nmap <silent><Leader>bd :bd<CR>
+
+" Quick navigation
+nmap <silent><Leader>,        :Buffers<CR>
 nmap <silent><Leader><Leader> :e#<CR>
 " }}}
 
-" Splits {{{
-nmap <silent><Leader>sv :vsplit<CR>
-nmap <silent><Leader>sh :split<CR>
-nmap <silent><Leader>sc <C-w>q
+" Windows - Prefix w {{{
+nmap <silent><Leader>wv :vsplit<CR>
+nmap <silent><Leader>ws :split<CR>
+nmap <silent><Leader>wc <C-w>q
+
+" Quick navigation
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j
 nmap <C-k> <C-w>k
 nmap <C-l> <C-w>l
+" }}}
+
+" Tabs - Prefix t {{{
+nmap <silent><Leader>tn :tabnew<CR>
+nmap <silent><Leader>tc :tabclose<CR>
+nmap <silent><Leader>tn :tabnext<CR>
+nmap <silent><Leader>tp :tabprevious<CR>
+
+" Quick navigation
+nmap <silent><M-h> :tabprevious<CR>
+nmap <silent><M-l> :tabnext<CR>
+" }}}
+
+" Settings - prefix s {{{
+" Enable/disable spell checking
+nmap <silent><Leader>ss :setlocal spell! spelllang=en_ca<CR>
+" }}}
+
+" Easy align {{{
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 " }}}
 
 " Consistent yanking {{{
@@ -85,15 +147,12 @@ cnoremap <expr><Tab>   getcmdtype() =~ '[\/?]' ? "<C-g>" : "<C-z>"
 cnoremap <expr><S-Tab> getcmdtype() =~ '[\/?]' ? "<C-t>" : "<S-Tab>"
 " }}}
 
+
 " Move current line up/down {{{
 nnoremap <silent><M-j> :m +1<CR>==
 nnoremap <silent><M-k> :m -2<CR>==
 xnoremap <silent><M-j> :m '>+1<CR>gv=gv
 xnoremap <silent><M-k> :m '<-2<CR>gv=gv
-" }}}
-
-" Enable/disable spell checking {{{
-map <silent><Leader>ss :setlocal spell! spelllang=en_ca<CR>
 " }}}
 
 " Change all occurrences of a word {{{
@@ -112,9 +171,4 @@ nnoremap Q @q
 vnoremap Q :norm !q<CR>
 " }}}
 
-" Reload config {{{
-nnoremap <Leader>ve :vsp $MYVIMRC<CR>
-nnoremap <Leader>vs :source $MYVIMRC <bar> :doautocmd BufRead<CR>
-" }}}
-
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker

@@ -1,23 +1,29 @@
 " STATUSLINE SETTINGS
 
 " Set statusline {{{
-" 1* Muted, 2* Inverse, 3* Bold, 4* Muted Italic, 5* Bold Inverse
 function! SetStatusLine(which)
     let l:statusline=""
     if a:which == "active"
-	let l:statusline.=statusline#lhsIndicator()
-	let l:statusline.="%{statusline#gitBranch()}"
-	let l:statusline.="%<%1*%{statusline#filepath()}"
-	let l:statusline.="%3*%{statusline#filename()}%*"
-	let l:statusline.="%{&modified ? '*' : ''} "
-	let l:statusline.="%4*%y%{statusline#spellLang()}%*%="
-	let l:statusline.="%2* %5*ℓ%2* %2l/%02L %5*c%2* %02v "
-	let l:statusline.="%{ObsessionStatus()}"
+	" Left side
+	let l:statusline.=statusline#modeIndicator()
+	let l:statusline.=statusline#gitBranch()
+	let l:statusline.="%<%1*"
+	let l:statusline.=statusline#filepath()
+	let l:statusline.=(&modifiable && &modified ? "%#UserRed#" : "%3*")
+	let l:statusline.=statusline#filename()
+	let l:statusline.="%*"
+	let l:statusline.=statusline#modified()
+	let l:statusline.="%4*%y"
+	let l:statusline.=statusline#spellLang()
+	let l:statusline.="%*"
+	" Right side
+	let l:statusline.="%="
+	let l:statusline.=statusline#lspStatus()
+	let l:statusline.=" ‹‹ %3*ℓ%* %2l/%02L %3*c%* %02v ›› %#UserTeal#"
+	let l:statusline.=ObsessionStatus()
+	let l:statusline.=" %*"
     elseif a:which == "inactive"
-	let l:statusline.="%< %{statusline#filepath()}"
-	let l:statusline.="%{statusline#filename()}"
-	let l:statusline.="%{&modified ? '*' : ''} "
-	let l:statusline.="%y%{statusline#spellLang()}%="
+	let l:statusline.="%<%m %f %y"
     endif
     return l:statusline
 endfunction
@@ -29,4 +35,4 @@ if has('statusline')
     set statusline=%!SetStatusLine('active')
 endif
 
-" vim:foldmethod=marker:foldlevel=0
+" vim:foldmethod=marker
