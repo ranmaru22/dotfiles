@@ -1,12 +1,12 @@
 " CUSTOM KEY-BINDINGS AND COMMANDS
 
 " Emacs-style bindings for Insert mode {{{
-imap <C-f> <Right>
-imap <M-f> <C-o>w
-imap <C-b> <Left>
-imap <M-b> <C-o>b
-imap <C-a> <Home>
-imap <C-e> <End>
+imap <C-f>  <Right>
+imap <M-f>  <C-o>w
+imap <C-b>  <Left>
+imap <M-b>  <C-o>b
+imap <C-a>  <Home>
+imap <C-e>  <End>
 imap <M-BS> <C-w>
 " }}}
 
@@ -94,7 +94,7 @@ nmap <C-l> <C-w>l
 " }}}
 
 " Tabs - Prefix t {{{
-nmap <silent><Leader>tn :tabnew<CR>
+nmap <silent><Leader>tt :tabnew<CR>
 nmap <silent><Leader>tc :tabclose<CR>
 nmap <silent><Leader>tn :tabnext<CR>
 nmap <silent><Leader>tp :tabprevious<CR>

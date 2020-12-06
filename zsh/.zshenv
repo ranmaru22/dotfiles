@@ -15,7 +15,7 @@ export LESS='-F -g -i -M -R -S -w -X -z-4'
 export CLICOLOR=1
 
 # Highlighting
-export HIGHLIGHT_STYLE='dracula'
+export HIGHLIGHT_STYLE='onedark'
 
 # Program specific
 export PF_INFO="ascii title os kernel shell uptime pkgs memory"
@@ -41,4 +41,4 @@ fi
 # export RUST_SRC_PATH="$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/src"
 export GOPATH="$HOME/.go"
 
-# vim:foldmethod=marker:foldlevel=0
+# vim:foldmethod=marker

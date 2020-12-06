@@ -5,7 +5,7 @@
 # =============================================================================
 
 # Theme
---theme="base16"
+--theme="OneHalfDark"
 
 # Syntax mapping
 --map-syntax ".ignore:Git Ignore"

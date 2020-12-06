@@ -73,5 +73,4 @@ _startTmux() {
 
 # }}}
 
-# vim:foldmethod=marker:foldlevel=0
-
+# vim:foldmethod=marker

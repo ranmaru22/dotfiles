@@ -51,4 +51,4 @@ git() {
 } # }}}
 alias g=git
 
-# vim:foldmethod=marker:foldlevel=0
+# vim:foldmethod=marker

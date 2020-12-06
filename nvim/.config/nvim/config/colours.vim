@@ -3,15 +3,6 @@
 set background=dark
 colorscheme doom-one
 
-" Tweaks {{{
-hi Function    gui=bold cterm=bold
-hi Conditional gui=bold cterm=bold
-hi Repeat      gui=bold cterm=bold
-hi Label       gui=bold cterm=bold
-hi Exception   gui=bold cterm=bold
-hi Keyword     gui=bold cterm=bold
-" }}}
-
 " Missing colours {{{
 hi SignifySignAdd             guibg=#282c34 guifg=#98be65
 hi SignifySignChange          guibg=#282c34 guifg=#51afef

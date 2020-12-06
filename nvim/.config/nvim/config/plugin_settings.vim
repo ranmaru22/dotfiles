@@ -24,6 +24,7 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 " Emmet {{{
 let g:user_emmet_leader_key     = ','
 let g:user_emmet_install_global = 0
+
 autocmd FileType html,css,scss,javascriptreact,typescriptreact,vue EmmetInstall
 " }}}
 

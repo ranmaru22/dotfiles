@@ -101,4 +101,4 @@ cmd zip ${{
 }}
 # }}}
 
-# vim:foldmethod=marker:foldlevel=0:filetype=conf
+# vim:foldmethod=marker:filetype=conf
