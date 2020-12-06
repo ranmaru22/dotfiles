@@ -13,7 +13,7 @@
       doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
 
 ;; Theme & visuals
-(setq doom-theme 'gruber-darker)
+(setq doom-theme 'doom-one)
 
 (custom-set-faces!
   '(font-lock-keyword-face       :weight bold)
