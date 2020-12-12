@@ -40,7 +40,9 @@ call plug#begin()
     Plug 'stsewd/fzf-checkout.vim'
     " Colour schemes & eye candy
     Plug 'arzg/vim-substrata'
-    Plug 'romgrk/doom-one.vim'
+    Plug 'xero/sourcerer.vim'
+    Plug 'szorfein/darkest-space'
+    Plug 'ayu-theme/ayu-vim'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins

@@ -19,7 +19,7 @@ function! SetStatusLine(which)
 	" Right side
 	let l:statusline.="%="
 	let l:statusline.=statusline#lspStatus()
-	let l:statusline.=" ‹‹ %3*ℓ%* %2l/%02L %3*c%* %02v ›› %#UserTeal#"
+	let l:statusline.=" ‹‹ %3*ℓ%* %02l/%02L %3*c%* %02v ›› %#UserTeal#"
 	let l:statusline.=ObsessionStatus()
 	let l:statusline.=" %*"
     elseif a:which == "inactive"

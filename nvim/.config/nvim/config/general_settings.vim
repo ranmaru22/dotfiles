@@ -27,14 +27,11 @@ set listchars=tab:→\ ,trail:·
 let mapleader = "\<Space>"
 " }}}
 
-" Enable syntax {{{
-if has('termguicolors')
-    set termguicolors
-endif
-
+" Syntax {{{
 filetype on
 filetype plugin indent on
 syntax on
+" }}}
 
 " Allow Lua + Python syntax inside vimscript
 let g:vimsyn_embed = 'lP'

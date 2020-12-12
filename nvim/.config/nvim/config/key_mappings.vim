@@ -10,6 +10,9 @@ imap <C-e>  <End>
 imap <M-BS> <C-w>
 " }}}
 
+" netrw {{{
+" }}}
+
 " Searching {{{
 nnoremap <silent><C-s> :BLines<CR>
 " }}}
@@ -85,6 +88,7 @@ nmap <silent><Leader><Leader> :e#<CR>
 nmap <silent><Leader>wv :vsplit<CR>
 nmap <silent><Leader>ws :split<CR>
 nmap <silent><Leader>wc <C-w>q
+nmap <silent><Leader>wt :Vexplore!<CR>
 
 " Quick navigation
 nmap <C-h> <C-w>h

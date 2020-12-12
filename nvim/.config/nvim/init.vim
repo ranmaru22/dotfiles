@@ -12,7 +12,7 @@ source $HOME/.config/nvim/config/plugins.vim
 source $HOME/.config/nvim/config/plugin_settings.vim
 source $HOME/.config/nvim/config/colours.vim
 
-" jntax-related settings, LSPs, treesitter
+" Syntax-related settings, LSPs, treesitter
 source $HOME/.config/nvim/config/lsp_settings.vim
 source $HOME/.config/nvim/config/treesitter.vim
 source $HOME/.config/nvim/config/syntax_settings.vim
