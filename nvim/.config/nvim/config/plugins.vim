@@ -19,6 +19,8 @@ call plug#begin()
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'airblade/vim-rooter'
+    " Tmux integration 
+    Plug 'christoomey/vim-tmux-navigator'
     " Utilities
     Plug 'tpope/vim-sleuth'
     Plug 'tpope/vim-commentary'
@@ -40,9 +42,8 @@ call plug#begin()
     Plug 'stsewd/fzf-checkout.vim'
     " Colour schemes & eye candy
     Plug 'arzg/vim-substrata'
-    Plug 'xero/sourcerer.vim'
-    Plug 'szorfein/darkest-space'
     Plug 'ayu-theme/ayu-vim'
+    Plug 'sainnhe/edge'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
