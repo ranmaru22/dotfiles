@@ -12,38 +12,43 @@ let g:edge_sign_column_background = 'none'
 let g:edge_current_word = 'bold'
 colorscheme edge
 
+let g:sl_bg     = { 'gui': '#38373a', 'cterm': '233' }
+let g:sl_fg     = { 'gui': '#c5cdd9', 'cterm': '252' }
+let g:sl_muted  = { 'gui': '#88909f', 'cterm': '244' }
+
+let g:sl_green  = { 'gui': '#a0c980', 'cterm': '010' }
+let g:sl_red    = { 'gui': '#ec7279', 'cterm': '009' }
+let g:sl_yellow = { 'gui': '#deb974', 'cterm': '011' }
+let g:sl_blue   = { 'gui': '#6cb6eb', 'cterm': '012' }
+let g:sl_teal   = { 'gui': '#5dbbc1', 'cterm': '014' }
+
+function! SetColours() abort
+    " Base StatusLine
+    execute 'hi StatusLine guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_fg.gui . ' ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_fg.cterm . ' cterm=NONE'
+    " 1* Muted, 2* Italic, 3* Bold, 4* Muted Italic, 5* Muted Bold
+    execute 'hi User1 guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_muted.gui . ' gui=NONE ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_muted.cterm . ' cterm=NONE'
+    execute 'hi User2 guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_fg.gui . ' gui=italic ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_fg.cterm . ' cterm=italic'
+    execute 'hi User3 guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_fg.gui . ' gui=bold ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_fg.cterm . ' cterm=bold'
+    execute 'hi User4 guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_muted.gui . ' gui=italic ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_muted.cterm . ' cterm=italic'
+    execute 'hi User5 guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_muted.gui . ' gui=bold ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_muted.cterm . ' cterm=bold'
+    " Extra colours for fancy shmancy stuff
+    execute 'hi UserGreen  guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_green.gui . ' gui=bold ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_green.cterm . ' cterm=bold'
+    execute 'hi UserBlue   guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_blue.gui . ' gui=bold ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_blue.cterm . ' cterm=bold'
+    execute 'hi UserYellow guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_yellow.gui . ' gui=bold ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_yellow.cterm . ' cterm=bold'
+    execute 'hi UserRed    guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_red.gui . ' gui=bold ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_red.cterm . ' cterm=bold'
+    execute 'hi UserTeal   guibg=' . g:sl_bg.gui . ' guifg=' . g:sl_teal.gui . ' gui=bold ctermbg=' . g:sl_bg.cterm . ' ctermfg=' . g:sl_teal.cterm . ' cterm=bold'
+    " Use muted for trailing whitespace highlighting
+    execute 'hi TrailingWhitespace guifg=' . g:sl_muted.gui . ' ctermfg=' . g:sl_muted.cterm
+    " LSP colours if not defined
+    execute 'hi default LspDiagnosticsDefaultError guifg=' . g:sl_red.gui . ' ctermfg=' . g:sl_red.cterm
+    execute 'hi default LspDiagnosticsDefaultWarning guifg=' . g:sl_yellow.gui . ' ctermfg=' . g:sl_yellow.cterm
+    execute 'hi default LspDiagnosticsDefaultHint guifg=' . g:sl_blue.gui . ' ctermfg=' . g:sl_blue.cterm
+    execute 'hi default LspDiagnosticsDefaultInformation guifg=' . g:sl_teal.gui . ' ctermfg=' . g:sl_teal.cterm
+endfunction
+
+call SetColours()
+
 " Missing colours {{{
-hi LspDiagnosticsDefaultError       guifg=#D71A1A ctermfg=009
-hi LspDiagnosticsDefaultWarning     guifg=#F29718 ctermfg=003
-hi LspDiagnosticsDefaultHint        guifg=#B7CBF4 ctermfg=006
-hi LspDiagnosticsDefaultInformation guifg=#A9C1DE ctermfg=005
-
-" hi SignColumn        guibg=bg guifg=fg      ctermbg=NONE ctermfg=015
-" hi SignifySignAdd    guibg=bg guifg=#D8FA3B ctermbg=NONE ctermfg=010
-" hi SignifySignChange guibg=bg guifg=#91AADF ctermbg=NONE ctermfg=004
-" hi SignifySignDelete guibg=bg guifg=#FF0000 ctermbg=NONE ctermfg=009
-" }}}
-
-" Custom colours {{{
-hi StatusLine guibg=#414453 guifg=#c5cdd9 gui=NONE ctermbg=233 ctermfg=252 cterm=NONE
-
-" 1* Muted, 2* Italic, 3* Bold, 4* Muted Italic, 5* Muted Bold
-hi User1 guibg=#414453 guifg=#88909f gui=NONE   ctermbg=233 ctermfg=244 cterm=NONE
-hi User2 guibg=#414453 guifg=#c5cdd9 gui=italic ctermbg=233 ctermfg=252 cterm=italic
-hi User3 guibg=#414453 guifg=#c5cdd9 gui=bold   ctermbg=233 ctermfg=252 cterm=bold
-hi User4 guibg=#414453 guifg=#88909f gui=italic ctermbg=233 ctermfg=244 cterm=italic
-hi User5 guibg=#414453 guifg=#88909f gui=bold   ctermbg=233 ctermfg=244 cterm=bold
-
-hi UserGreen  guibg=#414453 guifg=#a0c980 gui=bold ctermbg=233 ctermfg=010 cterm=bold
-hi UserBlue   guibg=#414453 guifg=#6cb6eb gui=bold ctermbg=233 ctermfg=012 cterm=bold
-hi UserYellow guibg=#414453 guifg=#deb974 gui=bold ctermbg=233 ctermfg=011 cterm=bold
-hi UserRed    guibg=#414453 guifg=#ec7279 gui=bold ctermbg=233 ctermfg=009 cterm=bold
-hi UserTeal   guibg=#414453 guifg=#5dbbc1 gui=bold ctermbg=233 ctermfg=014 cterm=bold
-" }}}
-
-" Highlight trailing whitespace {{{
-hi TrailingWhitespace guifg=#88909f ctermfg=008
 match TrailingWhitespace /\s\+$/
-" }}}
 
 " vim:foldmethod=marker

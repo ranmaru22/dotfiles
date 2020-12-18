@@ -44,6 +44,7 @@ call plug#begin()
     Plug 'arzg/vim-substrata'
     Plug 'ayu-theme/ayu-vim'
     Plug 'sainnhe/edge'
+    Plug 'haze/anis.vim'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
