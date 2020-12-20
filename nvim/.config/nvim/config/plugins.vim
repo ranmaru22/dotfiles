@@ -42,9 +42,8 @@ call plug#begin()
     Plug 'stsewd/fzf-checkout.vim'
     " Colour schemes & eye candy
     Plug 'arzg/vim-substrata'
-    Plug 'ayu-theme/ayu-vim'
     Plug 'sainnhe/edge'
-    Plug 'haze/anis.vim'
+    Plug 'arzg/vim-colors-xcode'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
