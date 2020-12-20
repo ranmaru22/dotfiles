@@ -6,6 +6,8 @@ command! Ict :put =strftime('%c')
 iab <expr> __ct strftime('%c')
 " My name (maintainer name)
 iab __mn Alex Sun (ranmaru22)
+" My email
+iab __me alexsun82@icloud.com 
 " Insert GitHub links
 iab __gh https://github.com/ranmaru22/
 iab __ghd https://github.com/ranmaru22/dotfiles
