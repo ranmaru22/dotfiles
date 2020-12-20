@@ -63,6 +63,11 @@ nmap <silent><Leader>fp :Files ~/.config/nvim<CR>
 " Vim configuration
 nnoremap <Leader>fce :vsp $MYVIMRC<CR>
 nnoremap <Leader>fcl :source $MYVIMRC <bar> :doautocmd BufRead<CR>
+
+" Information
+nmap <Leader>fih :echo "hi: " . synIDattr(synID(line("."),col("."),1),"name") . ", trans: "
+    \ . synIDattr(synID(line("."),col("."),0),"name") . ", lo:"
+    \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")<CR>
 " }}}
 
 " Project - Prefix p {{{
