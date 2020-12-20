@@ -42,8 +42,7 @@ call plug#begin()
     Plug 'stsewd/fzf-checkout.vim'
     " Colour schemes & eye candy
     Plug 'arzg/vim-substrata'
-    Plug 'sainnhe/edge'
-    Plug 'arzg/vim-colors-xcode'
+    Plug 'romgrk/doom-one.vim'
 call plug#end()
 
 " Run PlugInstall if there are missing plugins
