@@ -19,11 +19,10 @@ export HIGHLIGHT_STYLE='onedark'
 # Program specific
 export PF_INFO="ascii title os kernel shell uptime pkgs memory"
 
-export FZF_DEFAULT_OPTS="-1 --ansi
---color=fg:#c5cdd9,bg:#2c2e34,hl:#6cb6eb
---color=fg+:#c5cdd9,bg+:#2c2e34,hl+:#5dbbc1
---color=info:#88909f,prompt:#ec7279,pointer:#d38aea
---color=marker:#a0c980,spinner:#ec7279,header:#5dbbc1"
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color=dark
+--color=fg:-1,bg:-1,hl:#c678dd,fg+:#ffffff,bg+:#4b5263,hl+:#d858fe
+--color=info:#98c379,prompt:#61afef,pointer:#be5046,marker:#e5c07b,spinner:#61afef,header:#61afef'
 
 # Custom terminfo for tmux (~/.config/terminfo)
 # Supports italics inside tmux; must be compiled with tic
