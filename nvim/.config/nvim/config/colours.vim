@@ -22,6 +22,12 @@ hi default SignifySignAdd    guifg=#98be65 ctermfg=010
 hi default SignifySignChange guifg=#51afef ctermfg=012
 hi default SignifySignDelete guifg=#ff6c6b ctermfg=009
 
+" Overwrite some stuff
+hi StatusLine   guibg=#1c1f24
+hi StatusLineNC guibg=#23272e
+hi CursorLine   guibg=#202328
+hi CursorLineNr guibg=#202328
+
 augroup onChangeColourScheme
     autocmd ColorScheme * call utils#setColours()
     autocmd ColorScheme * match TrailingWhitespace /\s\+$/
