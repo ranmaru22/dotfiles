@@ -15,6 +15,7 @@ call plug#begin()
     Plug 'nvim-treesitter/nvim-treesitter'
     Plug 'cespare/vim-toml'
     Plug 'ron-rs/ron.vim'
+    Plug 'jxnblk/vim-mdx-js'
     " File management
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
