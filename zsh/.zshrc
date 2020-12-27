@@ -56,6 +56,10 @@ _pathAppend ~/.scripts/bin
 export PATH
 # }}}
 
+# Fasd {{{
+eval "$(fasd --init auto)"
+# }}}
+
 # Enable starship {{{
 if type starship &> /dev/null; then
   eval "$(starship init zsh)"
