@@ -10,71 +10,34 @@ imap <C-e>  <End>
 imap <M-BS> <C-w>
 " }}}
 
-" netrw {{{
-" }}}
-
 " Searching {{{
 nnoremap <silent><C-s> :BLines<CR>
 " }}}
 
-" Code - Prefix c {{{
-" Eval
-nmap <Leader>ce  <Plug>SlimeParagraphSend
-xmap <Leader>ce  <Plug>SlimeRegionSend
-nmap <Leader>cxv <Plug>SlimeConfig
-
-" LSP actions
-nnoremap <silent><Leader>ca <cmd>lua vim.lsp.buf.code_action()<CR>
-" }}}
-
-" LSP - Prefix l {{{
-" LSP definitions
-nnoremap <silent><Leader>ld <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent><Leader>li <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent><Leader>ls <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent><Leader>lt <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent><Leader>lr <cmd>lua vim.lsp.buf.references()<CR>
-
-nnoremap <silent><Leader>lyd <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent><Leader>lyw <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-" }}}
-
-" Git - Prefix g {{{
-nmap <silent><Leader>gs :G<CR>
-nmap <silent><Leader>gv :GV<CR>
-nmap <silent><Leader>gb :GBranches<CR>
+" Git {{{
+nmap <silent><Leader>gg :G<CR>
 nmap <silent><Leader>gc :Commits<CR>
-nmap <silent><Leader>ggv :GV?<CR>
-nmap <silent><Leader>ggd :Gvdiffsplit!<CR>
+nmap <silent><Leader>gd :Gvdiffsplit!<CR>
 
-" Signify hunk navigation
+" Hunk navigation (needs Signify)
 nmap <Leader>gj <plug>(signify-next-hunk)
 nmap <Leader>gk <plug>(signify-prev-hunk)
-
-" Diff & merge conflict resolving
-nmap <Leader>g> :diffget //2<CR>
-nmap <Leader>g< :diffget //3<CR>
 " }}}
 
-" Files - Prefix f {{{
-" Config (personal) files
-nmap <silent><Leader>fp :Files ~/.config/nvim<CR>
-
+" Files {{{
 " Vim configuration
-nnoremap <Leader>fce :vsp $MYVIMRC<CR>
-nnoremap <Leader>fcl :source $MYVIMRC <bar> :doautocmd BufRead<CR>
+nnoremap <Leader>ce :vsp $MYVIMRC<CR>
+nnoremap <Leader>cl :source $MYVIMRC <bar> :doautocmd BufRead<CR>
 
 " Information
 nmap <Leader>fih :echo "hi: " . synIDattr(synID(line("."),col("."),1),"name") . ", trans: "
     \ . synIDattr(synID(line("."),col("."),0),"name") . ", lo:"
     \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name")<CR>
-" }}}
 
-" Project - Prefix p {{{
-nmap <silent><Leader>pf :GFiles<CR>
-nmap <silent><Leader>pd :GFiles?<CR>
-nmap <silent><Leader>pa :Files<CR>
-nmap <silent><Leader>ps :Rg<CR>
+nmap <silent><C-p>      :GFiles<CR>
+nmap <silent><C-y>      :GFiles?<CR>
+nmap <silent><C-e>      :Files<CR>
+nmap <silent><C-q>      :Rg<CR>
 " }}}
 
 " Buffers - Prefix b {{{

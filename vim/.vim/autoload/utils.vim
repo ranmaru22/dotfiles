@@ -6,6 +6,10 @@ function! utils#foldtext() abort
     return l:line . ' :: ' . l:linecount . ' '
 endfunction
 
+function! utils#hasPlugin(plugin)
+    return isdirectory(g:plug_home . "/" . a:plugin)
+        \ && index(keys(g:plugs), a:plugin) >= 0
+endfunction
 
 function! utils#setColours() abort
     let l:sl = split(execute('hi StatusLine'), '[\n =]')

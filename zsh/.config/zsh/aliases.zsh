@@ -4,11 +4,6 @@ alias myip="curl http://ipecho.net/plain; echo"
 alias shal="bat $XDG_CONFIG_HOME/zsh/aliases.zsh"
 alias reload="source ~/.zshrc"
 
-if type nvim &> /dev/null; then
-  alias vim=nvim
-  alias cvi="nvim ~/.config/nvim/init.vim"
-fi
-
 if type exa &> /dev/null; then
   alias ls="exa --icons"
 fi
@@ -25,12 +20,12 @@ confedit() {
     FILE=$(fd -t f -H "$1" "$DOTFILES")
     FNUM=$(echo "$FILE" | wc -l)
     if [ "$FNUM" -gt 1 ]; then
-      echo "$FILE" | fzf | xargs nvim
+      echo "$FILE" | fzf | xargs vim
     else
-      nvim "$FILE"
+      vim "$FILE"
     fi
   else
-    fd -t f -H . "$DOTFILES" | fzf | xargs nvim
+    fd -t f -H . "$DOTFILES" | fzf | xargs vim
   fi
 } # }}}
 alias ce=confedit

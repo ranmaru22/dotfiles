@@ -11,6 +11,7 @@ set hidden
 set confirm
 
 set signcolumn=yes
+set laststatus=2
 set number relativenumber
 set cursorline
 set nowrap
@@ -34,7 +35,7 @@ syntax on
 " }}}
 
 " Allow Lua + Python syntax inside vimscript
-let g:vimsyn_embed = 'lP'
+" let g:vimsyn_embed = 'lP'
 " }}}
 
 " Set up undo {{{
@@ -87,13 +88,6 @@ endif
 " Make lists behave {{{
 if &listchars ==# 'eol:$'
     set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
-" }}}
-
-" Change default timeout to 100ms {{{
-if !has('nvim') && &timeoutlen == -1
-    set ttimeout
-    set ttimeoutlen=100
 endif
 " }}}
 
