@@ -8,8 +8,8 @@
 (setq initial-frame-alist '((top . 1) (left . 1) (width . 164) (height . 46)))
 
 ;; Fonts
-(setq doom-font (font-spec :family "IBM Plex Mono" :size 14)
-      doom-big-font (font-spec :family "IBM Plex Mono" :size 24)
+(setq doom-font (font-spec :family "LigaLex Mono" :size 14)
+      doom-big-font (font-spec :family "LigaLex Mono" :size 24)
       doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
 
 ;; Theme & visuals
@@ -29,8 +29,6 @@
 (setq doom-themes-treemacs-enable-variable-pitch nil
       display-line-numbers-type 'relative)
 
-(global-prettify-symbols-mode t)
-
 ;; Directories
 (setq org-directory "~/Documents/org/"
       projectile-project-search-path '("~/Code/")
@@ -41,6 +39,7 @@
   :bind (("C-s" . swiper)))
 
 (use-package! company
+  :hook (company-mode . company-box-mode)
   :bind
   (:map company-active-map
    ("<tab>" . company-complete-selection))
