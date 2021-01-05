@@ -59,6 +59,12 @@
 ;; Org-mode tweaks
 (setq org-hide-emphasis-markers t)
 
+;; Make buffer names unique
+(setq uniquify-buffer-name-style 'forward)
+
+;; Custom filetype associations
+(add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
+
 ;; Package config
 (use-package! edwina
   :config
