@@ -65,6 +65,9 @@
 ;; Custom filetype associations
 (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
 
+;; Don't use vi mode in terms
+(evil-set-initial-state 'vterm-mode 'emacs)
+
 ;; Package config
 (use-package! edwina
   :config
