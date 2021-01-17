@@ -5,23 +5,22 @@
       user-mail-address "alexsun82@icloud.com")
 
 ;; Default window sizing
-(setq initial-frame-alist '((top . 10) (left . 10) (width . 148) (height . 42)))
+(setq initial-frame-alist '((top . 10) (left . 10) (width . 148) (height . 46)))
 
 ;; Fonts
-(setq doom-font                (font-spec :family "LigaLex Mono" :size 14)
-      doom-big-font            (font-spec :family "LigaLex Mono" :size 24)
+(setq doom-font                (font-spec :family "JetBrains Mono" :size 14)
+      doom-big-font            (font-spec :family "JetBrains Mono" :size 24)
       doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
 
 ;; Theme & visuals
 (setq doom-theme 'doom-one)
 
 (custom-set-faces!
-  '(font-lock-keyword-face       :weight bold)
-  '(font-lock-function-name-face :weight bold)
-  '(font-lock-comment-face       :slant italic)
+  '(font-lock-keyword-face :weight bold)
+  '(font-lock-comment-face :slant italic)
   ;; Language specific
-  `(js2-jsdoc-tag                :foreground ,(doom-color 'blue) :slant italic)
-  '(css-selector                 :weight bold))
+  `(js2-jsdoc-tag :foreground ,(doom-color 'blue) :slant italic)
+  '(css-selector  :weight bold))
 
 (setq +doom-dashboard-banner-dir "~/.doom.d/splash"
       +doom-dashboard-banner-file "doom.png")
@@ -31,15 +30,24 @@
 
 ;; Directories
 (setq org-directory "~/Documents/org/"
+      org-roam-directory "~/Documents/org/roam"
       projectile-project-search-path '("~/Code/")
       racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/library")
 
 ;; Keybindings
+(map! "C-x w" #'ace-window)
+
 (map! :leader
       :desc "Clear search" "s c" #'evil-ex-nohighlight)
 
 (map! :leader
       :desc "HyperSpec lookup" "h h" #'hyperspec-lookup)
+
+(map! :map (lisp-mode-map emacs-lisp-mode-map)
+      :g "C-c C-l" #'sp-forward-slurp-sexp
+      :g "C-c C-h" #'sp-backward-slurp-sexp
+      :g "C-c C-S-l" #'sp-forward-barf-sexp
+      :g "C-c C-S-h" #'sp-backward-barf-sexp)
 
 (map! :leader
       (:prefix-map ("e" . "edwina")
@@ -56,7 +64,7 @@
        :desc "Clone window" "c" #'edwina-clone-window
        :desc "Delete window" "k" #'edwina-delete-window))
 
-;; Org-mode tweaks
+;; crg-mode tweaks
 (setq org-hide-emphasis-markers t)
 
 ;; Make buffer names unique
@@ -67,6 +75,7 @@
 
 ;; Don't use vi mode in terms
 (evil-set-initial-state 'vterm-mode 'emacs)
+(evil-set-initial-state 'erc-mode 'emacs)
 
 ;; Package config
 (use-package! tree-sitter

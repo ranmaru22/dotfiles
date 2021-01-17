@@ -33,7 +33,7 @@
        fold              ; (nigh) universal code folding
        ;;(format +onsave)  ; automated prettiness
        multiple-cursors  ; editing in many places at once
-       ;;snippets          ; my elves. They type so I don't have to
+       snippets          ; my elves. They type so I don't have to
        ;;word-wrap         ; soft wrapping with language-aware indent
 
        :emacs
@@ -75,7 +75,7 @@
        (javascript +lsp) ; all(hope(abandon(ye(who(enter(here))))))
        ;;latex             ; writing papers in Emacs has never been so fun
        markdown          ; writing docs for people to ignore
-       org               ; organize your plain life in plain text
+       (org +roam)       ; organize your plain life in plain text
        (python +lsp)     ; beautiful is better than ugly
        (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        (sh +lsp)         ; she sells {ba,z,fi}sh shells on the C xor
