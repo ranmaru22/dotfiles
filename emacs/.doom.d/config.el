@@ -112,5 +112,12 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t))
 
+(use-package! web-mode
+  :config
+  ;; Disable symbols list in favour of ligatures.
+  (setq web-mode-prettify-symbols-alist '()))
+
+
+
 (after! git-gutter-fringe
   (fringe-mode '8))
