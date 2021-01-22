@@ -75,7 +75,11 @@
        (javascript +lsp) ; all(hope(abandon(ye(who(enter(here))))))
        ;;latex             ; writing papers in Emacs has never been so fun
        markdown          ; writing docs for people to ignore
-       (org +roam)       ; organize your plain life in plain text
+       (org              ; organize your plain life in plain text
+        +pretty
+        +pandoc
+        +journal
+        +roam)
        (python +lsp)     ; beautiful is better than ugly
        (rust +lsp)       ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        (sh +lsp)         ; she sells {ba,z,fi}sh shells on the C xor

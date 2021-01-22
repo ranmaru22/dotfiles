@@ -10,7 +10,7 @@
 ;; Fonts
 (setq doom-font                (font-spec :family "JetBrains Mono" :size 14)
       doom-big-font            (font-spec :family "JetBrains Mono" :size 24)
-      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans"  :size 14))
 
 ;; Theme & visuals
 (setq doom-theme 'doom-one)
@@ -41,28 +41,29 @@
       :desc "Clear search" "s c" #'evil-ex-nohighlight)
 
 (map! :leader
-      :desc "HyperSpec lookup" "h h" #'hyperspec-lookup)
+      :desc "HyperSpec lookup"  "h h" #'sly-hyperspec-lookup
+      :desc "describe−function" "h f" #'helpful-function)
 
 (map! :map (lisp-mode-map emacs-lisp-mode-map)
-      :g "C-c C-l" #'sp-forward-slurp-sexp
-      :g "C-c C-h" #'sp-backward-slurp-sexp
+      :g "C-c C-l"   #'sp-forward-slurp-sexp
+      :g "C-c C-h"   #'sp-backward-slurp-sexp
       :g "C-c C-S-l" #'sp-forward-barf-sexp
       :g "C-c C-S-h" #'sp-backward-barf-sexp)
 
 (map! :leader
       (:prefix-map ("e" . "edwina")
-       :desc "Next window" "n" #'edwina-select-next-window
-       :desc "Prev window" "p" #'edwina-select-previous-window
-       :desc "Swap next window" "N" #'edwina-swap-next-window
-       :desc "Swap prev window" "P" #'edwina-swap-previous-window
-       :desc "Zoom window" "RET" #'edwina-zoom
-       :desc "Arrange windows" "r" #'edwina-arrange
-       :desc "Increase Master size" "]" #'edwina-inc-mfact
-       :desc "Decrease Master size" "[" #'edwina-dec-mfact
-       :desc "Increase Master win number" "i" #'edwina-inc-nmaster
-       :desc "Decrease Master win number" "d" #'edwina-dec-nmaster
-       :desc "Clone window" "c" #'edwina-clone-window
-       :desc "Delete window" "k" #'edwina-delete-window))
+       :desc "Next window"                "n"   #'edwina-select-next-window
+       :desc "Prev window"                "p"   #'edwina-select-previous-window
+       :desc "Swap next window"           "N"   #'edwina-swap-next-window
+       :desc "Swap prev window"           "P"   #'edwina-swap-previous-window
+       :desc "Zoom window"                "RET" #'edwina-zoom
+       :desc "Arrange windows"            "r"   #'edwina-arrange
+       :desc "Increase Master size"       "]"   #'edwina-inc-mfact
+       :desc "Decrease Master size"       "["   #'edwina-dec-mfact
+       :desc "Increase Master win number" "i"   #'edwina-inc-nmaster
+       :desc "Decrease Master win number" "d"   #'edwina-dec-nmaster
+       :desc "Clone window"               "c"   #'edwina-clone-window
+       :desc "Delete window"              "k"   #'edwina-delete-window))
 
 ;; crg-mode tweaks
 (setq org-hide-emphasis-markers t)
@@ -78,6 +79,10 @@
 (evil-set-initial-state 'erc-mode 'emacs)
 
 ;; Package config
+(use-package! evil
+  :custom
+  evil-disable-insert-state-bindings t)
+
 (use-package! tree-sitter
   :config
   (require 'tree-sitter-langs)
