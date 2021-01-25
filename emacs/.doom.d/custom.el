@@ -3,7 +3,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(doom-big-font-mode nil)
+ '(company-idle-delay 0.0 nil nil "Customized with use-package company")
+ '(company-quickhelp nil nil nil "Customized with use-package company")
+ '(doom-big-font-mode nil t)
+ '(evil-disable-insert-state-bindings t nil nil "Customized with use-package evil")
  '(fci-rule-color "#505050")
  '(frame-brackground-mode 'dark)
  '(hl-todo-keyword-faces
@@ -38,4 +41,5 @@
  '(font-lock-comment-face ((t (:slant italic))))
  '(font-lock-function-name-face ((t (:weight bold))))
  '(font-lock-keyword-face ((t (:weight bold))))
- '(js2-jsdoc-tag ((t (:foreground "#51afef" :slant italic)))))
+ '(js2-jsdoc-tag ((t (:foreground "#51afef" :slant italic))))
+ '(yas-field-highlight-face ((t (:foreground "red")))))

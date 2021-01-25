@@ -1,18 +1,18 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+;;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; User config
+;;; User config
 (setq user-full-name "Alex Sun"
       user-mail-address "alexsun82@icloud.com")
 
-;; Default window sizing
+;;; Default window sizing
 (setq initial-frame-alist '((top . 10) (left . 10) (width . 148) (height . 46)))
 
-;; Fonts
+;;; Fonts
 (setq doom-font                (font-spec :family "JetBrains Mono" :size 14)
       doom-big-font            (font-spec :family "JetBrains Mono" :size 24)
       doom-variable-pitch-font (font-spec :family "IBM Plex Sans"  :size 14))
 
-;; Theme & visuals
+;;; Theme & visuals a
 (setq doom-theme 'doom-one)
 
 (custom-set-faces!
@@ -28,13 +28,13 @@
 (setq doom-themes-treemacs-enable-variable-pitch nil
       display-line-numbers-type 'relative)
 
-;; Directories
+;;; Directories
 (setq org-directory "~/Documents/org/"
       org-roam-directory "~/Documents/org/roam"
       projectile-project-search-path '("~/Code/")
       racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/library")
 
-;; Keybindings
+;;; Keybindings
 (map! "C-x w" #'ace-window)
 
 (map! :leader
@@ -43,6 +43,9 @@
 (map! :leader
       :desc "HyperSpec lookup"  "h h" #'sly-hyperspec-lookup
       :desc "describe−function" "h f" #'helpful-function)
+
+(map! "s-n" #'(lambda () (interactive) (other-window 1))
+      "s-p" #'(lambda () (interactive) (other-window -1)))
 
 (map! :map (lisp-mode-map emacs-lisp-mode-map)
       :g "C-c C-l"   #'sp-forward-slurp-sexp
@@ -65,6 +68,7 @@
        :desc "Clone window"               "c"   #'edwina-clone-window
        :desc "Delete window"              "k"   #'edwina-delete-window))
 
+;;; Small tweaks
 ;; crg-mode tweaks
 (setq org-hide-emphasis-markers t)
 
@@ -78,7 +82,7 @@
 (evil-set-initial-state 'vterm-mode 'emacs)
 (evil-set-initial-state 'erc-mode 'emacs)
 
-;; Package config
+;;; Package config
 (use-package! evil
   :custom
   evil-disable-insert-state-bindings t)
@@ -116,8 +120,6 @@
   :config
   ;; Disable symbols list in favour of ligatures.
   (setq web-mode-prettify-symbols-alist '()))
-
-
 
 (after! git-gutter-fringe
   (fringe-mode '8))
