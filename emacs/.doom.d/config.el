@@ -34,11 +34,21 @@
       projectile-project-search-path '("~/Code/")
       racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/library")
 
+;;; Useful functions
+(defun insert-date ()
+  "Inserts the current date and time."
+  (interactive "*")
+  (insert (format-time-string "%a %d %b %H:%M:%S %Y")))
+
 ;;; Keybindings
 (map! "C-x w" #'ace-window)
 
 (map! :leader
       :desc "Clear search" "s c" #'evil-ex-nohighlight)
+
+(map! :leader
+      :desc "Current date and time" "i d" #'insert-date)
+
 
 (map! :leader
       :desc "HyperSpec lookup"  "h h" #'sly-hyperspec-lookup
