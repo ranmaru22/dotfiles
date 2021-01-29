@@ -73,7 +73,7 @@
       "s-p" #'(lambda () (interactive) (other-window -1)))
 
 ;; Easy Lisp s-expression navigation
-(map! :map (lisp-mode-map emacs-lisp-mode-map)
+(map! :map smartparens-mode-map
       ;; Navigating
       :nvie "C-M-f"   #'sp-forward-sexp
       :nvie "C-M-b"   #'sp-backward-sexp
