@@ -8,8 +8,8 @@
 (setq initial-frame-alist '((top . 10) (left . 10) (width . 148) (height . 46)))
 
 ;;; Fonts
-(setq doom-font                (font-spec :family "JetBrains Mono" :size 14)
-      doom-big-font            (font-spec :family "JetBrains Mono" :size 24)
+(setq doom-font                (font-spec :family "JuliaMono" :size 14)
+      doom-big-font            (font-spec :family "JuliaMono" :size 24)
       doom-variable-pitch-font (font-spec :family "IBM Plex Sans"  :size 14))
 
 ;;; Theme & visuals a
@@ -41,7 +41,7 @@
   (insert (format-time-string "%a %d %b %H:%M:%S %Y")))
 
 ;;; Small tweaks
-;; crg-mode tweaks
+;; org-mode tweaks
 (setq org-hide-emphasis-markers t)
 
 ;; Make buffer names unique
