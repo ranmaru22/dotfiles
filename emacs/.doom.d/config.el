@@ -22,23 +22,38 @@
   `(js2-jsdoc-tag :foreground ,(doom-color 'blue) :slant italic)
   '(css-selector  :weight bold))
 
-(setq +doom-dashboard-banner-dir "~/.doom.d/splash"
+(setq +doom-dashboard-banner-dir  "~/.doom.d/splash"
       +doom-dashboard-banner-file "doom.png")
 
 (setq doom-themes-treemacs-enable-variable-pitch nil
       display-line-numbers-type 'relative)
 
 ;;; Directories
-(setq org-directory "~/Documents/org/"
-      org-roam-directory "~/Documents/org/roam"
+(setq org-directory                  "~/Documents/org/"
+      org-roam-directory             "~/Documents/org/roam"
       projectile-project-search-path '("~/Code/")
-      racer-rust-src-path "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/library")
+      racer-rust-src-path            "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/library")
 
 ;;; Useful functions
 (defun insert-date ()
   "Inserts the current date and time."
   (interactive "*")
   (insert (format-time-string "%a %d %b %H:%M:%S %Y")))
+
+;;; Small tweaks
+;; crg-mode tweaks
+(setq org-hide-emphasis-markers t)
+
+;; Make buffer names unique
+(setq uniquify-buffer-name-style 'forward)
+
+;; Custom filetype associations
+(add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
+
+;; Don't use vi mode in terms
+(evil-set-initial-state 'vterm-mode 'emacs)
+(evil-set-initial-state 'term-mode 'emacs)
+(evil-set-initial-state 'erc-mode 'emacs)
 
 ;;; Keybindings
 (map! "C-x w" #'ace-window)
@@ -49,19 +64,29 @@
 (map! :leader
       :desc "Current date and time" "i d" #'insert-date)
 
-
 (map! :leader
       :desc "HyperSpec lookup"  "h h" #'sly-hyperspec-lookup
       :desc "describe−function" "h f" #'helpful-function)
 
+;; One-key window switching
 (map! "s-n" #'(lambda () (interactive) (other-window 1))
       "s-p" #'(lambda () (interactive) (other-window -1)))
 
+;; Easy Lisp s-expression navigation
 (map! :map (lisp-mode-map emacs-lisp-mode-map)
-      :g "C-c C-l"   #'sp-forward-slurp-sexp
-      :g "C-c C-h"   #'sp-backward-slurp-sexp
-      :g "C-c C-S-l" #'sp-forward-barf-sexp
-      :g "C-c C-S-h" #'sp-backward-barf-sexp)
+      ;; Navigating
+      :nvie "C-M-f"   #'sp-forward-sexp
+      :nvie "C-M-b"   #'sp-backward-sexp
+      :nvie "C-M-u"   #'sp-backward-up-sexp
+      :nvie "C-M-d"   #'sp-down-sexp
+      ;; Modifying
+      :nie  "M-s"     #'sp-split-sexp
+      :nie  "M-j"     #'sp-join-sexp
+      :nie  "M-c"     #'sp-convolute-sexp
+      :nvie "C->"     #'sp-forward-slurp-sexp
+      :nvie "C-<"     #'sp-forward-barf-sexp
+      :nvie "C-}"     #'sp-backward-slurp-sexp
+      :nvie "C-{"     #'sp-backward-barf-sexp)
 
 (map! :leader
       (:prefix-map ("e" . "edwina")
@@ -77,20 +102,6 @@
        :desc "Decrease Master win number" "d"   #'edwina-dec-nmaster
        :desc "Clone window"               "c"   #'edwina-clone-window
        :desc "Delete window"              "k"   #'edwina-delete-window))
-
-;;; Small tweaks
-;; crg-mode tweaks
-(setq org-hide-emphasis-markers t)
-
-;; Make buffer names unique
-(setq uniquify-buffer-name-style 'forward)
-
-;; Custom filetype associations
-(add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
-
-;; Don't use vi mode in terms
-(evil-set-initial-state 'vterm-mode 'emacs)
-(evil-set-initial-state 'erc-mode 'emacs)
 
 ;;; Package config
 (use-package! evil
