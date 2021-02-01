@@ -8,9 +8,9 @@
 (setq initial-frame-alist '((top . 10) (left . 10) (width . 148) (height . 46)))
 
 ;;; Fonts
-(setq doom-font                (font-spec :family "JuliaMono" :size 14)
-      doom-big-font            (font-spec :family "JuliaMono" :size 24)
-      doom-variable-pitch-font (font-spec :family "IBM Plex Sans"  :size 14))
+(setq doom-font                (font-spec :family "Plode" :size 14)
+      doom-big-font            (font-spec :family "Plode" :size 24)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
 
 ;;; Theme & visuals a
 (setq doom-theme 'doom-one)
@@ -35,7 +35,7 @@
       racer-rust-src-path            "~/.rustup/toolchains/stable-x86_64-apple-darwin/lib/rustlib/src/rust/library")
 
 ;;; Useful functions
-(defun insert-date ()
+(defun my/insert-date ()
   "Inserts the current date and time."
   (interactive "*")
   (insert (format-time-string "%a %d %b %H:%M:%S %Y")))
@@ -62,7 +62,7 @@
       :desc "Clear search" "s c" #'evil-ex-nohighlight)
 
 (map! :leader
-      :desc "Current date and time" "i d" #'insert-date)
+      :desc "Current date and time" "i d" #'my/insert-date)
 
 (map! :leader
       :desc "HyperSpec lookup"  "h h" #'sly-hyperspec-lookup
@@ -88,22 +88,14 @@
       :nvie "C-}"     #'sp-backward-slurp-sexp
       :nvie "C-{"     #'sp-backward-barf-sexp)
 
-(map! :leader
-      (:prefix-map ("e" . "edwina")
-       :desc "Next window"                "n"   #'edwina-select-next-window
-       :desc "Prev window"                "p"   #'edwina-select-previous-window
-       :desc "Swap next window"           "N"   #'edwina-swap-next-window
-       :desc "Swap prev window"           "P"   #'edwina-swap-previous-window
-       :desc "Zoom window"                "RET" #'edwina-zoom
-       :desc "Arrange windows"            "r"   #'edwina-arrange
-       :desc "Increase Master size"       "]"   #'edwina-inc-mfact
-       :desc "Decrease Master size"       "["   #'edwina-dec-mfact
-       :desc "Increase Master win number" "i"   #'edwina-inc-nmaster
-       :desc "Decrease Master win number" "d"   #'edwina-dec-nmaster
-       :desc "Clone window"               "c"   #'edwina-clone-window
-       :desc "Delete window"              "k"   #'edwina-delete-window))
-
 ;;; Package config
+(use-package! doom-modeline
+  :ghook ('after-init-hook 'doom-modeline-init)
+  :init
+  (setq doom-modeline-major-mode-icon t
+        doom-modeline-persp-name t
+        doom-modeline-buffer-file-name-style 'relative-to-project))
+
 (use-package! evil
   :custom
   evil-disable-insert-state-bindings t)
@@ -116,7 +108,8 @@
 
 (use-package! edwina
   :config
-  (setq display-buffer-base-action '(display-buffer-below-selected))
+  (setq display-buffer-base-action '(display-buffer-below-selected)
+        edwina-mode-line-format "")
   (edwina-mode 1))
 
 (use-package! ivy
@@ -144,3 +137,36 @@
 
 (after! git-gutter-fringe
   (fringe-mode '8))
+
+(use-package! erc
+  :custom
+  (erc-nick '("Ranmaru" "Rankun" "Ran_kun"))
+  (erc-prompt-for-password nil)
+  (erc-prompt-for-nickserv-password nil)
+  (erc-rename-buffers t)
+  (erc-input-line-position -1)
+  (erc-fill-column 70)
+  (erc-autojoin-timing 'ident)
+  (erc-lurker-hide-list '("JOIN" "PART" "QUIT"))
+  (erc-track-exclude-types '("JOIN" "PART" "NICK" "MODE" "QUIT"))
+  :config
+  (erc-scrolltobottom-enable)
+  (add-to-list 'erc-modules 'spelling)
+  (erc-services-mode 1)
+  (erc-update-modules))
+
+(defun my/erc-late-identify ()
+  "Identifies to an IRC server, pulling auth details from authinfo or netrc.
+   Useful if the default auth behaviour is too fast and the server's NickServ
+   doesn't pick it up."
+  (interactive)
+  (let* ((server-name (buffer-name))
+         (secret (plist-get (car (auth-source-search :max 1
+                                                     :host erc-server
+                                                     :user (erc-current-nick)
+                                                     :port server-name))
+                            :secret))
+         (password (if (functionp secret)
+                       (funcall secret)
+                     secret)))
+    (erc-message "PRIVMSG" (concat "NickServ identify" " " password) nil)))
