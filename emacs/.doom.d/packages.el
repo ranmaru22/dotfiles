@@ -6,10 +6,10 @@
 
 (package! company-box)
 (package! company-quickhelp)
-(package! edwina)
 (package! tree-sitter)
 (package! tree-sitter-langs)
 (package! erc-hl-nicks)
+(package! svg-tag-mode)
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

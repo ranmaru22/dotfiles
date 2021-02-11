@@ -48,8 +48,8 @@
 
        :checkers
        syntax              ; tasing you for every semicolon you forget
-       ;;spell             ; tasing you for misspelling mispelling
-       ;;grammar           ; tasing grammar mistake every you make
+       spell             ; tasing you for misspelling mispelling
+       grammar           ; tasing grammar mistake every you make
 
        :tools
        ;;debugger          ; FIXME stepping through code, to help you add bugs
@@ -78,6 +78,7 @@
        (org              ; organize your plain life in plain text
         +pretty
         +pandoc
+        +present
         +journal
         +roam)
        (python +lsp)     ; beautiful is better than ugly
@@ -87,9 +88,8 @@
        yaml              ; JSON, but readable
 
        :email
-       ;;(mu4e +gmail)
+       mu4e
        ;;notmuch
-       ;;(wanderlust +gmail)
 
        :app
        ;;calendar

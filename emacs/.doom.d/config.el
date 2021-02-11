@@ -8,8 +8,8 @@
 (setq initial-frame-alist '((top . 10) (left . 10) (width . 148) (height . 46)))
 
 ;;; Fonts
-(setq doom-font                (font-spec :family "Plode" :size 14)
-      doom-big-font            (font-spec :family "Plode" :size 24)
+(setq doom-font                (font-spec :family "Cascadia Code PL" :size 14)
+      doom-big-font            (font-spec :family "Cascadia Code PL" :size 24)
       doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
 
 ;;; Theme & visuals a
@@ -40,6 +40,11 @@
   (interactive "*")
   (insert (format-time-string "%a %d %b %H:%M:%S %Y")))
 
+(defun my/insert-github-dotfiles-repo ()
+  "Inserts a link to my dotfiles repo."
+  (interactive "*")
+  (insert "https://github.com/ranmaru22/dotfiles"))
+
 ;;; Small tweaks
 ;; org-mode tweaks
 (setq org-hide-emphasis-markers t)
@@ -50,11 +55,6 @@
 ;; Custom filetype associations
 (add-to-list 'auto-mode-alist '("\\.mdx\\'" . markdown-mode))
 
-;; Don't use vi mode in terms
-(evil-set-initial-state 'vterm-mode 'emacs)
-(evil-set-initial-state 'term-mode 'emacs)
-(evil-set-initial-state 'erc-mode 'emacs)
-
 ;;; Keybindings
 (map! "C-x w" #'ace-window)
 
@@ -62,7 +62,8 @@
       :desc "Clear search" "s c" #'evil-ex-nohighlight)
 
 (map! :leader
-      :desc "Current date and time" "i d" #'my/insert-date)
+      :desc "Current date and time" "i d" #'my/insert-date
+      :desc "Link to dotfiles repo" "i g" #'my/insert-github-dotfiles-repo)
 
 (map! :leader
       :desc "HyperSpec lookup"  "h h" #'sly-hyperspec-lookup
@@ -75,25 +76,26 @@
 ;; Easy Lisp s-expression navigation
 (map! :map smartparens-mode-map
       ;; Navigating
-      :nvie "C-M-f"   #'sp-forward-sexp
-      :nvie "C-M-b"   #'sp-backward-sexp
-      :nvie "C-M-u"   #'sp-backward-up-sexp
-      :nvie "C-M-d"   #'sp-down-sexp
+      :nvie "C-M-f" #'sp-forward-sexp
+      :nvie "C-M-b" #'sp-backward-sexp
+      :nvie "C-M-u" #'sp-backward-up-sexp
+      :nvie "C-M-d" #'sp-down-sexp
       ;; Modifying
-      :nie  "M-s"     #'sp-split-sexp
-      :nie  "M-j"     #'sp-join-sexp
-      :nie  "M-c"     #'sp-convolute-sexp
-      :nvie "C->"     #'sp-forward-slurp-sexp
-      :nvie "C-<"     #'sp-forward-barf-sexp
-      :nvie "C-}"     #'sp-backward-slurp-sexp
-      :nvie "C-{"     #'sp-backward-barf-sexp)
+      :nie  "M-s"   #'sp-split-sexp
+      :nie  "M-j"   #'sp-join-sexp
+      :nie  "M-c"   #'sp-convolute-sexp
+      :nvie "C->"   #'sp-forward-slurp-sexp
+      :nvie "C-<"   #'sp-forward-barf-sexp
+      :nvie "C-}"   #'sp-backward-slurp-sexp
+      :nvie "C-{"   #'sp-backward-barf-sexp)
 
 ;;; Package config
 (use-package! doom-modeline
   :ghook ('after-init-hook 'doom-modeline-init)
   :init
-  (setq doom-modeline-major-mode-icon t
+  (setq doom-modeline-major-mode-icon nil
         doom-modeline-persp-name t
+        doom-modeline-persp-icon nil
         doom-modeline-buffer-file-name-style 'relative-to-project))
 
 (use-package! evil
@@ -105,12 +107,6 @@
   (require 'tree-sitter-langs)
   (global-tree-sitter-mode)
   (add-hook 'tree-sitter-after-on-hook #'tree-sitter-hl-mode))
-
-(use-package! edwina
-  :config
-  (setq display-buffer-base-action '(display-buffer-below-selected)
-        edwina-mode-line-format "")
-  (edwina-mode 1))
 
 (use-package! ivy
   :bind (("C-s" . swiper)))
@@ -138,6 +134,7 @@
 (after! git-gutter-fringe
   (fringe-mode '8))
 
+;;; IRC Settings
 (use-package! erc
   :custom
   (erc-nick '("Ranmaru" "Rankun" "Ran_kun"))
@@ -170,3 +167,53 @@
                        (funcall secret)
                      secret)))
     (erc-message "PRIVMSG" (concat "NickServ identify" " " password) nil)))
+
+;;; Email setup
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
+(set-email-account! "iCloud"
+                    '((mu4e-sent-folder . "/icloud/Sent Messages")
+                      (mu4e-drafts-folder . "/icloud/Drafts")
+                      (mu4e-trash-folder . "/icloud/Deleted Messages")
+                      (mu4e-refile-folder . "/icloud/Archive")
+                      (smtpmail-smtp-user . "alexsun82@icloud.com"))
+                    t)
+
+(setq message-send-mail-function 'smtpmail-send-it
+      smtpmail-auth-credentials "~/.authinfo.gpg"
+      smtpmail-smtp-server "smtp.mail.me.com"
+      smtpmail-stream-type 'ssl
+      smtpmail-smtp-service 587)
+
+(use-package! mu4e
+  :config
+  (setq mu4e-change-filenames-when-moving t
+        mu4e-get-mail-command "mbsync -a"
+        mu4e-update-interval (* 5 60)
+        mu4e-use-fancy-chars t)
+  (setq )
+  (setq mu4e-maildir-shortcuts
+        '(("/icloud/Inbox" . ?i)
+          ("/icloud/Drafts" . ?d)
+          ("/icloud/Deleted Messages" . ?t)
+          ("/icloud/Sent Messages" . ?s)
+          ("/icloud/Archive" . ?a)))
+  (add-hook 'mu4e-headers-mode-hook
+            (defun my/mu4e-change-headers ()
+              (interactive)
+              (setq mu4e-headers-fields
+                    `((:human-date . 12)
+                      (:flags . 6)
+                      (:from-or-to . 15)
+                      (:thread-subject . ,(- (window-body-width) 47))
+                      (:size . 7)))
+              (setq mu4e-headers-replied-mark '("Replied" . " " )
+                    mu4e-headers-new-mark '("New" . " ")
+                    mu4e-headers-seen-mark '("Seen" . "")
+                    mu4e-headers-encrypted-mark '("Encrypted" . " ")
+                    mu4e-headers-signed-mark '("Signed" . " ")
+                    mu4e-headers-passed-mark '("Forwarded" . " ")
+                    mu4e-headers-draft-mark '("Draft" . " ")
+                    mu4e-headers-flagged-mark '("Flagged" . " ")
+                    mu4e-headers-unread-mark '("Unread" . "")
+                    mu4e-headers-trashed-mark '("Trashed" . " ")
+                    mu4e-headers-attach-mark '("Attachment" . " ")))))
