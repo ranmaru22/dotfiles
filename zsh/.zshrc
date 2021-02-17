@@ -14,7 +14,7 @@ fi
 setopt extended_glob
 bindkey -e
 
-# Plugins & addons {{{
+# Plugins & addons
 ZSH_CONFIG_DIR="$HOME/.config/zsh"
 
 loadZshPlugins() {
@@ -25,15 +25,13 @@ source "$ZSH_CONFIG_DIR/load_plugins.sh"
 source "$ZSH_CONFIG_DIR/icons.zsh"
 source "$ZSH_CONFIG_DIR/aliases.zsh"
 source "$ZSH_CONFIG_DIR/fzf.zsh"
-# }}}
 
-# Language {{{
+# Language
 if [[ -z "$LANG" ]]; then
   export LANG='en_CA.UTF-8'
 fi
-# }}}
 
-# PATH {{{
+# PATH
 typeset -gU cdpath fpath mailpath path
 
 _pathAppend() {
@@ -51,27 +49,11 @@ _pathAppend /Library/Frameworks/Python.framework/Versions/3.8/bin
 _pathAppend ~/.scripts/bin
 
 export PATH
-# }}}
 
-# Fasd {{{
+# Fasd
 eval "$(fasd --init auto)"
-# }}}
 
-# Enable starship {{{
+# Enable starship
 if type starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
-# }}}
-
-# Tmux {{{
-_startTmux() {
-  if type tmux &> /dev/null; then
-    if [[ -z "$TMUX" && -z "$TERMINAL_CONTEXT" && $(whoami) != "root" ]]; then
-      (tmux -2 attach || tmux -2 new-session)
-    fi
-  fi
-}
-
-# }}}
-
-# vim:foldmethod=marker
