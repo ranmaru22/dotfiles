@@ -8,9 +8,9 @@
 (setq initial-frame-alist '((top . 10) (left . 10) (width . 148) (height . 46)))
 
 ;;; Fonts
-(setq doom-font                (font-spec :family "Cascadia Code PL" :size 14)
-      doom-big-font            (font-spec :family "Cascadia Code PL" :size 24)
-      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
+(setq doom-font                (font-spec :family "Sarasa Term J" :size 14)
+      doom-big-font            (font-spec :family "Sarasa Term J" :size 24)
+      doom-variable-pitch-font (font-spec :family "Sarasa UI J" :size 14))
 
 ;;; Theme & visuals a
 (setq doom-theme 'doom-one)
@@ -70,8 +70,12 @@
       :desc "describe−function" "h f" #'helpful-function)
 
 ;; One-key window switching
-(map! "s-n" #'(lambda () (interactive) (other-window 1))
-      "s-p" #'(lambda () (interactive) (other-window -1)))
+(map! "s-n" #'evil-window-next
+      "s-p" #'evil-window-prev
+      "s-J" #'evil-window-down
+      "s-K" #'evil-window-up
+      "s-H" #'evil-window-left
+      "s-L" #'evil-window-right)
 
 ;; Easy Lisp s-expression navigation
 (map! :map smartparens-mode-map
@@ -167,53 +171,3 @@
                        (funcall secret)
                      secret)))
     (erc-message "PRIVMSG" (concat "NickServ identify" " " password) nil)))
-
-;;; Email setup
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu/mu4e")
-(set-email-account! "iCloud"
-                    '((mu4e-sent-folder . "/icloud/Sent Messages")
-                      (mu4e-drafts-folder . "/icloud/Drafts")
-                      (mu4e-trash-folder . "/icloud/Deleted Messages")
-                      (mu4e-refile-folder . "/icloud/Archive")
-                      (smtpmail-smtp-user . "alexsun82@icloud.com"))
-                    t)
-
-(setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-auth-credentials "~/.authinfo.gpg"
-      smtpmail-smtp-server "smtp.mail.me.com"
-      smtpmail-stream-type 'ssl
-      smtpmail-smtp-service 587)
-
-(use-package! mu4e
-  :config
-  (setq mu4e-change-filenames-when-moving t
-        mu4e-get-mail-command "mbsync -a"
-        mu4e-update-interval (* 5 60)
-        mu4e-use-fancy-chars t)
-  (setq )
-  (setq mu4e-maildir-shortcuts
-        '(("/icloud/Inbox" . ?i)
-          ("/icloud/Drafts" . ?d)
-          ("/icloud/Deleted Messages" . ?t)
-          ("/icloud/Sent Messages" . ?s)
-          ("/icloud/Archive" . ?a)))
-  (add-hook 'mu4e-headers-mode-hook
-            (defun my/mu4e-change-headers ()
-              (interactive)
-              (setq mu4e-headers-fields
-                    `((:human-date . 12)
-                      (:flags . 6)
-                      (:from-or-to . 15)
-                      (:thread-subject . ,(- (window-body-width) 47))
-                      (:size . 7)))
-              (setq mu4e-headers-replied-mark '("Replied" . " " )
-                    mu4e-headers-new-mark '("New" . " ")
-                    mu4e-headers-seen-mark '("Seen" . "")
-                    mu4e-headers-encrypted-mark '("Encrypted" . " ")
-                    mu4e-headers-signed-mark '("Signed" . " ")
-                    mu4e-headers-passed-mark '("Forwarded" . " ")
-                    mu4e-headers-draft-mark '("Draft" . " ")
-                    mu4e-headers-flagged-mark '("Flagged" . " ")
-                    mu4e-headers-unread-mark '("Unread" . "")
-                    mu4e-headers-trashed-mark '("Trashed" . " ")
-                    mu4e-headers-attach-mark '("Attachment" . " ")))))
