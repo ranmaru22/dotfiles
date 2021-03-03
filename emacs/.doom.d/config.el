@@ -78,20 +78,10 @@
       "s-L" #'evil-window-right)
 
 ;; Easy Lisp s-expression navigation
-(map! :map smartparens-mode-map
-      ;; Navigating
-      :nvie "C-M-f" #'sp-forward-sexp
-      :nvie "C-M-b" #'sp-backward-sexp
-      :nvie "C-M-u" #'sp-backward-up-sexp
-      :nvie "C-M-d" #'sp-down-sexp
-      ;; Modifying
-      :nie  "M-s"   #'sp-split-sexp
-      :nie  "M-j"   #'sp-join-sexp
-      :nie  "M-c"   #'sp-convolute-sexp
-      :nvie "C->"   #'sp-forward-slurp-sexp
-      :nvie "C-<"   #'sp-forward-barf-sexp
-      :nvie "C-}"   #'sp-backward-slurp-sexp
-      :nvie "C-{"   #'sp-backward-barf-sexp)
+(use-package! evil-cleverparens
+  :config
+  (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+  (add-hook 'lisp-mode-hook #'evil-cleverparens-mode))
 
 ;;; Package config
 (use-package! doom-modeline
