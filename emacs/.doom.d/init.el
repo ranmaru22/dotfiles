@@ -52,7 +52,7 @@
        grammar           ; tasing grammar mistake every you make
 
        :tools
-       ;;debugger          ; FIXME stepping through code, to help you add bugs
+       debugger          ; FIXME stepping through code, to help you add bugs
        ;;direnv
        (eval +overlay)     ; run code, run (also, repls)
        ;;gist              ; interacting with github gists
@@ -61,7 +61,7 @@
        magit             ; a git porcelain for Emacs
        ;;make              ; run make tasks from Emacs
        pdf               ; pdf enhancements
-       ;;upload            ; map local to remote projects via ssh/ftp
+       upload            ; map local to remote projects via ssh/ftp
 
        :os
        (:if IS-MAC macos)  ; improve compatibility with macOS
@@ -86,6 +86,7 @@
        (sh +lsp)         ; she sells {ba,z,fi}sh shells on the C xor
        web               ; the tubes
        yaml              ; JSON, but readable
+       php
 
        :email
        mu4e
