@@ -11,7 +11,7 @@ read_only = " "
 [character]
 success_symbol = "[λ](green)"
 error_symbol = "[λ](bold red)"
-vicmd_symbol = "[V](bold green)"
+vicmd_symbol = "[ν](bold green)"
 
 [aws]
 symbol = " "
@@ -65,6 +65,9 @@ symbol = " "
 
 [package]
 symbol = " "
+
+[perl]
+symbol = " "
 
 [php]
 symbol = " "
