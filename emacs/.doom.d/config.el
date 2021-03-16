@@ -8,9 +8,9 @@
 (setq initial-frame-alist '((top . 10) (left . 10) (width . 148) (height . 46)))
 
 ;;; Fonts
-(setq doom-font                (font-spec :family "Sarasa Term J" :size 14)
-      doom-big-font            (font-spec :family "Sarasa Term J" :size 24)
-      doom-variable-pitch-font (font-spec :family "Sarasa UI J" :size 14))
+(setq doom-font                (font-spec :family "Plode" :size 14)
+      doom-big-font            (font-spec :family "Plode" :size 24)
+      doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14))
 
 ;;; Theme & visuals a
 (setq doom-theme 'doom-one)
@@ -70,12 +70,12 @@
       :desc "describe−function" "h f" #'helpful-function)
 
 ;; One-key window switching
-(map! "s-n" #'evil-window-next
-      "s-p" #'evil-window-prev
-      "s-J" #'evil-window-down
-      "s-K" #'evil-window-up
-      "s-H" #'evil-window-left
-      "s-L" #'evil-window-right)
+;; (map! "s-n" #'evil-window-next
+;;       "s-p" #'evil-window-prev
+;;       "s-J" #'evil-window-down
+;;       "s-K" #'evil-window-up
+;;       "s-H" #'evil-window-left
+;;       "s-L" #'evil-window-right)
 
 ;; Easy Lisp s-expression navigation
 (use-package! evil-cleverparens
@@ -114,6 +114,12 @@
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0)
   (company-quickhelp))
+
+(use-package! edwina
+  :config
+  (setq display-buffer-base-action '(display-buffer-below-selected))
+  (edwina-setup-dwm-keys 'super)
+  (edwina-mode 1))
 
 (use-package! doom-themes
   :config
