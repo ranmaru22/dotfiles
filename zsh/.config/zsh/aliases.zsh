@@ -14,7 +14,11 @@ alias ll="ls -la"
 alias rm="rm -v"
 alias :q="exit"
 
-# Quick open config files {{{
+# Pass
+alias p="pass --clip"
+alias po="pass otp --clip"
+
+# Quick open config files
 confedit() {
   if [ -n "$1" ]; then
     FILE=$(fd -t f -H "$1" "$DOTFILES")
@@ -27,10 +31,10 @@ confedit() {
   else
     fd -t f -H . "$DOTFILES" | fzf | xargs vim
   fi
-} # }}}
+}
 alias ce=confedit
 
-# Git wrapper {{{
+# Git wrapper
 git() {
   if [ "$1" = "root" ]; then
     shift
@@ -43,7 +47,7 @@ git() {
   else
     command git "$@"
   fi
-} # }}}
+}
+
 alias g=git
 
-# vim:foldmethod=marker
